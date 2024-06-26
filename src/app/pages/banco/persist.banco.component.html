@@ -1,0 +1,40 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <!--Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3 class="mb-0">{{ isEdit ? 'Editar Banco' : 'Adicionar Novo Banco' }}</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label" for="nome">Nome</label>
+            <input class="form-control" id="nome" [(ngModel)]="banco.nome" placeholder="Nome" type="text">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label" for="sigla">Sigla</label>
+            <input class="form-control" id="sigla" [(ngModel)]="banco.sigla" placeholder="Sigla" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-success" (click)="saveBanco()">
+            <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
