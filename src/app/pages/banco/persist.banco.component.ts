@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {BancoService} from "../../services/banco/banco.service";
-import {Banco} from "../../models/banco/banco.model";
+import { BancoService } from "../../services/banco/banco.service";
+import { Banco } from "../../models/banco/banco.model";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-persist-banco',
@@ -30,11 +31,33 @@ export class PersistBancoComponent implements OnInit {
   saveBanco() {
     if (this.isEdit) {
       this.bancoService.updateBanco(this.banco).subscribe(() => {
-        this.router.navigate(['/banco']);
+        Swal.fire({
+          title: 'Sucesso',
+          text: 'Banco Actualizado!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'btn btn-success'
+          }
+        }).then(() => {
+          this.router.navigate(['/banco']);
+        });
       });
     } else {
       this.bancoService.createBanco(this.banco).subscribe(() => {
-        this.router.navigate(['/banco']);
+        Swal.fire({
+          title: 'Success',
+          text: 'Banco created successfully!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'btn btn-success'
+          }
+        }).then(() => {
+          this.router.navigate(['/banco']);
+        });
       });
     }
   }

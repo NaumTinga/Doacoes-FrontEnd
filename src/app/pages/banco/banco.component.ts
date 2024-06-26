@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {BancoService} from "../../services/banco/banco.service";
 import {Banco} from "../../models/banco/banco.model";
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-banco',
@@ -23,8 +24,6 @@ export class BancoComponent implements OnInit {
       this.bancos = data;
     });
   }
-
-
 
 
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -18,6 +19,7 @@ import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 // import { ToastrModule } from 'ngx-toastr';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,7 @@ import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    NgbModalModule
+    NgbModalModule,
   ],
   declarations: [
     DashboardComponent,

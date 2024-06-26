@@ -12,7 +12,6 @@ import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import {BancoComponent} from "./pages/banco/banco.component";
 
 
 @NgModule({
@@ -24,6 +23,7 @@ import {BancoComponent} from "./pages/banco/banco.component";
     NgbModule,
     RouterModule,
     AppRoutingModule,
+
   ],
   declarations: [
     AppComponent,

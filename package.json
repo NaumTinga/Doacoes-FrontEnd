@@ -31,9 +31,11 @@
     "chart.js": "2.9.4",
     "clipboard": "2.0.10",
     "ngx-clipboard": "15.0.1",
+    "ngx-sweetalert2": "^0.2.7",
     "ngx-toastr": "14.2.2",
     "nouislider": "15.5.1",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.12.0",
     "web-animations-js": "2.3.2",
     "zone.js": "~0.11.4"
   },
