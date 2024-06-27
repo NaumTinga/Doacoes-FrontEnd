@@ -17,6 +17,8 @@ import {BancoComponent} from "../../pages/banco/banco.component";
 import {PersistBancoComponent} from "../../pages/banco/persist.banco.component";
 import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
+import {ContaComponent} from "../../pages/conta/conta.component";
+import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -39,7 +41,9 @@ import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
     BancoComponent,
     PersistBancoComponent,
     MoedaComponent,
-    PersistMoedaComponent
+    PersistMoedaComponent,
+    ContaComponent,
+    PersistContaComponent,
   ]
 })
 

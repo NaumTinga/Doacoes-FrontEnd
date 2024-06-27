@@ -47,8 +47,8 @@ export class PersistBancoComponent implements OnInit {
     } else {
       this.bancoService.createBanco(this.banco).subscribe(() => {
         Swal.fire({
-          title: 'Success',
-          text: 'Banco created successfully!',
+          title: 'Sucesso',
+          text: 'Banco Adicionado!',
           icon: 'success',
           confirmButtonText: 'OK',
           buttonsStyling: false,

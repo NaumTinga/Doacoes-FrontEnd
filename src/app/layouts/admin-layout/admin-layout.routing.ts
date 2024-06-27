@@ -9,6 +9,8 @@ import {BancoComponent} from "../../pages/banco/banco.component";
 import {PersistBancoComponent} from "../../pages/banco/persist.banco.component";
 import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
+import {ContaComponent} from "../../pages/conta/conta.component";
+import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -20,5 +22,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'persist-banco',           component: PersistBancoComponent },
     { path: 'edit-banco/:id',           component: PersistBancoComponent },
     { path: 'moeda',           component: MoedaComponent },
-    { path: 'persist-moeda',           component: PersistMoedaComponent },
+    { path: 'persist-moeda',   component: PersistMoedaComponent },
+    { path: 'conta',           component: ContaComponent },
+    { path: 'persist-conta',           component: PersistContaComponent },
 ];
