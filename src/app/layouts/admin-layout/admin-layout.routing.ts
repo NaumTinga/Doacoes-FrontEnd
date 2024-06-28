@@ -11,6 +11,7 @@ import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
+import { PaisComponent } from 'src/app/pages/pais/pais.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -27,4 +28,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'conta',           component: ContaComponent },
     { path: 'persist-conta',           component: PersistContaComponent },
     { path: 'edit-conta/:id',           component: PersistContaComponent },
+    {path: 'pais', component: PaisComponent}
 ];

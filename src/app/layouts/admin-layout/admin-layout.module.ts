@@ -19,6 +19,7 @@ import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
+import { PaisComponent } from 'src/app/pages/pais/pais.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -44,6 +45,7 @@ import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
     PersistMoedaComponent,
     ContaComponent,
     PersistContaComponent,
+    PaisComponent
   ]
 })
 
