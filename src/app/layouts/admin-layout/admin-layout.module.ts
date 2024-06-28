@@ -21,6 +21,8 @@ import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrganica.component";
 import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
+import {PaisComponent} from "../../pages/pais/pais.component";
+import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -48,6 +50,8 @@ import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persi
     PersistContaComponent,
     UnidadeOrganicaComponent,
     PersistUnidadeOrganicaComponent,
+    PaisComponent,
+    PersistPaisComponent,
   ]
 })
 

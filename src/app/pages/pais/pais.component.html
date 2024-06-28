@@ -5,9 +5,9 @@
       <div class="row">
         <div>
           <!-- Button to open the modal -->
-<!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
-<!--            <i class="fas fa-plus mr-2"></i>Novo-->
-<!--          </button>-->
+          <!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
+          <!--            <i class="fas fa-plus mr-2"></i>Novo-->
+          <!--          </button>-->
         </div>
       </div>
     </div>
@@ -21,10 +21,10 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header bg-transparent">
-<!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
-<!--            <i class="fas fa-plus mr-2"></i>Novo-->
-<!--          </button>-->
-          <button type="button" class="btn btn-success" [routerLink]="['/persist-banco']">
+          <!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
+          <!--            <i class="fas fa-plus mr-2"></i>Novo-->
+          <!--          </button>-->
+          <button type="button" class="btn btn-success" [routerLink]="['/persist-pais']">
             <i class="fas fa-plus mr-2"></i>Novo
           </button>
         </div>
@@ -39,11 +39,11 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let banco of bancos">
-                <th scope="row">{{banco.nome}}</th>
-                <td>{{banco.sigla}}</td>
+              <tr *ngFor="let pais of paises">
+                <th scope="row">{{pais.nome}}</th>
+                <td>{{pais.sigla}}</td>
                 <td>
-                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-banco', banco.id]">
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-pais', pais.id]">
                     <i class="fas fa-edit"></i> Editar
                   </button>
                 </td>

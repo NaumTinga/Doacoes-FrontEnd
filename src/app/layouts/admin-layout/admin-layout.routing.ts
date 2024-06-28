@@ -13,6 +13,8 @@ import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrganica.component";
 import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
+import {PaisComponent} from "../../pages/pais/pais.component";
+import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -40,4 +42,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent },
     { path: 'persist-unidadeOrganica',           component: PersistUnidadeOrganicaComponent },
     { path: 'edit-unidadeOrganica/:id',           component: PersistUnidadeOrganicaComponent },
+
+  // Pais Routes
+    { path: 'pais',           component: PaisComponent },
+    { path: 'persist-pais',           component: PersistPaisComponent },
+    { path: 'edit-pais/:id',           component: PersistPaisComponent },
 ];
