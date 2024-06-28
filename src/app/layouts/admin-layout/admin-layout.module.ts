@@ -19,6 +19,8 @@ import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
+import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrganica.component";
+import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -44,6 +46,8 @@ import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
     PersistMoedaComponent,
     ContaComponent,
     PersistContaComponent,
+    UnidadeOrganicaComponent,
+    PersistUnidadeOrganicaComponent,
   ]
 })
 

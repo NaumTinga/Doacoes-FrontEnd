@@ -1,0 +1,48 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <!--Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3 class="mb-0">{{ isEdit ? 'Editar Unidade Orgânica' : 'Adicionar Nova Unidade Orgânica' }}</h3>
+    </div>
+    <div class="card-body">
+      <form #bancoForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nome">Nome*</label>
+              <input class="form-control" required="true" name="nome" #nome="ngModel" id="nome" [(ngModel)]="unidadeOrganica.nome" placeholder="Nome" type="text">
+              <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
+                O nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="sigla">Sigla*</label>
+              <input class="form-control" required="true" id="sigla" name="sigla" #sigla="ngModel" [(ngModel)]="unidadeOrganica.sigla" placeholder="Sigla" type="text">
+              <div *ngIf="sigla.invalid && (sigla.dirty || sigla.touched)" class="invalid-feedback">
+                A sigla é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="bancoForm.invalid" (click)="saveUnidadeOrganica()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
