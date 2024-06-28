@@ -30,15 +30,15 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
+              <tr *ngFor="let moeda of moedas">
                 <th scope="row">
-                  Metical
+                  {{moeda.designacao}}
                 </th>
                 <td>
-                  MZN
+                  {{moeda.sigla}}
                 </td>
                 <td>
-                  <button type="button" class="btn btn-info btn-sm mr-2">
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-moeda', moeda.id]">
                     <i class="fas fa-edit"></i> Editar
                   </button>
                 </td>

@@ -10,24 +10,25 @@ import {Observable} from "rxjs";
 })
 
 export class BancoService {
-  private apiUrl = environment.apiUrl + 'api/banco/'; // Assuming your endpoint is something like /api/bancos
+  private apiUrl = environment.apiUrl + 'api/banco'; // Assuming your endpoint is something like /api/bancos
 
   constructor(private http: HttpClient) {}
 
+  // Get a List of all bancos
   getBancos(): Observable<Banco[]> {
     return this.http.get<Banco[]>(this.apiUrl);
   }
 
   getBancoById(id: number): Observable<Banco> {
-    return this.http.get<Banco>(`${this.apiUrl}${id}`);
+    return this.http.get<Banco>(`${this.apiUrl}/${id}`);
   }
 
   createBanco(banco: Banco): Observable<Banco> {
-    return this.http.post<Banco>(this.apiUrl, banco);
+    return this.http.post<Banco>(`${this.apiUrl}/`, banco);
   }
 
   updateBanco(banco: Banco): Observable<Banco> {
-    return this.http.put<Banco>(`${this.apiUrl}${banco.id}/`, banco);
+    return this.http.put<Banco>(`${this.apiUrl}/${banco.id}/`, banco);
   }
 
   deleteBanco(id: number): Observable<void> {

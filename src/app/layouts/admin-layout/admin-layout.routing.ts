@@ -23,6 +23,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'edit-banco/:id',           component: PersistBancoComponent },
     { path: 'moeda',           component: MoedaComponent },
     { path: 'persist-moeda',   component: PersistMoedaComponent },
+    { path: 'edit-moeda/:id',   component: PersistMoedaComponent },
     { path: 'conta',           component: ContaComponent },
     { path: 'persist-conta',           component: PersistContaComponent },
+    { path: 'edit-conta/:id',           component: PersistContaComponent },
 ];

@@ -1,36 +1,153 @@
-<!-- Exemplo de form -->
-<!-- banco.component.html -->
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
       <div class="row">
-        <!--Add some content here -->
+        <!-- Add some content here -->
       </div>
     </div>
   </div>
 </div>
 
-<div class=" container-fluid mt--6">
-  <div class=" card mb-4">
-    <div class=" card-header"><h3 class=" mb-0">Adicionar nova conta</h3></div>
-    <div class=" card-body">
-      <div class=" row">
-        <div class=" col-md-6">
-          <div class=" form-group"><label class=" form-control-label" for="example2cols1Input"> Designação </label><input
-            class=" form-control" id="example2cols1Input" placeholder="Nome" type="text"></div>
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header"><h3 class="mb-0">{{ isEdit ? 'Editar Conta' : 'Adicionar Nova Conta' }}</h3></div>
+    <div class="card-body">
+      <form #contaForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="designacao">Designação *</label>
+              <input
+                class="form-control"
+                id="designacao"
+                name="designacao"
+                required="true"
+                [(ngModel)]="conta.designacao"
+                placeholder="Nome"
+                type="text"
+                #designacao="ngModel"
+              >
+              <div *ngIf="designacao.invalid && (designacao.dirty || designacao.touched)" class="invalid-feedback">
+                A designação é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="banco">Banco *</label>
+            <select
+              class="form-control"
+              id="banco"
+              name="banco"
+              required="true"
+              [(ngModel)]="conta.banco"
+              #banco="ngModel"
+            >
+              <option *ngFor="let banco of bancos" [value]="banco.id">{{ banco.nome }}</option>
+            </select>
+            <div *ngIf="banco.invalid && (banco.dirty || banco.touched)" class="invalid-feedback">
+              O banco é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="moeda">Moeda *</label>
+            <select
+              class="form-control"
+              id="moeda"
+              name="moeda"
+              required="true"
+              [(ngModel)]="conta.moeda"
+              #moeda="ngModel"
+            >
+              <option *ngFor="let moeda of moedas" [value]="moeda.id">{{ moeda.designacao }}</option>
+            </select>
+            <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="invalid-feedback">
+              A moeda é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nr_conta">Número de Conta *</label>
+              <input
+                class="form-control"
+                id="nr_conta"
+                name="nr_conta"
+                required="true"
+                [(ngModel)]="conta.nr_conta"
+                placeholder="Número de Conta"
+                type="text"
+                #nrConta="ngModel"
+              >
+              <div *ngIf="nrConta.invalid && (nrConta.dirty || nrConta.touched)" class="invalid-feedback">
+                O número de conta é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nib">NIB *</label>
+              <input
+                class="form-control"
+                id="nib"
+                name="nib"
+                required="true"
+                [(ngModel)]="conta.nib"
+                placeholder="NIB"
+                type="text"
+                #nib="ngModel"
+              >
+              <div *ngIf="nib.invalid && (nib.dirty || nib.touched)" class="invalid-feedback">
+                O NIB é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="iban">IBAN</label>
+              <input
+                class="form-control"
+                id="iban"
+                name="iban"
+                [(ngModel)]="conta.iban"
+                placeholder="IBAN"
+                type="text"
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="balcao">Balcão</label>
+              <input
+                class="form-control"
+                id="balcao"
+                name="balcao"
+                [(ngModel)]="conta.balcao"
+                placeholder="Balcão"
+                type="text"
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="swift">SWIFT Balcão</label>
+              <input
+                class="form-control"
+                id="swift"
+                name="swift"
+                [(ngModel)]="conta.swift"
+                placeholder="SWIFT Balcão"
+                type="text"
+              >
+            </div>
+          </div>
         </div>
-        <div class=" col-md-6">
-          <div class=" form-group"><label class=" form-control-label" for="example2cols2Input"> Sigla</label><input
-            class=" form-control" id="example2cols2Input" placeholder="Sigla" type="text"></div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="contaForm.invalid" (click)="saveConta()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <button type="button" class="btn btn-success" >
-            <i class="fas fa-plus mr-2"></i>Gravar
-          </button>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

@@ -19,6 +19,8 @@ export class PersistBancoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    // This is to fill the fields with the previous banco data when we want to update
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.isEdit = true;

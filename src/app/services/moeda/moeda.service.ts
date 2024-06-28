@@ -9,7 +9,7 @@ import {Moeda} from "../../models/moeda/moeda";
 })
 
 export class MoedaService {
-  private apiUrl = environment.apiUrl + 'api/moeda/';
+  private apiUrl = environment.apiUrl + 'api/moeda';
 
   constructor(private http: HttpClient) {}
 
@@ -18,15 +18,15 @@ export class MoedaService {
   }
 
   getMoedaById(id: number): Observable<Moeda> {
-    return this.http.get<Moeda>(`${this.apiUrl}${id}`);
+    return this.http.get<Moeda>(`${this.apiUrl}/${id}`);
   }
 
   saveMoeda(moeda: Moeda): Observable<Moeda> {
-    return this.http.post<Moeda>(this.apiUrl, moeda);
+    return this.http.post<Moeda>(`${this.apiUrl}/`, moeda);
   }
 
   updateMoeda(moeda: Moeda): Observable<Moeda> {
-    return this.http.put<Moeda>(`${this.apiUrl}${moeda.id}/`, moeda);
+    return this.http.put<Moeda>(`${this.apiUrl}/${moeda.id}/`, moeda);
   }
 
   deleteMoeda(id: number): Observable<void> {

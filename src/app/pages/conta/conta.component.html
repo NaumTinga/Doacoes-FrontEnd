@@ -32,21 +32,21 @@
               </tr>
               </thead>
               <tbody>
-              <tr>
+              <tr *ngFor="let conta of contas">
                 <th scope="row">
-                  Conta 1
+                  {{ conta.designacao }}
                 </th>
                 <td>
-                  BCI
+                  {{conta.banco?.nome}}
                 </td>
                 <td>
-                  MZN
+                  {{conta.moeda?.designacao}}
                 </td>
                 <td>
-                  12345678
+                  {{conta.nr_conta}}
                 </td>
                 <td>
-                  <button type="button" class="btn btn-info btn-sm mr-2">
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-conta', conta.id]">
                     <i class="fas fa-edit"></i> Editar
                   </button>
                 </td>

@@ -19,6 +19,14 @@ export class PersistMoedaComponent implements OnInit{
               private route: ActivatedRoute) {}
 
   ngOnInit() {
+    // This is to fill the fields with the previous moeda data when we want to update
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.isEdit = true;
+      this.moedaService.getMoedaById(+id).subscribe((data: Moeda) => {
+        this.moeda = data;
+      })
+    }
   }
 
   saveMoeda(){
@@ -33,6 +41,8 @@ export class PersistMoedaComponent implements OnInit{
           customClass: {
             confirmButton: 'btn btn-success'
           }
+        }).then(() => {
+          this.router.navigate(['/moeda']);
         })
       })
   } else {
