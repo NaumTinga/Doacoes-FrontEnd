@@ -31,6 +31,7 @@ export class PersistBancoComponent implements OnInit {
   saveBanco() {
     if (this.isEdit) {
       this.bancoService.updateBanco(this.banco).subscribe(() => {
+        //Swal.fire to open Sweet Alert notification when the user updates banco or saves
         Swal.fire({
           title: 'Sucesso',
           text: 'Banco Actualizado!',

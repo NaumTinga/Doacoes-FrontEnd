@@ -1,4 +1,3 @@
-<!-- Exemplo de form -->
 <!-- banco.component.html -->
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
@@ -10,27 +9,41 @@
   </div>
 </div>
 
-<div class=" container-fluid mt--6">
-  <div class=" card mb-4">
-    <div class=" card-header"><h3 class=" mb-0">Adicionar nova moeda</h3></div>
-    <div class=" card-body">
-      <div class=" row">
-        <div class=" col-md-6">
-          <div class=" form-group"><label class=" form-control-label" for="example2cols1Input"> Designação </label><input
-            class=" form-control" id="example2cols1Input" placeholder="Nome" type="text"></div>
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3 class="mb-0">{{isEdit ? 'Editar Moeda' : 'Adicionar Nova Moeda'}}</h3>
+    </div>
+    <div class="card-body">
+      <form #moedaForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="designacao">Designação*</label>
+              <input class="form-control" id="designacao" placeholder="Designação" type="text" required [(ngModel)]="moeda.designacao" name="designacao" #designacao="ngModel">
+              <div *ngIf="designacao.invalid && (designacao.dirty || designacao.touched)" class="invalid-feedback">
+                A designação é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="sigla">Sigla*</label>
+              <input class="form-control" id="sigla" placeholder="Sigla" type="text" required [(ngModel)]="moeda.sigla" name="sigla" #sigla="ngModel">
+              <div *ngIf="sigla.invalid && (sigla.dirty || sigla.touched)" class="invalid-feedback">
+                A sigla é obrigatória.
+              </div>
+            </div>
+          </div>
         </div>
-        <div class=" col-md-6">
-          <div class=" form-group"><label class=" form-control-label" for="example2cols2Input"> Sigla</label><input
-            class=" form-control" id="example2cols2Input" placeholder="Sigla" type="text"></div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="moedaForm.invalid" (click)="saveMoeda()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <button type="button" class="btn btn-success" >
-            <i class="fas fa-plus mr-2"></i>Gravar
-          </button>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

@@ -24,4 +24,12 @@ export class MoedaService {
   saveMoeda(moeda: Moeda): Observable<Moeda> {
     return this.http.post<Moeda>(this.apiUrl, moeda);
   }
+
+  updateMoeda(moeda: Moeda): Observable<Moeda> {
+    return this.http.put<Moeda>(`${this.apiUrl}${moeda.id}/`, moeda);
+  }
+
+  deleteMoeda(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
