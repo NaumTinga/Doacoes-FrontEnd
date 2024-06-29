@@ -20,6 +20,8 @@ import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import { PaisComponent } from 'src/app/pages/pais/pais.component';
+import { Actividade } from 'src/app/models/actividade/actividade.model';
+import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -45,7 +47,9 @@ import { PaisComponent } from 'src/app/pages/pais/pais.component';
     PersistMoedaComponent,
     ContaComponent,
     PersistContaComponent,
-    PaisComponent
+    PaisComponent,
+    ActividadeComponent,
+    
   ]
 })
 
