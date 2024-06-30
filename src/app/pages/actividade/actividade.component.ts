@@ -8,9 +8,11 @@ import {Actividade} from "../../models/actividade/actividade.model";
   templateUrl: './actividade.component.html',
 })
 export class ActividadeComponent implements OnInit {
+  currentDynamicLink: string = '/';
+
   actividades: Actividade[];
 
-  constructor(private actividadeService: ActividadeService) {}
+  constructor(private actividadeService: ActividadeService, ) {}
 
   ngOnInit(): void {
     this.loadActividades();

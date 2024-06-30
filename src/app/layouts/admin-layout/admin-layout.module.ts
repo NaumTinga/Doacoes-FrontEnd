@@ -22,6 +22,7 @@ import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import { PaisComponent } from 'src/app/pages/pais/pais.component';
 import { Actividade } from 'src/app/models/actividade/actividade.model';
 import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
+import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -49,6 +50,7 @@ import { ActividadeComponent } from 'src/app/pages/actividade/actividade.compone
     PersistContaComponent,
     PaisComponent,
     ActividadeComponent,
+    PersistActividadeComponent
     
   ]
 })

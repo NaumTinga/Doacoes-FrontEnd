@@ -1,0 +1,57 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <h1 style="text-align: center; color: aliceblue;" class="font-weight-bold">Nova Actividade </h1>
+    <div class="header-body">
+      <div class="row">
+        <!--Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+    <!--  <h3 class="mb-0">{{ isEdit ? 'Editar Actividade' : 'Adicionar actividade' }}</h3>-->
+    <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+      <i class="fas fa-home mr-2"></i>Home
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-success" [routerLink]="['/actividade']">
+      <i class="fas fa-list mr-2"></i>Lista de Actividades
+    </button>
+    </div>
+    <div class="card-body">
+        <!-- <div class="card-header bg-transparent">
+
+          <button type="button" class="btn btn-success" [routerLink]="['/persist-actividade']">
+            <i class="fas fa-plus mr-2"></i>Lista de Actividades
+          </button>
+        </div> -->
+        <div class="card-header">
+          <h3 class="mb-0 text-left">{{ isEdit ? 'Editar Actividade' : 'Adicionar Nova Actividade' }}</h3>
+        </div>
+      <form #actividadeForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="descricao">Descição*</label>
+              <input class="form-control" required="true" name="descricao" #descricao="ngModel" id="descricao" [(ngModel)]="actividade.descricao" placeholder="Descição" type="text">
+              <div *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)" class="invalid-feedback">
+                A descrição é obrigatória.
+              </div>
+            </div>
+          </div>
+       
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="actividadeForm.invalid" (click)="saveActividade()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
