@@ -21,6 +21,7 @@ export const ROUTES: RouteInfo[] = [
     {path: '/pais', title: 'Pais', icon: 'ni-world text-blue', class: ''},
     {path: '/actividade', title: 'Actividade', icon: 'ni-world text-blue', class: ''},
     {path: '/coordenador', title: 'coordenador', icon: 'ni-user-run text-blue', class: ''},
+    {path: '/beneficiario', title: 'beneficiario', icon: 'ni-circle-08 text-blue', class: ''},
 ];
 
 @Component({

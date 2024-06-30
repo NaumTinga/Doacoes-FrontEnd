@@ -25,6 +25,9 @@ import { ActividadeComponent } from 'src/app/pages/actividade/actividade.compone
 import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
 import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
+import { Beneficiario } from 'src/app/models/beneficiario/beneficiario.model';
+import { BeneficiarioComponent } from 'src/app/pages/beneficiario/beneficiario.component';
+import { PersistBeneficiarioComponent } from 'src/app/pages/beneficiario/persist.beneficiario.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -55,7 +58,10 @@ import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.c
     ActividadeComponent,
     PersistActividadeComponent,
     CoordenadorComponent,
-    PersistCoordenadorComponent
+    PersistCoordenadorComponent,
+    BeneficiarioComponent,
+    PersistBeneficiarioComponent
+
    // PersistCoordenadorComponent,
     
   ]
