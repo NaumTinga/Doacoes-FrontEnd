@@ -14,7 +14,7 @@
       <h3 class="mb-0">{{ isEdit ? 'Editar Unidade Orgânica' : 'Adicionar Nova Unidade Orgânica' }}</h3>
     </div>
     <div class="card-body">
-      <form #bancoForm="ngForm">
+      <form #unidadeOrganicaForm="ngForm">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -37,7 +37,7 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <button type="button" class="btn btn-success" [disabled]="bancoForm.invalid" (click)="saveUnidadeOrganica()">
+            <button type="button" class="btn btn-success" [disabled]="unidadeOrganicaForm.invalid" (click)="saveUnidadeOrganica()">
               <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
             </button>
           </div>

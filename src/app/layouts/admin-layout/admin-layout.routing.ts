@@ -15,6 +15,8 @@ import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrgan
 import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
 import {PaisComponent} from "../../pages/pais/pais.component";
 import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
+import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
+import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -47,4 +49,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'pais',           component: PaisComponent },
     { path: 'persist-pais',           component: PersistPaisComponent },
     { path: 'edit-pais/:id',           component: PersistPaisComponent },
+
+  // Rubrica Estado Routes
+    { path: 'rubricaEstado',           component: RubricaEstadoComponent },
+    { path: 'persist-rubricaEstado',           component: PersistRubricaEstadoComponent },
+    { path: 'edit-rubricaEstado/:id',           component: PersistRubricaEstadoComponent },
 ];
