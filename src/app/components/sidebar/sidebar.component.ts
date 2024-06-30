@@ -20,6 +20,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/conta', title: 'Conta',  icon:'ni-credit-card text-pink', class: '' },
     {path: '/pais', title: 'Pais', icon: 'ni-world text-blue', class: ''},
     {path: '/actividade', title: 'Actividade', icon: 'ni-world text-blue', class: ''},
+    {path: '/coordenador', title: 'coordenador', icon: 'ni-user-run text-blue', class: ''},
 ];
 
 @Component({

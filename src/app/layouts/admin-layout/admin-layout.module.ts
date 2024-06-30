@@ -23,6 +23,9 @@ import { PaisComponent } from 'src/app/pages/pais/pais.component';
 import { Actividade } from 'src/app/models/actividade/actividade.model';
 import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
 import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
+import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
+import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
+
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -50,7 +53,10 @@ import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.act
     PersistContaComponent,
     PaisComponent,
     ActividadeComponent,
-    PersistActividadeComponent
+    PersistActividadeComponent,
+    CoordenadorComponent,
+    PersistCoordenadorComponent
+   // PersistCoordenadorComponent,
     
   ]
 })

@@ -14,6 +14,10 @@ import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import { PaisComponent } from 'src/app/pages/pais/pais.component';
 import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
 import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
+//import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
+import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
+import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -33,5 +37,10 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'pais', component: PaisComponent},
     {path: 'actividade', component: ActividadeComponent},
     {path: 'persist-actividade', component: PersistActividadeComponent},
-    {path: 'edit-actividade/:id', component: PersistActividadeComponent}
+    {path: 'edit-actividade/:id', component: PersistActividadeComponent},
+    {path: 'coordenador', component: CoordenadorComponent},
+    {path: 'persist-coordenador', component: PersistCoordenadorComponent},
+    {path: 'edit-coordenador/:id', component: PersistCoordenadorComponent}
+//    {path: 'edit-coordenador/:id', component: CoordenadorComponent},
+  //  {path:'persist-coordenador', component: CoordenadorComponent}
 ];
