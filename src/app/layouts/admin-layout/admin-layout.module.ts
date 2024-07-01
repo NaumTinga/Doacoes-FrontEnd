@@ -33,6 +33,8 @@ import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persi
 import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
 import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
+import {FinanciadorComponent} from "../../pages/financiador/financiador.component";
+import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -72,6 +74,8 @@ import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.r
     PersistPaisComponent,
     RubricaEstadoComponent,
     PersistRubricaEstadoComponent,
+    FinanciadorComponent,
+    PersistFinanciadorComponent,
   ]
 })
 
