@@ -28,6 +28,12 @@ import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.c
 import { Beneficiario } from 'src/app/models/beneficiario/beneficiario.model';
 import { BeneficiarioComponent } from 'src/app/pages/beneficiario/beneficiario.component';
 import { PersistBeneficiarioComponent } from 'src/app/pages/beneficiario/persist.beneficiario.component';
+import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrganica.component";
+import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
+import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
+import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
+import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
+
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -54,7 +60,6 @@ import { PersistBeneficiarioComponent } from 'src/app/pages/beneficiario/persist
     PersistMoedaComponent,
     ContaComponent,
     PersistContaComponent,
-    PaisComponent,
     ActividadeComponent,
     PersistActividadeComponent,
     CoordenadorComponent,
@@ -64,6 +69,12 @@ import { PersistBeneficiarioComponent } from 'src/app/pages/beneficiario/persist
 
    // PersistCoordenadorComponent,
     
+    UnidadeOrganicaComponent,
+    PersistUnidadeOrganicaComponent,
+    PaisComponent,
+    PersistPaisComponent,
+    RubricaEstadoComponent,
+    PersistRubricaEstadoComponent,
   ]
 })
 

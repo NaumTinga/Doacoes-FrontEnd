@@ -1,0 +1,81 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <!-- Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header"><h3 class="mb-0">{{ isEdit ? 'Editar Conta' : 'Adicionar Nova Rubrica do Estado' }}</h3></div>
+    <div class="card-body">
+      <form #rubricaEstadoForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nome">Nome *</label>
+              <input
+                class="form-control"
+                id="nome"
+                name="nome"
+                required="true"
+                [(ngModel)]="rubricaEstado.nome"
+                placeholder="Nome"
+                type="text"
+                #nome="ngModel"
+              >
+              <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
+                O nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="tipo_rubrica">Tipo de Rubrica *</label>
+            <select
+              class="form-control"
+              id="tipo_rubrica"
+              name="tipo_rubrica"
+              required
+              [(ngModel)]="rubricaEstado.tipo_rubrica"
+              #tipo_rubrica="ngModel"
+            >
+              <option *ngFor="let option of tipoRubricaOptions" [value]="option">{{ option }}</option>
+            </select>
+            <div *ngIf="tipo_rubrica.invalid && (tipo_rubrica.dirty || tipo_rubrica.touched)" class="invalid-feedback">
+              O tipo de rubrica é obrigatório.
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="codigo_rubrica">Codigo *</label>
+              <input
+                class="form-control"
+                id="codigo_rubrica"
+                name="codigo_rubrica"
+                required="true"
+                [(ngModel)]="rubricaEstado.codigo_rubrica"
+                placeholder="Codigo"
+                type="text"
+                #codigo_rubrica="ngModel"
+              >
+              <div *ngIf="codigo_rubrica.invalid && (codigo_rubrica.dirty || codigo_rubrica.touched)" class="invalid-feedback">
+                O número de conta é obrigatório.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="rubricaEstadoForm.invalid" (click)="saveRubricaEstado()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
