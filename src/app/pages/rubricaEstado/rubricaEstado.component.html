@@ -5,6 +5,9 @@
       <div class="row">
         <div>
           <!-- Button to open the modal -->
+          <!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
+          <!--            <i class="fas fa-plus mr-2"></i>Novo-->
+          <!--          </button>-->
         </div>
       </div>
     </div>
@@ -21,9 +24,8 @@
           <!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
           <!--            <i class="fas fa-plus mr-2"></i>Novo-->
           <!--          </button>-->
-          <button type="button" class="btn btn-success" [routerLink]="['/persist-pais']">
-
-            <i class="fas fa-plus mr-2"></i>Novo
+          <button type="button" class="btn btn-success" [routerLink]="['/persist-rubricaEstado']">
+            <i class="fas fa-plus mr-2"></i>Nova
           </button>
         </div>
         <div class="card-body">
@@ -31,21 +33,19 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
               <tr>
+                <th scope="col">Codigo</th>
                 <th scope="col">Nome</th>
-
-                <th scope="col">Sigla</th>
-
+                <th scope="col">Tipo de Rubrica</th>
                 <th scope="col">Acção</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let pais of paises">
-                <th scope="row">{{pais.nome}}</th>
-                <td>{{pais.sigla}}</td>
+              <tr *ngFor="let rubricaEstado of rubricaEstados">
+                <th scope="row">{{rubricaEstado.codigo_rubrica}}</th>
+                <th scope="row">{{rubricaEstado.nome}}</th>
+                <th>{{rubricaEstado.tipo_rubrica}}</th>
                 <td>
-
-                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-pais', pais.id]">
-
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-rubricaEstado', rubricaEstado.id]">
                     <i class="fas fa-edit"></i> Editar
                   </button>
                 </td>

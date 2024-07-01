@@ -19,7 +19,13 @@ import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
-import { PaisComponent } from 'src/app/pages/pais/pais.component';
+import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrganica.component";
+import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
+import {PaisComponent} from "../../pages/pais/pais.component";
+import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
+import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
+import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
+
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -45,7 +51,12 @@ import { PaisComponent } from 'src/app/pages/pais/pais.component';
     PersistMoedaComponent,
     ContaComponent,
     PersistContaComponent,
-    PaisComponent
+    UnidadeOrganicaComponent,
+    PersistUnidadeOrganicaComponent,
+    PaisComponent,
+    PersistPaisComponent,
+    RubricaEstadoComponent,
+    PersistRubricaEstadoComponent,
   ]
 })
 
