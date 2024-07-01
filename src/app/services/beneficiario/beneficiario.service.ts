@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Beneficiario} from "../../models/beneficiario/beneficiario.model";
-import {Observable} from "rxjs";
+import {catchError, Observable, throwError} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +19,8 @@ export class BeneficiarioService {
     }
 
     createBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
-        return this.http.post<Beneficiario>(`${this.apiUrl}/`, beneficiario);
+        return this.http.post<Beneficiario>(`${this.apiUrl}/`, beneficiario)
+          .pipe(catchError(this.handleError));
     }
 
     updateBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
@@ -30,5 +31,19 @@ export class BeneficiarioService {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
 
-    
+  // The handleError method
+  private handleError(error: HttpErrorResponse): Observable<any> {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred.
+      errorMessage = `A client-side error occurred: ${error.error.message}`;
+    } else {
+      // The backend returned an unsuccessful response code.
+      errorMessage = `Backend returned code ${error.status}, body was: ${error.error}`;
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(error.error);
+  }
+
+
 }
