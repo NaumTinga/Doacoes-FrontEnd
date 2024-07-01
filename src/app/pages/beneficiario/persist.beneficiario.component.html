@@ -32,6 +32,7 @@
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
                 A email é obrigatória.
               </div>
+              <!--              To catch errors from the server and show in the console-->
               <div *ngIf="serverErrors.email" class="invalid-feedback">
                 {{ serverErrors.email[0] }}
               </div>
@@ -90,6 +91,7 @@
               <div *ngIf="nuit.invalid && (nuit.dirty || nuit.touched)" class="invalid-feedback">
                 O nuit é obrigatório.
               </div>
+<!--              To catch errors from the server and show in the console-->
               <div *ngIf="serverErrors.nuit" class="invalid-feedback">
                 {{ serverErrors.nuit[0] }}
               </div>

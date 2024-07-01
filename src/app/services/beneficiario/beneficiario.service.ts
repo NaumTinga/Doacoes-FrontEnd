@@ -20,7 +20,7 @@ export class BeneficiarioService {
 
     createBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
         return this.http.post<Beneficiario>(`${this.apiUrl}/`, beneficiario)
-          .pipe(catchError(this.handleError));
+          .pipe(catchError(this.handleError)); // to catch and view errors from the server in the browser console
     }
 
     updateBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {

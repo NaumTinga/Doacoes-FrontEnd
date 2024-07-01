@@ -7,6 +7,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Banco} from "../../models/banco/banco.model";
 import {Moeda} from "../../models/moeda/moeda";
 import Swal from "sweetalert2";
+import {Beneficiario} from "../../models/beneficiario/beneficiario.model";
+import {Actividade} from "../../models/actividade/actividade.model";
 
 @Component({
   selector: "app-persist",
@@ -17,7 +19,9 @@ export class PersistContaComponent implements OnInit{
 
   conta: Conta = new Conta();
   bancos: Banco[];
-  moedas: Moeda[]
+  moedas: Moeda[];
+  beneficiarios: Beneficiario[];
+  actividades: Actividade[];
   isEdit: boolean = false;
 
   constructor(private contaService: ContaService,

@@ -24,6 +24,8 @@ import {PaisComponent} from "../../pages/pais/pais.component";
 import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
 import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
+import {FinanciadorComponent} from "../../pages/financiador/financiador.component";
+import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 
 
 
@@ -48,18 +50,21 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'conta',           component: ContaComponent },
     { path: 'persist-conta',           component: PersistContaComponent },
     { path: 'edit-conta/:id',           component: PersistContaComponent },
-  
+
+  // Actividade Routes
     {path: 'actividade', component: ActividadeComponent},
     {path: 'persist-actividade', component: PersistActividadeComponent},
     {path: 'edit-actividade/:id', component: PersistActividadeComponent},
+
+  // Coordenador Routes
     {path: 'coordenador', component: CoordenadorComponent},
     {path: 'persist-coordenador', component: PersistCoordenadorComponent},
     {path: 'edit-coordenador/:id', component: PersistCoordenadorComponent},
+
+  // Beneficiario Routes
     {path: 'beneficiario', component: BeneficiarioComponent},
     {path: 'persist-beneficiario', component: PersistBeneficiarioComponent},
     {path: 'edit-beneficiario/:id', component: PersistBeneficiarioComponent},
-//    {path: 'edit-coordenador/:id', component: CoordenadorComponent},
-  //  {path:'persist-coordenador', component: CoordenadorComponent}
 
   // Uidade Organica Routes
     { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent },
@@ -75,6 +80,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'rubricaEstado',           component: RubricaEstadoComponent },
     { path: 'persist-rubricaEstado',           component: PersistRubricaEstadoComponent },
     { path: 'edit-rubricaEstado/:id',           component: PersistRubricaEstadoComponent },
+
+  // Financiador Routes
+    { path: 'financiador',           component: FinanciadorComponent },
+    { path: 'persist-financiador',           component: PersistFinanciadorComponent },
+    { path: 'edit-financiador/:id',           component: PersistFinanciadorComponent },
 
 
 ];

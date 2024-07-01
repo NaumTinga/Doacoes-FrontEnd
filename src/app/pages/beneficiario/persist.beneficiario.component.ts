@@ -16,7 +16,7 @@ export class PersistBeneficiarioComponent implements OnInit {
   sexoOptions = Object.values(Sexo);
   nivelAcademicoOptions = Object.values(NivelAcademico);
   isEdit: boolean = false;
-  serverErrors: any = {};
+  serverErrors: any = {}; // to catch and view errors from the server in the browser console
 
   constructor(
     private beneficiarioService: BeneficiarioService,
@@ -44,7 +44,7 @@ export class PersistBeneficiarioComponent implements OnInit {
 
   saveBeneficiario() {
     //console.log(this.beneficiario);
-    this.serverErrors = {};
+    this.serverErrors = {}; // to catch and view errors from the server in the browser console
 
     if (this.isEdit) {
       this.beneficiarioService.updateBeneficiario(this.beneficiario).subscribe(
