@@ -1,24 +1,23 @@
-import {Component, OnInit} from "@angular/core";
-import {Pais} from "../../models/pais/pais";
-import {PaisService} from "../../services/pais/pais.service";
+import { Component, OnInit } from '@angular/core';
+import { Pais } from 'src/app/models/pais/pais.model';
+import { PaisService } from 'src/app/services/pais/pais.service';
+
 
 @Component({
-  selector: "app-pais",
-  templateUrl: "./pais.component.html",
+  selector: 'app-pais',
+  templateUrl: './pais.component.html',
 })
-
 export class PaisComponent implements OnInit {
   paises: Pais[];
 
-  constructor(private paisService: PaisService) {
-  }
+  constructor(private paisesService: PaisService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadPaises();
   }
 
-  loadPaises() {
-    this.paisService.getPaises().subscribe((data: Pais[]) => {
+  loadPaises(): void {
+    this.paisesService.getPaises().subscribe((data: Pais[]) => {
       this.paises = data;
     });
   }

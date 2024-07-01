@@ -18,6 +18,7 @@ import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
 import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
 
+
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
@@ -54,4 +55,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'rubricaEstado',           component: RubricaEstadoComponent },
     { path: 'persist-rubricaEstado',           component: PersistRubricaEstadoComponent },
     { path: 'edit-rubricaEstado/:id',           component: PersistRubricaEstadoComponent },
+
 ];

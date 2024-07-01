@@ -25,6 +25,7 @@ import {PaisComponent} from "../../pages/pais/pais.component";
 import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
 import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
+
 // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -56,7 +57,6 @@ import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.r
     PersistPaisComponent,
     RubricaEstadoComponent,
     PersistRubricaEstadoComponent,
-
   ]
 })
 
