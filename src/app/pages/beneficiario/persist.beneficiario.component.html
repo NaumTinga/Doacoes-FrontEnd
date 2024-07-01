@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-      
+
         <!--Second row-->
         <div class="row">
           <div class="col-md-6">
@@ -78,49 +78,49 @@
             </div>
           </div>
         </div>
-       <!--Fourth row-->
-       <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label" for="nuit">Nuit*</label>
-            <input class="form-control" required="true" name="nuit" #nuit="ngModel" id="nuit" [(ngModel)]="beneficiario.nuit" placeholder="Nuit" type="text">
-            <div *ngIf="nuit.invalid && (nuit.dirty || nuit.touched)" class="invalid-feedback">
-              O nuit é obrigatório.
+        <!--Fourth row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nuit">Nuit*</label>
+              <input class="form-control" required="true" name="nuit" #nuit="ngModel" id="nuit" [(ngModel)]="beneficiario.nuit" placeholder="Nuit" type="text">
+              <div *ngIf="nuit.invalid && (nuit.dirty || nuit.touched)" class="invalid-feedback">
+                O nuit é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nivel_academico">Nivel academico*</label>
+              <input class="form-control" required="true" id="nivel_academico" name="nivel_academico" #nivel_academico="ngModel" [(ngModel)]="beneficiario.nivelAcademico" placeholder="Nivel Acadêmico" type="text">
+              <div *ngIf="nivel_academico.invalid && (nivel_academico.dirty || nivel_academico.touched)" class="invalid-feedback">
+                O nivel academico é obrigatória.
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label" for="nivel_academico">Nivel academico*</label>
-            <input class="form-control" required="true" id="nivel_academico" name="nivel_academico" #nivel_academico="ngModel" [(ngModel)]="beneficiario.nivelAcademico" placeholder="Nivel Acadêmico" type="text">
-            <div *ngIf="nivel_academico.invalid && (nivel_academico.dirty || nivel_academico.touched)" class="invalid-feedback">
-              O nivel academico é obrigatória.
+        <!--Fifth row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="sexo">Sexo*</label>
+              <input class="form-control" required="true" name="sexo" #sexo="ngModel" id="sexo" [(ngModel)]="beneficiario.sexo" placeholder="Sexo" type="text">
+              <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="invalid-feedback">
+                O sexo é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="unidade_organica">Unidade Orgânica*</label>
+              <input class="form-control" required="true" id="unidade_organica" name="unidade_organica" #unidade_organica="ngModel" [(ngModel)]="beneficiario.unidadeOrganica" placeholder="unidade Orgânica" type="text">
+              <div *ngIf="unidade_organica.invalid && (unidade_organica.dirty || unidade_organica.touched)" class="invalid-feedback">
+                A unidade_organica é obrigatória.
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--Fifth row-->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label" for="sexo">Sexo*</label>
-            <input class="form-control" required="true" name="sexo" #sexo="ngModel" id="sexo" [(ngModel)]="beneficiario.sexo" placeholder="Sexo" type="text">
-            <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="invalid-feedback">
-              O sexo é obrigatório.
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label" for="unidade_organica">Unidade Orgânica*</label>
-            <input class="form-control" required="true" id="unidade_organica" name="unidade_organica" #unidade_organica="ngModel" [(ngModel)]="beneficiario.unidadeOrganica" placeholder="unidade Orgânica" type="text">
-            <div *ngIf="unidade_organica.invalid && (unidade_organica.dirty || unidade_organica.touched)" class="invalid-feedback">
-              A unidade_organica é obrigatória.
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Button -->
+        <!--Button -->
         <div class="row">
           <div class="col-md-6">
             <button type="button" class="btn btn-success" [disabled]="beneficiarioForm.invalid" (click)="saveBeneficiario()">

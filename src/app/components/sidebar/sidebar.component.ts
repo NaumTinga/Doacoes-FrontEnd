@@ -20,8 +20,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/conta', title: 'Conta',  icon:'ni-credit-card text-pink', class: '' },
     {path: '/pais', title: 'Pais', icon: 'ni-world text-blue', class: ''},
     {path: '/actividade', title: 'Actividade', icon: 'ni-world text-blue', class: ''},
-    {path: '/coordenador', title: 'coordenador', icon: 'ni-user-run text-blue', class: ''},
-    {path: '/beneficiario', title: 'beneficiario', icon: 'ni-circle-08 text-blue', class: ''},
+    {path: '/coordenador', title: 'Coordenador', icon: 'ni-user-run text-blue', class: ''},
+    {path: '/beneficiario', title: 'Beneficiário', icon: 'ni-circle-08 text-blue', class: ''},
     { path: '/unidadeOrganica', title: 'Unidade Orgânica',  icon:'ni-building text-yellow', class: '' },
     { path: '/rubricaEstado', title: 'Rubrica do Estado',  icon:'ni-world-2 text-green', class: '' },
 ];
