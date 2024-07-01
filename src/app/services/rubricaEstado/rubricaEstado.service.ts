@@ -28,7 +28,7 @@ export class RubricaEstadoService {
   }
 
   updateRubricaEstado(rubricaEstado: RubricaEstado): Observable<RubricaEstado> {
-    return this.http.put<RubricaEstado>(`${this.apiUrl}/${rubricaEstado.id}`, rubricaEstado);
+    return this.http.put<RubricaEstado>(`${this.apiUrl}/${rubricaEstado.id}/`, rubricaEstado);
   }
 
 

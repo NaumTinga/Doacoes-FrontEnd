@@ -65,10 +65,7 @@ import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.r
     CoordenadorComponent,
     PersistCoordenadorComponent,
     BeneficiarioComponent,
-    PersistBeneficiarioComponent
-
-   // PersistCoordenadorComponent,
-    
+    PersistBeneficiarioComponent,
     UnidadeOrganicaComponent,
     PersistUnidadeOrganicaComponent,
     PaisComponent,
