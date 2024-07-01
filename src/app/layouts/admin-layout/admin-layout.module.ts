@@ -19,12 +19,21 @@ import {MoedaComponent} from "../../pages/moeda/moeda.component";
 import {PersistMoedaComponent} from "../../pages/moeda/persist.moeda.component";
 import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
+import { PaisComponent } from 'src/app/pages/pais/pais.component';
+import { Actividade } from 'src/app/models/actividade/actividade.model';
+import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
+import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
+import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
+import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
+import { Beneficiario } from 'src/app/models/beneficiario/beneficiario.model';
+import { BeneficiarioComponent } from 'src/app/pages/beneficiario/beneficiario.component';
+import { PersistBeneficiarioComponent } from 'src/app/pages/beneficiario/persist.beneficiario.component';
 import {UnidadeOrganicaComponent} from "../../pages/unidadeOrganica/unidadeOrganica.component";
 import {PersistUnidadeOrganicaComponent} from "../../pages/unidadeOrganica/persist.unidadeOrganica.component";
-import {PaisComponent} from "../../pages/pais/pais.component";
 import {PersistPaisComponent} from "../../pages/pais/persist.pais.component";
 import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.component";
 import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
+
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -51,6 +60,15 @@ import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.r
     PersistMoedaComponent,
     ContaComponent,
     PersistContaComponent,
+    ActividadeComponent,
+    PersistActividadeComponent,
+    CoordenadorComponent,
+    PersistCoordenadorComponent,
+    BeneficiarioComponent,
+    PersistBeneficiarioComponent
+
+   // PersistCoordenadorComponent,
+    
     UnidadeOrganicaComponent,
     PersistUnidadeOrganicaComponent,
     PaisComponent,

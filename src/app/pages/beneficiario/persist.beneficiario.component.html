@@ -1,0 +1,134 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <!--Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3 class="mb-0">{{ isEdit ? 'Editar Beneficiario' : 'Adicionar Novo Beneficiario' }}</h3>
+    </div>
+    <div class="card-body">
+      <form #beneficiarioForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nome">Nome*</label>
+              <input class="form-control" required="true" name="nome" #nome="ngModel" id="nome" [(ngModel)]="beneficiario.nome" placeholder="Nome" type="text">
+              <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
+                O nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="email">Email*</label>
+              <input class="form-control" required="true" id="email" name="email" #email="ngModel" [(ngModel)]="beneficiario.email" placeholder="Email" type="text">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                A email é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!--Second row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="telefone">Telefone*</label>
+              <input class="form-control" required="true" name="telefone" #telefone="ngModel" id="telefone" [(ngModel)]="beneficiario.telefone" placeholder="Telefone" type="text">
+              <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="invalid-feedback">
+                O telefone é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="data_nascimento">Data de Nascimento*</label>
+              <input class="form-control" required="true" id="data_nascimento" name="data_nascimento" #data_nascimento="ngModel" [(ngModel)]="beneficiario.dataNascimento" placeholder="" type="date">
+              <div *ngIf="data_nascimento.invalid && (data_nascimento.dirty || data_nascimento.touched)" class="invalid-feedback">
+                A data_nascimento é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Third row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="enderco">Endereço*</label>
+              <input class="form-control" required="true" name="endereco" #endereco="ngModel" id="endereco" [(ngModel)]="beneficiario.endereco" placeholder="Endereço" type="text">
+              <div *ngIf="endereco.invalid && (endereco.dirty || endereco.touched)" class="invalid-feedback">
+                O endereço é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nacionalidade">nacionalidade*</label>
+              <input class="form-control" required="true" id="nacionalidade" name="nacionalidade" #nacionalidade="ngModel" [(ngModel)]="beneficiario.nacionalidade" placeholder="Nacionalidade" type="text">
+              <div *ngIf="nacionalidade.invalid && (nacionalidade.dirty || nacionalidade.touched)" class="invalid-feedback">
+                A nacionalidade é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+       <!--Fourth row-->
+       <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label" for="nuit">Nuit*</label>
+            <input class="form-control" required="true" name="nuit" #nuit="ngModel" id="nuit" [(ngModel)]="beneficiario.nuit" placeholder="Nuit" type="text">
+            <div *ngIf="nuit.invalid && (nuit.dirty || nuit.touched)" class="invalid-feedback">
+              O nuit é obrigatório.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label" for="nivel_academico">Nivel academico*</label>
+            <input class="form-control" required="true" id="nivel_academico" name="nivel_academico" #nivel_academico="ngModel" [(ngModel)]="beneficiario.nivelAcademico" placeholder="Nivel Acadêmico" type="text">
+            <div *ngIf="nivel_academico.invalid && (nivel_academico.dirty || nivel_academico.touched)" class="invalid-feedback">
+              O nivel academico é obrigatória.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Fifth row-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label" for="sexo">Sexo*</label>
+            <input class="form-control" required="true" name="sexo" #sexo="ngModel" id="sexo" [(ngModel)]="beneficiario.sexo" placeholder="Sexo" type="text">
+            <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="invalid-feedback">
+              O sexo é obrigatório.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label" for="unidade_organica">Unidade Orgânica*</label>
+            <input class="form-control" required="true" id="unidade_organica" name="unidade_organica" #unidade_organica="ngModel" [(ngModel)]="beneficiario.unidadeOrganica" placeholder="unidade Orgânica" type="text">
+            <div *ngIf="unidade_organica.invalid && (unidade_organica.dirty || unidade_organica.touched)" class="invalid-feedback">
+              A unidade_organica é obrigatória.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Button -->
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="beneficiarioForm.invalid" (click)="saveBeneficiario()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

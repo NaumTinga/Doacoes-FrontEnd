@@ -18,8 +18,11 @@ export const ROUTES: RouteInfo[] = [
     { path: '/banco', title: 'Banco',  icon:'ni-briefcase-24 text-blue', class: '' },
     { path: '/moeda', title: 'Moeda',  icon:'ni-money-coins text-green', class: '' },
     { path: '/conta', title: 'Conta',  icon:'ni-credit-card text-pink', class: '' },
+    {path: '/pais', title: 'Pais', icon: 'ni-world text-blue', class: ''},
+    {path: '/actividade', title: 'Actividade', icon: 'ni-world text-blue', class: ''},
+    {path: '/coordenador', title: 'coordenador', icon: 'ni-user-run text-blue', class: ''},
+    {path: '/beneficiario', title: 'beneficiario', icon: 'ni-circle-08 text-blue', class: ''},
     { path: '/unidadeOrganica', title: 'Unidade Orgânica',  icon:'ni-building text-yellow', class: '' },
-    { path: '/pais', title: 'País',  icon:'ni-world-2 text-green', class: '' },
     { path: '/rubricaEstado', title: 'Rubrica do Estado',  icon:'ni-world-2 text-green', class: '' },
 ];
 
