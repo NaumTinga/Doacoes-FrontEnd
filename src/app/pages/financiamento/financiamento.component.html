@@ -1,0 +1,64 @@
+<!-- financiador.component.html -->
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+
+    <div class="header-body">
+      <div class="row">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+
+          <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+            <i class="fas fa-home mr-2"></i>Home
+          </button>
+          &nbsp;
+          <button type="button" class="btn btn-success" [routerLink]="['/persist-financiamento']">
+            <i class="fas fa-plus mr-2"></i>Novo
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+              <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col">Financiador</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Moeda</th>
+                <th scope="col">Data Inicio</th>
+                <th scope="col">Data Fim</th>
+                <th scope="col">Acção</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let financiamento of financiamentos">
+                <th scope="row">{{financiamento.descricao}}</th>
+                <th scope="row">{{financiamento.financiador?.nome}}</th>
+                <th scope="row">{{financiamento.valor}}</th>
+                <th scope="row">{{financiamento.moeda_financiador?.designacao}}</th>
+                <th scope="row">{{financiamento.data_inicio}}</th>
+                <th scope="row">{{financiamento.data_fim}}</th>
+                <td>
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-financiamento', financiamento.id]">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

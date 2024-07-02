@@ -113,7 +113,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="form-control-label" for="sexo">Sexo</label>
+              <label class="form-control-label" for="sexo">Genero</label>
               <select class="form-control" name="sexo" #sexo="ngModel" id="sexo" [(ngModel)]="beneficiario.sexo"  type="text">
                 <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
               </select>
