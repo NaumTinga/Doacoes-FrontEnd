@@ -28,6 +28,7 @@ import {FinanciadorComponent} from "../../pages/financiador/financiador.componen
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
+import { SubProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
 
 
 
@@ -92,6 +93,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'financiamento',           component: FinanciamentoComponent },
     { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
     { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
+
+  // SubProjecto Routes
+  {path:'subProjecto',component:SubProjectoComponent},
+  {path:'edit-subProjecto/:id',component:SubProjectoComponent},
+  {path:'persist-subProjecto',component:SubProjectoComponent}
 
 
 ];

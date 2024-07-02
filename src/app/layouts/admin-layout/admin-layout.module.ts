@@ -35,6 +35,9 @@ import {FinanciadorComponent} from "../../pages/financiador/financiador.componen
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
+import {SubProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
+import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.subProjecto.component';
+
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -78,6 +81,8 @@ import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.f
     PersistFinanciadorComponent,
     FinanciamentoComponent,
     PersistFinanciamentoComponent,
+    SubProjectoComponent,
+    PersistSubProjectoComponent
   ]
 })
 
