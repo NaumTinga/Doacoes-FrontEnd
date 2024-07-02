@@ -24,7 +24,9 @@ export class BeneficiarioService {
     }
 
     updateBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
-        return this.http.put<Beneficiario>(`${this.apiUrl}/${beneficiario.id}/`, beneficiario);
+        return this.http.put<Beneficiario>(`${this.apiUrl}/${beneficiario.id}/`, beneficiario)
+          .pipe(catchError(this.handleError)); // to catch and view errors from the server in the browser console
+
     }
 
     deleteBeneficiario(id: number): Observable<void> {

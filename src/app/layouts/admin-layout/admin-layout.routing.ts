@@ -26,6 +26,8 @@ import {RubricaEstadoComponent} from "../../pages/rubricaEstado/rubricaEstado.co
 import {PersistRubricaEstadoComponent} from "../../pages/rubricaEstado/persist.rubricaEstado.component";
 import {FinanciadorComponent} from "../../pages/financiador/financiador.component";
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
+import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
+import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
 
 
 
@@ -85,6 +87,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'financiador',           component: FinanciadorComponent },
     { path: 'persist-financiador',           component: PersistFinanciadorComponent },
     { path: 'edit-financiador/:id',           component: PersistFinanciadorComponent },
+
+  // Financiamento Routes
+    { path: 'financiamento',           component: FinanciamentoComponent },
+    { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
+    { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
 
 
 ];

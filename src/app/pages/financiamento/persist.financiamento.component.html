@@ -1,0 +1,140 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <h1 class="font-weight-bold" style="text-align: center; color: aliceblue;">Novo Financiamento</h1>
+    <div class="header-body">
+      <div class="row">
+        <!--Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+      <button [routerLink]="['/dashboard']" class="btn btn-success" type="button">
+        <i class="fas fa-home mr-2"></i>Home
+      </button>
+      &nbsp;
+      <button [routerLink]="['/financiamento']" class="btn btn-success" type="button">
+        <i class="fas fa-list mr-2"></i>Lista de Financiamentos
+      </button>
+    </div>
+    <div class="card-body">
+      <div class="card-header">
+        <h3 class="mb-0 text-left">{{ isEdit ? 'Editar Financiamento' : 'Adicionar Novo Financiamento' }}</h3>
+      </div>
+      <form #financiamentoForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="descricao">Descrição *</label>
+              <input #descricao="ngModel" [(ngModel)]="financiamento.descricao" class="form-control" id="descricao" name="descricao"
+                     placeholder="Descrição (nome do financiamento)" required="true" type="text">
+              <div *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)" class="invalid-feedback">
+                A Descrição é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="financiador">Moeda *</label>
+            <select
+              #moeda="ngModel"
+              [(ngModel)]="financiamento.moeda_financiador"
+              class="form-control"
+              id="moeda"
+              name="moeda"
+              required="true">
+              <option *ngFor="let moeda of moedas" [value]="moeda.id">{{ moeda.designacao }}</option>
+            </select>
+            <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="invalid-feedback">
+              A Moeda é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="valor">Valor *</label>
+              <input #valor="ngModel" [(ngModel)]="financiamento.valor" class="form-control" id="valor" name="valor"
+                     placeholder="Valor" required="true" type="number" >
+              <div *ngIf="valor.invalid && (valor.dirty || valor.touched)" class="invalid-feedback">
+                O Valor é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="data_inicio">Data Inicio</label>
+              <input class="form-control" id="data_inicio" name="data_inicio" #data_inicio="ngModel" [(ngModel)]="financiamento.data_inicio" placeholder="" type="date">
+              <div *ngIf="data_inicio.invalid && (data_inicio.dirty || data_inicio.touched)" class="invalid-feedback">
+                A Data Inicio é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="data_inicio">Data Fim</label>
+              <input class="form-control" id="data_fim" name="data_fim" #data_fim="ngModel" [(ngModel)]="financiamento.data_fim" placeholder="" type="date">
+              <div *ngIf="data_fim.invalid && (data_fim.dirty || data_fim.touched)" class="invalid-feedback">
+                A Data Fim é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="financiador">Financiador *</label>
+            <select
+              #financiador="ngModel"
+              [(ngModel)]="financiamento.financiador"
+              class="form-control"
+              id="financiador"
+              name="financiador"
+              required="true">
+              <option *ngFor="let financiador of financiadores" [value]="financiador.id">{{ financiador.nome }}</option>
+            </select>
+            <div *ngIf="financiador.invalid && (financiador.dirty || financiador.touched)" class="invalid-feedback">
+              O Financiador é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="conta_origem">Conta a Debitar *</label>
+            <select
+              #conta_origem="ngModel"
+              [(ngModel)]="financiamento.conta_origem"
+              class="form-control"
+              id="conta_origem"
+              name="conta_origem"
+              required="true">
+              <option *ngFor="let conta_origem of contas" [value]="conta_origem.id">{{ conta_origem.designacao }}</option>
+            </select>
+            <div *ngIf="conta_origem.invalid && (conta_origem.dirty || conta_origem.touched)" class="invalid-feedback">
+              A Debitar é obrigatória.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="conta_destino">Conta a Creditar *</label>
+            <select
+              #conta_destino="ngModel"
+              [(ngModel)]="financiamento.conta_destino"
+              class="form-control"
+              id="conta_destino"
+              name="conta_destino"
+              required="true">
+              <option *ngFor="let conta_destino of contas" [value]="conta_destino.id">{{ conta_destino.designacao }}</option>
+            </select>
+            <div *ngIf="conta_destino.invalid && (conta_destino.dirty || conta_destino.touched)" class="invalid-feedback">
+              A Conta a Creditar é obrigatória.
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <button (click)="saveFinanciamento()" [disabled]="financiamentoForm.invalid" class="btn btn-success"
+                    type="button">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
