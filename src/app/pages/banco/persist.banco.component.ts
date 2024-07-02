@@ -16,6 +16,7 @@ export class PersistBancoComponent implements OnInit {
     private bancoService: BancoService,
     private route: ActivatedRoute,
     private router: Router
+
   ) {}
 
   ngOnInit(): void {
