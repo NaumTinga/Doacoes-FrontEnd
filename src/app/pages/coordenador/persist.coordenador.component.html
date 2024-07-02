@@ -1,5 +1,6 @@
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
+    <h1 class="font-weight-bold" style="text-align: center; color: aliceblue;">Novo Coordenador </h1>
     <div class="header-body">
       <div class="row">
         <!--Add some content here -->
@@ -10,16 +11,27 @@
 
 <div class="container-fluid mt--6">
   <div class="card mb-4">
-    <div class="card-header">
-      <h3 class="mb-0">{{ isEdit ? 'Editar Coordenador' : 'Adicionar Novo Coordenador' }}</h3>
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+      <button [routerLink]="['/dashboard']" class="btn btn-success" type="button">
+        <i class="fas fa-home mr-2"></i>Home
+      </button>
+      &nbsp;
+      <button [routerLink]="['/coordenador']" class="btn btn-success" type="button">
+        <i class="fas fa-list mr-2"></i>Lista de Coordenador
+      </button>
     </div>
+
     <div class="card-body">
+          <div class="card-header">
+            <h3 class="mb-0">{{ isEdit ? 'Editar Coordenador' : 'Adicionar Novo Coordenador' }}</h3>
+          </div>
       <form #coordenadorForm="ngForm">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="form-control-label" for="nome">Nome*</label>
-              <input class="form-control" required="true" name="nome" #nome="ngModel" id="nome" [(ngModel)]="coordenador.nome" placeholder="Nome" type="text">
+              <label class="form-control-label" for="nome">Nome *</label>
+              <input #nome="ngModel" [(ngModel)]="coordenador.nome" class="form-control" id="nome" name="nome"
+                     placeholder="Nome" required="true" type="text">
               <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
                 O nome é obrigatório.
               </div>
@@ -27,17 +39,138 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label class="form-control-label" for="email">Email*</label>
-              <input class="form-control" required="true" id="email" name="email" #email="ngModel" [(ngModel)]="coordenador.email" placeholder="Email" type="text">
+              <label class="form-control-label" for="email">Email</label>
+              <input #email="ngModel" [(ngModel)]="coordenador.email" class="form-control" id="email" name="email"
+                     placeholder="Email" type="text">
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
-                o email é obrigatório.
+                A email é obrigatória.
+              </div>
+              <!--              To catch errors from the server and show in the console-->
+              <div *ngIf="serverErrors.email" class="invalid-feedback">
+                {{ serverErrors.email[0] }}
               </div>
             </div>
           </div>
         </div>
+
+        <!--Second row-->
         <div class="row">
           <div class="col-md-6">
-            <button type="button" class="btn btn-success" [disabled]="coordenadorForm.invalid" (click)="saveCoordenador()">
+            <div class="form-group">
+              <label class="form-control-label" for="telefone">Telefone</label>
+              <input #telefone="ngModel" [(ngModel)]="coordenador.telefone" class="form-control" id="telefone"
+                     name="telefone" placeholder="Telefone" type="text">
+              <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="invalid-feedback">
+                O telefone é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="data_nascimento">Data de Nascimento</label>
+              <input #data_nascimento="ngModel" [(ngModel)]="coordenador.data_nascimento" class="form-control"
+                     id="data_nascimento"
+                     name="data_nascimento" placeholder="" type="date">
+              <div *ngIf="data_nascimento.invalid && (data_nascimento.dirty || data_nascimento.touched)"
+                   class="invalid-feedback">
+                A data_nascimento é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Third row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="endereco">Endereço</label>
+              <input #endereco="ngModel" [(ngModel)]="coordenador.endereco" class="form-control" id="endereco"
+                     name="endereco" placeholder="Endereço" type="text">
+              <div *ngIf="endereco.invalid && (endereco.dirty || endereco.touched)" class="invalid-feedback">
+                O endereço é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nacionalidade">Nacionalidade</label>
+              <input #nacionalidade="ngModel" [(ngModel)]="coordenador.nacionalidade" class="form-control"
+                     id="nacionalidade"
+                     name="nacionalidade" placeholder="Nacionalidade" type="text">
+              <div *ngIf="nacionalidade.invalid && (nacionalidade.dirty || nacionalidade.touched)"
+                   class="invalid-feedback">
+                A nacionalidade é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Fourth row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nuit">Nuit</label>
+              <input #nuit="ngModel" [(ngModel)]="coordenador.nuit" class="form-control" id="nuit" name="nuit"
+                     placeholder="Nuit" type="number">
+              <div *ngIf="nuit.invalid && (nuit.dirty || nuit.touched)" class="invalid-feedback">
+                O nuit é obrigatório.
+              </div>
+              <!--              To catch errors from the server and show in the console-->
+              <div *ngIf="serverErrors.nuit" class="invalid-feedback">
+                {{ serverErrors.nuit[0] }}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nivel_academico">Nivel academico</label>
+              <select #nivel_academico="ngModel" [(ngModel)]="coordenador.nivel_academico" class="form-control"
+                      id="nivel_academico"
+                      name="nivel_academico" type="text">
+                <option *ngFor="let option of  nivelAcademicoOptions" [value]="option">{{ option }}</option>
+              </select>
+              <div *ngIf="nivel_academico.invalid && (nivel_academico.dirty || nivel_academico.touched)"
+                   class="invalid-feedback">
+                O nivel academico é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Fifth row-->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="sexo">Genero</label>
+              <select #sexo="ngModel" [(ngModel)]="coordenador.sexo" class="form-control" id="sexo" name="sexo"
+                      type="text">
+                <option *ngFor="let option of sexoOptions" [value]="option">{{ option }}</option>
+              </select>
+              <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="invalid-feedback">
+                O sexo é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="unidade_organica">Unidade Orgânica *</label>
+            <select
+              #unidade_organica="ngModel"
+              [(ngModel)]="coordenador.unidade_organica"
+              class="form-control"
+              id="unidade_organica"
+              name="unidade_organica"
+              required="true"
+            >
+              <option *ngFor="let unidade of unidadeOrganicas" [value]="unidade.id">{{ unidade.nome }}</option>
+            </select>
+            <div *ngIf="unidade_organica.invalid && (unidade_organica.dirty || unidade_organica.touched)"
+                 class="invalid-feedback">
+              A Unidade Orgânica é obrigatória.
+            </div>
+          </div>
+        </div>
+        <!--Button -->
+        <div class="row">
+          <div class="col-md-6">
+            <button (click)="saveCoordenador()" [disabled]="coordenadorForm.invalid" class="btn btn-success"
+                    type="button">
               <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
             </button>
           </div>

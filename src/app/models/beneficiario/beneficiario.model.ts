@@ -1,4 +1,6 @@
 import {UnidadeOrganica} from "../unidadeOrganica/unidadeOrganica";
+import {NivelAcademicoEnum} from "../enums/nivelAcademico.enum";
+import {SexoEnum} from "../enums/sexo.enum";
 
 export class Beneficiario {
   id: number;
@@ -9,19 +11,10 @@ export class Beneficiario {
   telefone: string;
   endereco: string;
   nuit: string;
-  nivelAcademico: NivelAcademico;
-  sexo: Sexo;
+  nivelAcademico: NivelAcademicoEnum;
+  sexo: SexoEnum;
   unidadeOrganica: UnidadeOrganica;
 
 }
 
-export enum Sexo {
-  MASCULINO = 'MASCULINO',
-  FEMENINO = 'FEMENINO'
-}
 
-export enum NivelAcademico {
-  LICENCIATURA = 'LICENCIATURA',
-  MESTRADO = 'MESTRADO',
-  DOUTORAMENTO = 'DOUTORAMENTO'
-}

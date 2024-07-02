@@ -78,7 +78,7 @@ import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.f
     PersistFinanciadorComponent,
     FinanciamentoComponent,
     PersistFinanciamentoComponent,
-  ]
+  ],
 })
 
 export class AdminLayoutModule {}
