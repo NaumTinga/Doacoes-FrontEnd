@@ -1,0 +1,150 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row">
+          <!-- Add some content here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt--6">
+    <div class="card mb-4">
+      <div class="card-header"><h3 class="mb-0">{{ isEdit ? 'Editar Conta' : 'Adicionar Nova Rubrica do Estado' }}</h3></div>
+      <div class="card-body">
+        <form #rubricaEstadoForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-control-label" for="descricao">Descrição *</label>
+                <input
+                  class="form-control"
+                  id="descricao"
+                  name="descricao"
+                  required="true"
+                  [(ngModel)]="subProjecto.descricao"
+                  placeholder="Descrição"
+                  type="text"
+                  #descricao="ngModel"
+                >
+                <div *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)" class="invalid-feedback">
+                  A Descrição é obrigatório.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="projecto">Projecto *</label>
+                  <select
+                    class="form-control"
+                    id="projecto"
+                    name="projecto"
+                    required="true"
+                    [(ngModel)]="subProjecto.projecto"
+                    placeholder="projecto"
+                    type="text"
+                    #projecto="ngModel"
+                    required="true">
+                    <!-- <option *ngFor="let moeda of moedas" [value]="moeda.id">{{ moeda.designacao }}</option>      --> 
+
+                            <option *ngFor="let projecto of projectos" [value]="projecto.id">{{projecto.nome}}</option> 
+                    
+                  </select>
+                  <div *ngIf="projecto.invalid && (projecto.dirty || projecto.touched)" class="invalid-feedback">
+                    O projecto é obrigatório.
+                  </div>
+                </div>
+              </div>
+
+
+              
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-control-label" for="beneficiario">Beneficiário *</label>
+                <select
+                  class="form-control"
+                  id="beneficiario"
+                  name="beneficiario"
+                  required="true"
+                  [(ngModel)]="subProjecto.beneficiario"
+                  placeholder="Beneficiario"
+                  type="text"
+                  #projecto="ngModel"
+                  required="true">
+
+                          <option *ngFor="let beneficiario of beneficiarios" [value]="beneficiario.id">{{beneficiario.nome}}</option> 
+                  
+                </select>
+                <div *ngIf="projecto.invalid && (projecto.dirty || projecto.touched)" class="invalid-feedback">
+                  O projecto é obrigatório.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-control-label" for="valor">Valor *</label>
+              <input
+                class="form-control"
+                id="valor"
+                name="valor"
+                required
+                [(ngModel)]="subProjecto.valor"
+                #valor="ngModel"
+              />
+                
+              
+              <div *ngIf="valor.invalid && (valor.dirty || valor.touched)" class="invalid-feedback">
+                O Valor é obrigatório.
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-control-label" for="data_inicio">Data de início *</label>
+                <input
+                  class="form-control"
+                  id="data_inicio"
+                  name="data_inicio"
+                  required="true"
+                  [(ngModel)]="subProjecto.dataInicio"
+                  placeholder="Data de início"
+                  type="date"
+                  #data_inicio="ngModel"
+                >
+                <div *ngIf="data_inicio.invalid && (data_inicio.dirty || data_inicio.touched)" class="invalid-feedback">
+                  A data de inicio é obrigatória
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="data_fim">Data de Fim *</label>
+                  <input
+                    class="form-control"
+                    id="data_fim"
+                    name="data_fim"
+                    required="true"
+                    [(ngModel)]="subProjecto.dataFim"
+                    placeholder="Data de Fim"
+                    type="date"
+                    #data_fim="ngModel"
+                  >
+                  <div *ngIf="data_fim.invalid && (data_fim.dirty || data_fim.touched)" class="invalid-feedback">
+                    A data de Fim é obrigatória
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-success" [disabled]="rubricaEstadoForm.invalid" (click)="saveSubProjecto()">
+                <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
