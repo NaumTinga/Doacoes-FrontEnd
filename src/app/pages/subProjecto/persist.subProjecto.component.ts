@@ -2,7 +2,7 @@ import { Component,OnInit } from "@angular/core";
 import { SubProjecto } from "src/app/models/subProjecto/subProjecto";
 import { SubProjectoService } from "src/app/services/subProjecto/subProjecto.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import { projecto } from "src/app/models/projecto/projecto.model";
+import { Projecto } from "src/app/models/projecto/projecto.model";
 import { ProjectoService } from "src/app/services/projecto/projecto.service";
 import { Beneficiario } from "src/app/models/beneficiario/beneficiario.model";
 import { Actividade } from "src/app/models/actividade/actividade.model";
@@ -18,7 +18,7 @@ export class PersistSubProjectoComponent implements OnInit {
     isEdit = false;
     
     beneficiarios: Beneficiario[];
-    projectos: projecto[];
+    projectos: Projecto[];
     constructor(private subProjectoService: SubProjectoService,
         private router: Router,
         private projectoService: ProjectoService,
