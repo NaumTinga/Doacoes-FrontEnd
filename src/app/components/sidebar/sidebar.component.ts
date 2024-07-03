@@ -27,6 +27,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/rubricaEstado', title: 'Rubrica do Estado',  icon:'ni-world-2 text-green', class: '' },
     { path: '/financiamento', title: 'Financiamento',  icon:'ni-world-2 text-green', class: '' },
     {path: '/subProjecto', title: 'SubProjecto', icon: 'ni-tag text-blue', class: ''},
+    {path: '/parametros', title: 'Parâmetros',icon:'ni-settings text-green', class: '' }
   ];
 
 @Component({

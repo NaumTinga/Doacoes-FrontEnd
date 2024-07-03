@@ -29,10 +29,8 @@ import {PersistFinanciadorComponent} from "../../pages/financiador/persist.finan
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
 import { subProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
-import { PersistSubProjectoComponent
-
- } from 'src/app/pages/subProjecto/persist.subProjecto.component';
-
+import { PersistSubProjectoComponent} from 'src/app/pages/subProjecto/persist.subProjecto.component';
+import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -98,6 +96,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
  // SubProjecto Routes
  {path: 'subProjecto', component: subProjectoComponent},
- {path: 'persist-subProjecto', component: PersistSubProjectoComponent}
+ {path: 'persist-subProjecto', component: PersistSubProjectoComponent},
 
+
+ //Parametros Routes
+ {path: 'parametros', component: ParametrosComponent},
 ];
