@@ -39,6 +39,7 @@ import {ProjectoComponent} from "../../pages/projecto/projecto.component";
 import {PersistProjectoComponent} from "../../pages/projecto/persist.projecto.component";
 import {ShowBeneficiarioComponent} from "../../pages/beneficiario/show.beneficiario.component";
 import {MatTabsModule} from "@angular/material/tabs";
+import {ShowFinanciadorComponent} from "../../pages/financiador/show.financiador.component";
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -86,6 +87,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     ProjectoComponent,
     PersistProjectoComponent,
     ShowBeneficiarioComponent,
+    ShowFinanciadorComponent
   ],
 })
 

@@ -51,6 +51,7 @@ export class ShowBeneficiarioComponent implements OnInit{
     this.beneficiarioService.getBeneficiarioById(id).subscribe(
       (data: Beneficiario) => {
         this.beneficiario = data;
+        console.log(this.beneficiario);
       },
       error => {
         console.error('Error fetching beneficiario data', error);

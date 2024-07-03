@@ -21,25 +21,24 @@
         <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
           <i class="fas fa-home mr-2"></i>Home
         </button>
-        <button type="button" class="btn btn-success" [routerLink]="['/beneficiario']">
-          <i class="fas fa-list mr-2"></i>Lista de Beneficiarios
+        <button type="button" class="btn btn-success" [routerLink]="['/financiador']">
+          <i class="fas fa-list mr-2"></i>Lista de Financiadores
         </button>
-        <button type="button" class="btn btn-info" [routerLink]="['/edit-beneficiario', beneficiario.id]">
-          <i class="fas fa-edit"></i> Editar
+        <button type="button" class="btn btn-info" [routerLink]="['/edit-financiador', financiador.id]">
+          <i class="fas fa-edit"></i> Editar Financiador
         </button>
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-sm">
-            <div>Descrição: <strong>{{ beneficiario.nome }}</strong></div>
-            <div>Unidade Orgânica: <strong>{{beneficiario.unidade_organica?.nome}}</strong></div>
+            <div>Nome: <strong>{{ financiador.nome }}</strong></div>
+            <div>Email: <strong>{{financiador.email}}</strong></div>
+            <div>Telefone: <strong>{{financiador.telefone}}</strong></div>
           </div>
           <div class="col-sm">
-            <div>Email: <strong>{{beneficiario.email}}</strong> </div>
+            <div>País: <strong>{{financiador.pais?.nome}}</strong> </div>
+            <div>Endereço: <strong>{{financiador.endereco}}</strong> </div>
           </div>
-<!--          <div class="col-sm">-->
-<!--            <div><strong>Descrição:</strong> Naum Armindo Tinga</div>-->
-<!--          </div>-->
         </div>
       </div>
     </div>
@@ -65,22 +64,11 @@
               <div class="p-3">
                 <div class="row">
                   <div class="col-sm">
-                    <div>Descrição: <strong>{{ beneficiario.nome }}</strong></div>
-                    <div>Data de Nascimento: <strong>{{ beneficiario.dataNascimento }}</strong></div>
-                    <div>Nacionalidade: <strong>{{ beneficiario.nacionalidade }}</strong></div>
-                    <div>Unidade Orgânica: <strong>{{beneficiario.unidade_organica?.nome}}</strong></div>
-                    <div>NUIT: <strong>{{beneficiario.nuit}}</strong></div>
+                    <div>Nome: <strong>{{ financiador.nome }}</strong></div>
+                    <div>País: <strong>{{ financiador.pais?.nome }}</strong></div>
+                    <div>Email: <strong>{{ financiador.email }}</strong></div>
+                    <div>Endereço: <strong>{{financiador.endereco}}</strong></div>
                   </div>
-                  <div class="col-sm">
-                    <div>Email: <strong>{{beneficiario.email}}</strong> </div>
-                    <div>Genêro: <strong>{{beneficiario.sexo}}</strong> </div>
-                    <div>Nivel Academico: <strong>{{beneficiario.nivelAcademico}}</strong> </div>
-                    <div>Telefone: <strong>{{beneficiario.telefone}}</strong> </div>
-                    <div>Endereço: <strong>{{beneficiario.endereco}}</strong> </div>
-                  </div>
-                  <!--          <div class="col-sm">-->
-                  <!--            <div><strong>Descrição:</strong> Naum Armindo Tinga</div>-->
-                  <!--          </div>-->
                 </div>
               </div>
             </mat-tab>
@@ -116,45 +104,43 @@
               </div>
             </mat-tab>
 
-            <!-- Subprojecto Tab -->
-            <mat-tab label="Subprojecto">
+            <!-- Financiamento Tab -->
+            <mat-tab label="Financiamento">
               <ng-template mat-tab-label>
-                <i class="fas fa-project-diagram mr-2"></i> Subprojecto
+                <i class="fas fa-project-diagram mr-2"></i> Financiamentos
               </ng-template>
               <div class="p-3">
-                <h4>Subprojetos Associados</h4>
-                <ul>
-                  <li>Subprojeto 1</li>
-                  <li>Subprojeto 2</li>
-                </ul>
-              </div>
-            </mat-tab>
-
-            <!-- Requisição Tab -->
-            <mat-tab label="Requisição">
-              <ng-template mat-tab-label>
-                <i class="fas fa-file-alt mr-2"></i> Requisição
-              </ng-template>
-              <div class="p-3">
-                <h4>Requisições Realizadas</h4>
-                <ul>
-                  <li>Requisição 1</li>
-                  <li>Requisição 2</li>
-                </ul>
-              </div>
-            </mat-tab>
-
-            <!-- Ordem de Pagamentos Tab -->
-            <mat-tab label="Ordem de Pagamentos">
-              <ng-template mat-tab-label>
-                <i class="fas fa-file-invoice-dollar mr-2"></i> Ordem de Pagamentos
-              </ng-template>
-              <div class="p-3">
-                <h4>Ordens de Pagamento Efetuadas</h4>
-                <ul>
-                  <li>Ordem de Pagamento 1</li>
-                  <li>Ordem de Pagamento 2</li>
-                </ul>
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="col-12">
+                      <hr> <!-- This will add a horizontal line to separate each account -->
+                    </div>
+                    <a [routerLink]="['/persist-financiamento']"> Adicionar Novo Financiamento</a>
+                    <br>
+                    <div class="col-12">
+                      <hr> <!-- This will add a horizontal line to separate each account -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row" *ngFor="let financiamento of financiamentos">
+                  <div class="col-sm" >
+                    <div>Descrição: <strong>{{ financiamento.descricao }}</strong></div>
+                    <div>Valor: <strong>{{ financiamento.valor }}</strong></div>
+                    <div>Moeda: <strong>{{ financiamento.moeda_financiador }}</strong></div>
+                  </div>
+                  <div class="col-sm">
+                    <div>Data Início: <strong>{{financiamento.data_inicio}}</strong> </div>
+                    <div>Data Fim: <strong>{{financiamento.data_fim}}</strong> </div>
+                  </div>
+                  <div class="col-sm">
+                    <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-financiamento', financiamento.id]">
+                      <i class="fas fa-edit"></i> Editar
+                    </button>
+                  </div>
+                  <div class="col-12">
+                    <hr> <!-- This will add a horizontal line to separate each account -->
+                  </div>
+                </div>
               </div>
             </mat-tab>
           </mat-tab-group>

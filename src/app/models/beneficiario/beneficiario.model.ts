@@ -13,7 +13,7 @@ export class Beneficiario {
   nuit: string;
   nivelAcademico: NivelAcademicoEnum;
   sexo: SexoEnum;
-  unidadeOrganica: UnidadeOrganica;
+  unidade_organica: UnidadeOrganica;
 
 }
 
