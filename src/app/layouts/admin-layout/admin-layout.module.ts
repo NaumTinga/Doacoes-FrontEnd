@@ -35,6 +35,10 @@ import {FinanciadorComponent} from "../../pages/financiador/financiador.componen
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
+import {ProjectoComponent} from "../../pages/projecto/projecto.component";
+import {PersistProjectoComponent} from "../../pages/projecto/persist.projecto.component";
+import {ShowBeneficiarioComponent} from "../../pages/beneficiario/show.beneficiario.component";
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -49,6 +53,7 @@ import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.f
     NgbModule,
     ClipboardModule,
     NgbModalModule,
+    MatTabsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -78,6 +83,9 @@ import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.f
     PersistFinanciadorComponent,
     FinanciamentoComponent,
     PersistFinanciamentoComponent,
+    ProjectoComponent,
+    PersistProjectoComponent,
+    ShowBeneficiarioComponent,
   ],
 })
 

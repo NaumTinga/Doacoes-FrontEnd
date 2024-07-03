@@ -9,6 +9,10 @@ import {Moeda} from "../../models/moeda/moeda";
 import Swal from "sweetalert2";
 import {Beneficiario} from "../../models/beneficiario/beneficiario.model";
 import {Actividade} from "../../models/actividade/actividade.model";
+import {Financiador} from "../../models/financiador/financiador";
+import {BeneficiarioService} from "../../services/beneficiario/beneficiario.service";
+import {FinanciadorService} from "../../services/financiador/financiador.service";
+import {ActividadeService} from "../../services/actividade/actividade.service";
 
 @Component({
   selector: "app-persist",
@@ -21,12 +25,17 @@ export class PersistContaComponent implements OnInit{
   bancos: Banco[];
   moedas: Moeda[];
   beneficiarios: Beneficiario[];
+  financiadores: Financiador[];
   actividades: Actividade[];
   isEdit: boolean = false;
+  selectedTipo: string;
 
   constructor(private contaService: ContaService,
               private moedaService: MoedaService,
               private bancoService: BancoService,
+              private beneficiarioService: BeneficiarioService,
+              private financiadorService: FinanciadorService,
+              private actividadeService: ActividadeService,
               private router: Router,
               private route: ActivatedRoute) {}
 
@@ -48,8 +57,27 @@ export class PersistContaComponent implements OnInit{
     this.moedaService.getMoeda().subscribe((data: Moeda[]) => {
       this.moedas = data;
     })
+
+    //Fetches List of Beneficiarios
+    this.beneficiarioService.getBeneficiarios().subscribe((data: Beneficiario[]) => {
+      this.beneficiarios = data;
+    })
+
+    //Fetches List of Financiadore
+    this.financiadorService.getFinanciadores().subscribe((data: Financiador[]) => {
+      this.financiadores = data;
+    })
+
+    //Fetches List of Actividades
+    this.actividadeService.getActividades().subscribe((data: Actividade[]) => {
+      this.actividades = data;
+    })
+
   }
 
+  onTipoChange(tipo: string) {
+    this.selectedTipo = tipo;
+  }
   saveConta(): void {
     if (this.isEdit) {
       this.contaService.updateConta(this.conta).subscribe(() =>{

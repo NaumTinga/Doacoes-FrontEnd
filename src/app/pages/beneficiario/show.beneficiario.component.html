@@ -1,0 +1,112 @@
+<!-- show-beneficiario.component.html -->
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <div>
+          <!-- Button to open the modal -->
+          <!-- <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">
+            <i class="fas fa-plus mr-2"></i>Novo
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header bg-transparent">
+        <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+          <i class="fas fa-home mr-2"></i>Home
+        </button>
+        <button type="button" class="btn btn-success" [routerLink]="['/beneficiario']">
+          <i class="fas fa-list mr-2"></i>Lista de Beneficiarios
+        </button>
+      </div>
+      <div class="card-body">
+        <h4>Beneficiarios nome</h4>
+        <!-- Page content -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header bg-transparent">
+        <div class="container">
+          <!-- Tabs -->
+          <mat-tab-group>
+            <!-- Detalhes Tab -->
+            <mat-tab label="Detalhes">
+              <ng-template mat-tab-label>
+                <i class="fas fa-info-circle mr-2"></i> Detalhes
+              </ng-template>
+              <div class="p-3">
+                <h4>Informações do Beneficiário</h4>
+              </div>
+            </mat-tab>
+
+            <!-- Conta Tab -->
+            <mat-tab label="Conta">
+              <ng-template mat-tab-label>
+                <i class="fas fa-university mr-2"></i> Conta
+              </ng-template>
+              <div class="p-3">
+                <h4>Informações da Conta</h4>
+              </div>
+            </mat-tab>
+
+            <!-- Subprojecto Tab -->
+            <mat-tab label="Subprojecto">
+              <ng-template mat-tab-label>
+                <i class="fas fa-project-diagram mr-2"></i> Subprojecto
+              </ng-template>
+              <div class="p-3">
+                <h4>Subprojetos Associados</h4>
+                <ul>
+                  <li>Subprojeto 1</li>
+                  <li>Subprojeto 2</li>
+                </ul>
+              </div>
+            </mat-tab>
+
+            <!-- Requisição Tab -->
+            <mat-tab label="Requisição">
+              <ng-template mat-tab-label>
+                <i class="fas fa-file-alt mr-2"></i> Requisição
+              </ng-template>
+              <div class="p-3">
+                <h4>Requisições Realizadas</h4>
+                <ul>
+                  <li>Requisição 1</li>
+                  <li>Requisição 2</li>
+                </ul>
+              </div>
+            </mat-tab>
+
+            <!-- Ordem de Pagamentos Tab -->
+            <mat-tab label="Ordem de Pagamentos">
+              <ng-template mat-tab-label>
+                <i class="fas fa-file-invoice-dollar mr-2"></i> Ordem de Pagamentos
+              </ng-template>
+              <div class="p-3">
+                <h4>Ordens de Pagamento Efetuadas</h4>
+                <ul>
+                  <li>Ordem de Pagamento 1</li>
+                  <li>Ordem de Pagamento 2</li>
+                </ul>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Page content -->
+      </div>
+    </div>
+  </div>
+</div>

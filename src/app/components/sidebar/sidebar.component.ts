@@ -26,6 +26,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/unidadeOrganica', title: 'Unidade Orgânica',  icon:'ni-building text-yellow', class: '' },
     { path: '/rubricaEstado', title: 'Rubrica do Estado',  icon:'ni-collection text-red', class: '' },
     { path: '/financiamento', title: 'Financiamento',  icon:'ni-money-coins text-green', class: '' },
+    { path: '/projecto', title: 'Projecto',  icon:'ni-money-coins text-green', class: '' },
 ];
 
 @Component({

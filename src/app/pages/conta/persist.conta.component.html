@@ -15,6 +15,76 @@
       <form #contaForm="ngForm">
         <div class="row">
           <div class="col-md-6">
+            <label class="form-control-label" for="tipo">Tipo *</label>
+            <select
+              class="form-control"
+              id="tipo"
+              name="tipo"
+              required="true"
+              (change)="onTipoChange($event.target.value)"
+
+            >
+              <option value="">Selecione o Tipo</option>
+              <option value="Financiador">Financiador</option>
+              <option value="Beneficiario">Beneficiario</option>
+              <option value="Actividade">Actividade</option>
+            </select>
+
+          </div>
+
+          <div class="col-md-6" *ngIf="selectedTipo === 'Financiador'">
+            <label class="form-control-label" for="financiador">Financiador *</label>
+            <select
+              class="form-control"
+              id="financiador"
+              name="financiador"
+              required="true"
+              [(ngModel)]="conta.financiador"
+              #financiador="ngModel"
+            >
+              <option *ngFor="let financiador of financiadores" [value]="financiador.id">{{ financiador.nome }}</option>
+            </select>
+            <div *ngIf="financiador.invalid && (financiador.dirty || financiador.touched)" class="invalid-feedback">
+              O financiador é obrigatório.
+            </div>
+          </div>
+
+          <div class="col-md-6" *ngIf="selectedTipo === 'Beneficiario'">
+            <label class="form-control-label" for="beneficiario">Beneficiario *</label>
+            <select
+              class="form-control"
+              id="beneficiario"
+              name="beneficiario"
+              required="true"
+              [(ngModel)]="conta.beneficiario"
+              #beneficiario="ngModel"
+            >
+              <option *ngFor="let beneficiario of beneficiarios" [value]="beneficiario.id">{{ beneficiario.nome }}</option>
+            </select>
+            <div *ngIf="beneficiario.invalid && (beneficiario.dirty || beneficiario.touched)" class="invalid-feedback">
+              O beneficiario é obrigatório.
+            </div>
+          </div>
+
+<!--          <div class="col-md-6" *ngIf="selectedTipo === 'Actividade'">-->
+<!--            <label class="form-control-label" for="actividade">Actividade *</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="actividade"-->
+<!--              name="actividade"-->
+<!--              required="true"-->
+<!--              [(ngModel)]="conta.actividade"-->
+<!--              #actividade="ngModel"-->
+<!--            >-->
+<!--              <option *ngFor="let actividade of actividades" [value]="actividade.id">{{ actividade.nome }}</option>-->
+<!--            </select>-->
+<!--            <div *ngIf="actividade.invalid && (actividade.dirty || actividade.touched)" class="invalid-feedback">-->
+<!--              A actividade é obrigatória.-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
+        <div class="row">
+          <div class="col-md-6">
             <div class="form-group">
               <label class="form-control-label" for="designacao">Designação *</label>
               <input

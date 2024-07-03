@@ -1,4 +1,4 @@
-<!-- actividade.component.html -->
+<!-- projecto.component.html -->
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
 
@@ -20,8 +20,9 @@
           <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
             <i class="fas fa-home mr-2"></i>Home
           </button>
-          <button type="button" class="btn btn-success" [routerLink]="['/persist-actividade']">
-            <i class="fas fa-plus mr-2"></i>Nova
+          &nbsp;
+          <button type="button" class="btn btn-success" [routerLink]="['/persist-projecto']">
+            <i class="fas fa-plus mr-2"></i>Novo
           </button>
         </div>
         <div class="card-body">
@@ -29,20 +30,26 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
               <tr>
-                <th scope="col">Nome</th>
-
+                <th scope="col">Financiamento</th>
+                <th scope="col">Projecto</th>
+                <th scope="col">Coordenador</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Data Início</th>
+                <th scope="col">Data Fim</th>
                 <th scope="col">Acção</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let actividade of actividades">
-                <th scope="row">{{actividade.descricao}}</th>
+              <tr *ngFor="let projecto of projectos">
+                <th scope="row">{{projecto.financiamento?.descricao}}</th>
+                <th scope="row">{{projecto.nome}}</th>
+                <th scope="row">{{ projecto.coordenador?.nome}}</th>
+                <th scope="row">{{projecto.valor | number:'1.2-2'}} | {{financiamento?.moeda_financiador?.designacao}}</th>
+                <th scope="row">{{projecto.data_inicio}}</th>
+                <th scope="row">{{projecto.data_fim}}</th>
                 <td>
-                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-actividade', actividade.id]">
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-projecto', projecto.id]">
                     <i class="fas fa-edit"></i> Editar
-                  </button>
-                  <button type="button" class="btn btn-warning btn-sm mr-2" (click)="openViewModal(actividade)">
-                    <i class="fas fa-eye"></i> View
                   </button>
                 </td>
               </tr>
@@ -54,5 +61,4 @@
     </div>
   </div>
 </div>
-
 

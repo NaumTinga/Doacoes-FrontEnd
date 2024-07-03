@@ -5,8 +5,8 @@ export class Projecto{
     id: any;
     nome: any;
     valor: any;
-    dataInicio: Date;
-    dataFim: Date;
+    data_inicio: Date;
+    data_fim: Date;
     coordenador: Coordenador;
     financiamento: Financiamento;
 

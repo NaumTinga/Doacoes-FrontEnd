@@ -28,6 +28,9 @@ import {FinanciadorComponent} from "../../pages/financiador/financiador.componen
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
+import {ProjectoComponent} from "../../pages/projecto/projecto.component";
+import {PersistProjectoComponent} from "../../pages/projecto/persist.projecto.component";
+import {ShowBeneficiarioComponent} from "../../pages/beneficiario/show.beneficiario.component";
 
 
 
@@ -67,6 +70,7 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'beneficiario', component: BeneficiarioComponent},
     {path: 'persist-beneficiario', component: PersistBeneficiarioComponent},
     {path: 'edit-beneficiario/:id', component: PersistBeneficiarioComponent},
+    {path: 'view-beneficiario/:id', component: ShowBeneficiarioComponent},
 
   // Uidade Organica Routes
     { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent },
@@ -92,6 +96,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'financiamento',           component: FinanciamentoComponent },
     { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
     { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
+
+  // Projecto Routes
+    { path: 'projecto',           component: ProjectoComponent },
+    { path: 'persist-projecto',           component: PersistProjectoComponent },
+    { path: 'edit-projecto/:id',           component: PersistProjectoComponent },
 
 
 ];
