@@ -3,35 +3,42 @@ import {environment} from "../../../environments/environment";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Beneficiario} from "../../models/beneficiario/beneficiario.model";
 import {catchError, Observable, throwError} from "rxjs";
+import {Conta} from "../../models/conta/conta";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class BeneficiarioService {
-    private apiUrl = environment.apiUrl + 'api/beneficiario'; // Assuming your endpoint is something like /api/actividades
-    constructor (private http: HttpClient) {}
+  private apiUrl = environment.apiUrl + 'api/beneficiario'; // Assuming your endpoint is something like /api/actividades
+  constructor(private http: HttpClient) {
+  }
 
   getBeneficiarios(): Observable<Beneficiario[]> {
-      return this.http.get<Beneficiario[]>(this.apiUrl);
+    return this.http.get<Beneficiario[]>(this.apiUrl);
   }
-    getBeneficiarioById(id: number): Observable<Beneficiario> {
-        return this.http.get<Beneficiario>(`${this.apiUrl}/${id}`);
-    }
 
-    createBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
-        return this.http.post<Beneficiario>(`${this.apiUrl}/`, beneficiario)
-          .pipe(catchError(this.handleError)); // to catch and view errors from the server in the browser console
-    }
+  getBeneficiarioById(id: number): Observable<Beneficiario> {
+    return this.http.get<Beneficiario>(`${this.apiUrl}/${id}`);
+  }
 
-    updateBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
-        return this.http.put<Beneficiario>(`${this.apiUrl}/${beneficiario.id}/`, beneficiario)
-          .pipe(catchError(this.handleError)); // to catch and view errors from the server in the browser console
+  createBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
+    return this.http.post<Beneficiario>(`${this.apiUrl}/`, beneficiario)
+      .pipe(catchError(this.handleError)); // to catch and view errors from the server in the browser console
+  }
 
-    }
+  updateBeneficiario(beneficiario: Beneficiario): Observable<Beneficiario> {
+    return this.http.put<Beneficiario>(`${this.apiUrl}/${beneficiario.id}/`, beneficiario)
+      .pipe(catchError(this.handleError)); // to catch and view errors from the server in the browser console
 
-    deleteBeneficiario(id: number): Observable<void> {
-        return this.http.delete<void>(`${this.apiUrl}/${id}`);
-    }
+  }
+
+  getBeneficiarioContas(id: number): Observable<Conta[]> {
+    return this.http.get<Conta[]>(`${this.apiUrl}/${id}/contas/`);
+  }
+
+  deleteBeneficiario(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 
   // The handleError method
   private handleError(error: HttpErrorResponse): Observable<any> {
