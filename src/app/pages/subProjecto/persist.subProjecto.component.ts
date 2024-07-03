@@ -21,8 +21,9 @@ export class PersistSubProjectoComponent implements OnInit {
     projectos: Projecto[];
     constructor(private subProjectoService: SubProjectoService,
         private router: Router,
-        private projectoService: ProjectoService,
+
         private beneficiarioService: BeneficiarioService,
+        private projectoService: ProjectoService,
         private route: ActivatedRoute, ){
     
     }
@@ -40,7 +41,9 @@ export class PersistSubProjectoComponent implements OnInit {
             this.beneficiarios = data;
         })
         // Fetch list of Projectos
-        this.projectoService.getProjectos()
+        this.projectoService.getProjectos().subscribe((data:Projecto[])=>{
+            this.projectos = data;
+        })
         }
 
         

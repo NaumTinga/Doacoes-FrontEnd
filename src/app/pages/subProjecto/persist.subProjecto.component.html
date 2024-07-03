@@ -10,7 +10,7 @@
 
   <div class="container-fluid mt--6">
     <div class="card mb-4">
-      <div class="card-header"><h3 class="mb-0">{{ isEdit ? 'Editar Conta' : 'Adicionar Nova Rubrica do Estado' }}</h3></div>
+      <div class="card-header"><h3 class="mb-0">{{ isEdit ? 'Editar Sub projecto' : 'Adicionar Novo Sub Projecto' }}</h3></div>
       <div class="card-body">
         <form #rubricaEstadoForm="ngForm">
           <div class="row">
@@ -46,7 +46,7 @@
                     type="text"
                     #projecto="ngModel"
                     required="true">
-                    <!-- <option *ngFor="let moeda of moedas" [value]="moeda.id">{{ moeda.designacao }}</option>      --> 
+
 
                             <option *ngFor="let projecto of projectos" [value]="projecto.id">{{projecto.nome}}</option> 
                     
@@ -70,7 +70,7 @@
                   [(ngModel)]="subProjecto.beneficiario"
                   placeholder="Beneficiario"
                   type="text"
-                  #projecto="ngModel"
+                  #beneficiario="ngModel"
                   required="true">
 
                           <option *ngFor="let beneficiario of beneficiarios" [value]="beneficiario.id">{{beneficiario.nome}}</option> 
