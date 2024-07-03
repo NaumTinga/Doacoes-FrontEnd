@@ -43,9 +43,8 @@
                     required="true"
                     [(ngModel)]="subProjecto.projecto"
                     placeholder="projecto"
-                    type="text"
                     #projecto="ngModel"
-                    required="true">
+                   >
 
 
                             <option *ngFor="let projecto of projectos" [value]="projecto.id">{{projecto.nome}}</option> 
@@ -69,9 +68,9 @@
                   required="true"
                   [(ngModel)]="subProjecto.beneficiario"
                   placeholder="Beneficiario"
-                  type="text"
+              
                   #beneficiario="ngModel"
-                  required="true">
+                >
 
                           <option *ngFor="let beneficiario of beneficiarios" [value]="beneficiario.id">{{beneficiario.nome}}</option> 
                   
@@ -89,6 +88,7 @@
                 name="valor"
                 required
                 [(ngModel)]="subProjecto.valor"
+                type="number"
                 #valor="ngModel"
               />
                 

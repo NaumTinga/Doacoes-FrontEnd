@@ -1,12 +1,16 @@
+import { Actividade } from "../actividade/actividade.model";
+import { Beneficiario } from "../beneficiario/beneficiario.model";
+import { Projecto } from "../projecto/projecto.model";
+
 export class SubProjecto {
     id: any;
   
     descricao: any;
     valor: any;
-    dataInicio: any;
-    dataFim: any;
-    projecto: any;
-    actividade: any;
-    beneficiario: any;
+    dataInicio: Date;
+    dataFim: Date;
+    projecto: Projecto;
+    actividade: Actividade;
+    beneficiario: Beneficiario;
     
   }
