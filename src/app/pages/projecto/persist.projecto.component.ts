@@ -69,7 +69,7 @@ export class PersistProjectoComponent implements OnInit {
 
   compareFinanciamentoAndProjecto(): boolean {
     if (this.selectedFinanciamento) {
-      if (this.projecto.valor >= this.selectedFinanciamento.valor) {
+      if (this.projecto.valor > this.selectedFinanciamento.valor) {
         Swal.fire({
           title: 'Aviso',
           text: 'O valor do projecto não pode ser maior que o valor do financiamento!',

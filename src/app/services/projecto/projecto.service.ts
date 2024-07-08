@@ -3,6 +3,7 @@ import {catchError, Observable, throwError} from "rxjs";
 import { Injectable } from "@angular/core";
 import {environment} from "../../../environments/environment";
 import {Projecto} from "../../models/projecto/projecto";
+import {RubricaProjecto} from "../../models/rubricaProjecto/rubricaProjecto";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class ProjectoService {
 
   getProjectoById(id: number): Observable<Projecto> {
     return this.http.get<Projecto>(`${this.apiUrl}/${id}`);
+  }
+
+  getRubricasProjecto(id: number): Observable<RubricaProjecto[]> {
+    return this.http.get<RubricaProjecto[]>(`${this.apiUrl}/${id}/rubricas_projecto/`);
   }
 
   saveProjecto(projecto: Projecto): Observable<Projecto> {

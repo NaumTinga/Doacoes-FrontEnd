@@ -18,13 +18,13 @@
   <div class="col">
     <div class="card shadow">
       <div class="card-header bg-transparent">
-        <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+        <button [routerLink]="['/dashboard']" class="btn btn-success" type="button">
           <i class="fas fa-home mr-2"></i>Home
         </button>
-        <button type="button" class="btn btn-success" [routerLink]="['/financiador']">
+        <button [routerLink]="['/financiador']" class="btn btn-success" type="button">
           <i class="fas fa-list mr-2"></i>Lista de Financiadores
         </button>
-        <button type="button" class="btn btn-info" [routerLink]="['/edit-financiador', financiador.id]">
+        <button [routerLink]="['/edit-financiador', financiador.id]" class="btn btn-info" type="button">
           <i class="fas fa-edit"></i> Editar Financiador
         </button>
       </div>
@@ -32,12 +32,12 @@
         <div class="row">
           <div class="col-sm">
             <div>Nome: <strong>{{ financiador.nome }}</strong></div>
-            <div>Email: <strong>{{financiador.email}}</strong></div>
-            <div>Telefone: <strong>{{financiador.telefone}}</strong></div>
+            <div>Email: <strong>{{ financiador.email }}</strong></div>
+            <div>Telefone: <strong>{{ financiador.telefone }}</strong></div>
           </div>
           <div class="col-sm">
-            <div>País: <strong>{{financiador.pais?.nome}}</strong> </div>
-            <div>Endereço: <strong>{{financiador.endereco}}</strong> </div>
+            <div>País: <strong>{{ financiador.pais?.nome }}</strong></div>
+            <div>Endereço: <strong>{{ financiador.endereco }}</strong></div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
                     <div>Nome: <strong>{{ financiador.nome }}</strong></div>
                     <div>País: <strong>{{ financiador.pais?.nome }}</strong></div>
                     <div>Email: <strong>{{ financiador.email }}</strong></div>
-                    <div>Endereço: <strong>{{financiador.endereco}}</strong></div>
+                    <div>Endereço: <strong>{{ financiador.endereco }}</strong></div>
                   </div>
                 </div>
               </div>
@@ -79,21 +79,21 @@
                 <i class="fas fa-university mr-2"></i> Conta
               </ng-template>
               <div class="p-3">
-                <div class="row" *ngFor="let conta of contas">
-                  <div class="col-sm" >
+                <div *ngFor="let conta of contas" class="row">
+                  <div class="col-sm">
                     <div>Designação: <strong>{{ conta.designacao }}</strong></div>
                     <div>Número de Conta: <strong>{{ conta.nr_conta }}</strong></div>
                     <div>NIB: <strong>{{ conta.nib }}</strong></div>
                     <div>Moeda: <strong>{{ conta.moeda?.sigla }}</strong></div>
                   </div>
                   <div class="col-sm">
-                    <div>Banco: <strong>{{conta.banco?.nome}}</strong> </div>
-                    <div>Balcão: <strong>{{conta.balcao}}</strong> </div>
-                    <div>IBAN: <strong>{{conta.iban}}</strong> </div>
-                    <div>SWIFT: <strong>{{conta.swift}}</strong> </div>
+                    <div>Banco: <strong>{{ conta.banco?.nome }}</strong></div>
+                    <div>Balcão: <strong>{{ conta.balcao }}</strong></div>
+                    <div>IBAN: <strong>{{ conta.iban }}</strong></div>
+                    <div>SWIFT: <strong>{{ conta.swift }}</strong></div>
                   </div>
                   <div class="col-sm">
-                    <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-conta', conta.id]">
+                    <button [routerLink]="['/edit-conta', conta.id]" class="btn btn-info btn-sm mr-2" type="button">
                       <i class="fas fa-edit"></i> Editar
                     </button>
                   </div>
@@ -122,18 +122,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="row" *ngFor="let financiamento of financiamentos">
-                  <div class="col-sm" >
+                <div *ngFor="let financiamento of financiamentos" class="row">
+                  <div class="col-sm">
                     <div>Descrição: <strong>{{ financiamento.descricao }}</strong></div>
                     <div>Valor: <strong>{{ financiamento.valor }}</strong></div>
                     <div>Moeda: <strong>{{ financiamento.moeda_financiador }}</strong></div>
                   </div>
                   <div class="col-sm">
-                    <div>Data Início: <strong>{{financiamento.data_inicio}}</strong> </div>
-                    <div>Data Fim: <strong>{{financiamento.data_fim}}</strong> </div>
+                    <div>Data Início: <strong>{{ financiamento.data_inicio }}</strong></div>
+                    <div>Data Fim: <strong>{{ financiamento.data_fim }}</strong></div>
                   </div>
                   <div class="col-sm">
-                    <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-financiamento', financiamento.id]">
+                    <button [routerLink]="['/edit-financiamento', financiamento.id]" class="btn btn-info btn-sm mr-2"
+                            type="button">
                       <i class="fas fa-edit"></i> Editar
                     </button>
                   </div>
@@ -143,11 +144,65 @@
                 </div>
               </div>
             </mat-tab>
+
+            <mat-tab label="Financiamentosss">
+              <ng-template mat-tab-label>
+                <i class="fas fa-project-diagram mr-2"></i> Financiamentosssss
+              </ng-template>
+              <div class="p-3">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="col-12">
+                      <hr> <!-- This will add a horizontal line to separate each account -->
+                    </div>
+                    <a [routerLink]="['/persist-financiamento']"> Adicionar Novo Financiamento</a>
+                    <br>
+                    <div class="col-12">
+                      <hr> <!-- This will add a horizontal line to separate each account -->
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Moeda</th>
+                        <th scope="col">Data Início</th>
+                        <th scope="col">Data Fim</th>
+                        <th scope="col">Acção</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let financiamento of financiamentos">
+                        <th scope="row">{{ financiamento.descricao }}</th>
+                        <th scope="row">{{ financiamento.valor }}</th>
+                        <th scope="row">{{ financiamento.moeda_financiador?.sigla }}</th>
+                        <th scope="row">{{ financiamento.data_inicio }}</th>
+                        <th scope="row">{{ financiamento.data_fim }}</th>
+                        <td>
+                          <button [routerLink]="['/edit-financiador', financiador.id]" class="btn btn-info btn-sm mr-2"
+                                  type="button">
+                            <i class="fas fa-edit"></i> Editar
+                          </button>
+                          <button [routerLink]="['/view-financiador', financiador.id]" class="btn btn-success btn-sm mr-2"
+                                  type="button">
+                            <i class="fas fa-eye"></i> Ver
+                          </button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
           </mat-tab-group>
         </div>
       </div>
       <div class="card-body">
         <!-- Page content -->
+
       </div>
     </div>
   </div>

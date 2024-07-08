@@ -32,6 +32,9 @@ import {ProjectoComponent} from "../../pages/projecto/projecto.component";
 import {PersistProjectoComponent} from "../../pages/projecto/persist.projecto.component";
 import {ShowBeneficiarioComponent} from "../../pages/beneficiario/show.beneficiario.component";
 import {ShowFinanciadorComponent} from "../../pages/financiador/show.financiador.component";
+import {ShowProjectoComponent} from "../../pages/projecto/show.projecto.component";
+import {ShowRubricaProjectoComponent} from "../../pages/projecto/rubricaProjecto/show.rubricaProjecto.component";
+import {SubRubricaComponent} from "../../pages/subRubrica/subRubrica.component";
 
 
 
@@ -103,6 +106,15 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'projecto',           component: ProjectoComponent },
     { path: 'persist-projecto',           component: PersistProjectoComponent },
     { path: 'edit-projecto/:id',           component: PersistProjectoComponent },
+    { path: 'view-projecto/:id',           component: ShowProjectoComponent },
+
+  // Rubrica Projecto Routes
+    { path: 'rubricaProjecto',           component: ShowRubricaProjectoComponent },
+    { path: 'edit-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent },
+    { path: 'view-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent },
+
+  // Sub Rubrica Routes
+    { path: 'view-subRubrica/:id',           component: SubRubricaComponent },
 
 
 ];
