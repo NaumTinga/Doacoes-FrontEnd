@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BeneficiarioService } from "../../services/beneficiario/beneficiario.service";
-import {Beneficiario, NivelAcademico, Sexo} from "../../models/beneficiario/beneficiario.model";
+import {Beneficiario} from "../../models/beneficiario/beneficiario.model";
 import Swal from 'sweetalert2';
 import {UnidadeOrganica} from "../../models/unidadeOrganica/unidadeOrganica";
 import {UnidadeOrganicaService} from "../../services/unidadeOrganica/unidadeOrganica.service";
+import {NivelAcademicoEnum} from "../../models/enums/nivelAcademico.enum";
+import {SexoEnum} from "../../models/enums/sexo.enum";
 
 @Component({
   selector: 'app-persist-beneficiario',
@@ -13,8 +15,8 @@ import {UnidadeOrganicaService} from "../../services/unidadeOrganica/unidadeOrga
 export class PersistBeneficiarioComponent implements OnInit {
   beneficiario: Beneficiario = new Beneficiario();
   unidadeOrganicas: UnidadeOrganica[];
-  sexoOptions = Object.values(Sexo);
-  nivelAcademicoOptions = Object.values(NivelAcademico);
+  sexoOptions = Object.values(SexoEnum);
+  nivelAcademicoOptions = Object.values(NivelAcademicoEnum);
   isEdit: boolean = false;
   serverErrors: any = {}; // to catch and view errors from the server in the browser console
 

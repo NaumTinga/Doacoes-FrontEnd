@@ -1,0 +1,129 @@
+<!-- Updated Template (persist.projecto.component.html) -->
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <h1 class="font-weight-bold" style="text-align: center; color: aliceblue;">Novo Projecto</h1>
+    <div class="header-body">
+      <div class="row">
+        <!-- Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+      <button [routerLink]="['/dashboard']" class="btn btn-success" type="button">
+        <i class="fas fa-home mr-2"></i>Home
+      </button>
+      &nbsp;
+      <button [routerLink]="['/projecto']" class="btn btn-success" type="button">
+        <i class="fas fa-list mr-2"></i>Lista de Projectos
+      </button>
+    </div>
+
+    <!-- Financiamento Information -->
+    <div class="container light-green-bg">
+      <div class="row">
+        <div class="col-sm">
+          <div><strong>Descrição:</strong> {{ selectedFinanciamento?.descricao }}</div>
+          <div><strong>Data Início:</strong> {{ selectedFinanciamento?.data_inicio | date }}</div>
+          <div><strong>Data Fim:</strong> {{ selectedFinanciamento?.data_fim | date }}</div>
+        </div>
+        <div class="col-sm">
+          <div><strong>Financiador:</strong> {{ selectedFinanciamento?.financiador?.nome }}</div>
+          <div><strong>Saldo Inicial:</strong> {{ selectedFinanciamento?.valor | currency:'':'symbol':'1.2-2' }}</div>
+          <div><strong>Saldo Final:</strong> {{ selectedFinanciamento?.valor | currency:'':'symbol':'1.2-2' }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="card-body">
+      <div class="card-header">
+        <h3 class="mb-0 text-left">{{ isEdit ? 'Editar Projecto' : 'Adicionar Novo Projecto' }}</h3>
+      </div>
+      <form #projectoForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-control-label" for="financiamento">Financiamento *</label>
+            <select
+              #financiamento="ngModel"
+              [(ngModel)]="projecto.financiamento"
+              class="form-control"
+              id="financiamento"
+              name="financiamento"
+              required="true"
+              (change)="loadFinanciamentoDetails(financiamento.value)">
+              <option *ngFor="let financiamento of financiamentos" [value]="financiamento.id">{{ financiamento.descricao }}</option>
+            </select>
+            <div *ngIf="financiamento.invalid && (financiamento.dirty || financiamento.touched)" class="invalid-feedback">
+              O financiamento é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-control-label" for="coordenador">Coordenador *</label>
+            <select
+              #coordenador="ngModel"
+              [(ngModel)]="projecto.coordenador"
+              class="form-control"
+              id="coordenador"
+              name="coordenador"
+              required="true">
+              <option *ngFor="let coordenador of coordenadores" [value]="coordenador.id">{{ coordenador.nome }}</option>
+            </select>
+            <div *ngIf="coordenador.invalid && (coordenador.dirty || coordenador.touched)" class="invalid-feedback">
+              O Coordenador é obrigatório.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nome">Nome do Projecto *</label>
+              <input #nome="ngModel" [(ngModel)]="projecto.nome" class="form-control" id="nome" name="nome"
+                     placeholder="Nome do Projecto" required="true" type="text">
+              <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
+                O Nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="valor">Valor a Atribuir *</label>
+              <input #valor="ngModel" [(ngModel)]="projecto.valor" class="form-control" id="valor" name="valor"
+                     placeholder="Valor" required="true" type="number" >
+              <div *ngIf="valor.invalid && (valor.dirty || valor.touched)" class="invalid-feedback">
+                O Valor é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="data_inicio">Data Inicio *</label>
+              <input class="form-control" id="data_inicio" required="true" name="data_inicio" #data_inicio="ngModel" [(ngModel)]="projecto.data_inicio" placeholder="" type="date">
+              <div *ngIf="data_inicio.invalid && (data_inicio.dirty || data_inicio.touched)" class="invalid-feedback">
+                A Data Inicio é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="data_fim">Data Fim *</label>
+              <input class="form-control" id="data_fim" required="true" name="data_fim" #data_fim="ngModel" [(ngModel)]="projecto.data_fim" placeholder="" type="date">
+              <div *ngIf="data_fim.invalid && (data_fim.dirty || data_fim.touched)" class="invalid-feedback">
+                A Data Fim é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <button (click)="saveProjecto()" [disabled]="projectoForm.invalid" class="btn btn-success" type="button">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

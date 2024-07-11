@@ -1,0 +1,266 @@
+<!--<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">-->
+<!--  <div class="container-fluid">-->
+<!--    <h1 style="text-align: center; color: aliceblue;" class="font-weight-bold">Novo Beneficiário</h1>-->
+<!--    <div class="header-body">-->
+<!--      <div class="row">-->
+<!--        &lt;!&ndash;Adicione conteúdo aqui &ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="container-fluid mt&#45;&#45;6">-->
+<!--  <div class="card mb-4">-->
+<!--    <div class="card-header mb-3 " style="background-color: #cefff9;">-->
+<!--      <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">-->
+<!--        <i class="fas fa-home mr-2"></i>Home-->
+<!--      </button>-->
+<!--      &nbsp;-->
+<!--      <button type="button" class="btn btn-success" [routerLink]="['/requisicao']">-->
+<!--        <i class="fas fa-list mr-2"></i>Lista de Requisições-->
+<!--      </button>-->
+<!--    </div>-->
+
+<!--    <div class="card-body">-->
+<!--      <div class="card-header">-->
+<!--        <h3 class="mb-0">{{ isEdit ? 'Editar Requisição' : 'Adicionar Nova Requisição' }}</h3>-->
+<!--      </div>-->
+<!--      <form #requisicaoForm="ngForm">-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="nr_requisicao_interna">Número da Requisição Interna*</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              required-->
+<!--              name="nr_requisicao_interna"-->
+<!--              id="nr_requisicao_interna"-->
+<!--              [(ngModel)]="requisicao.nr_requisicao_interna"-->
+<!--              type="text"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="nome_documento">Nome do Documento*</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              required-->
+<!--              name="nome_documento"-->
+<!--              id="nome_documento"-->
+<!--              [(ngModel)]="requisicao.nome_documento"-->
+<!--              type="text"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-12">-->
+<!--            <label class="form-control-label" for="descricao">Descrição*</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              required-->
+<!--              name="descricao"-->
+<!--              id="descricao"-->
+<!--              [(ngModel)]="requisicao.descricao"-->
+<!--              type="text"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="rubrica_estado">Rubrica Estado</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="rubrica_estado"-->
+<!--              name="rubrica_estado"-->
+<!--              [(ngModel)]="requisicao.rubrica_estado"-->
+<!--            >-->
+<!--              <option *ngFor="let estado of rubricaEstados" [value]="estado.id">{{ estado.nome }}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="moeda_requisicao">Moeda da Requisição</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="moeda_requisicao"-->
+<!--              name="moeda_requisicao"-->
+<!--              [(ngModel)]="requisicao.moeda_requisicao"-->
+<!--            >-->
+<!--              <option *ngFor="let moeda of moedas" [value]="moeda.id">Moeda</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="irps">IRPS</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="irps"-->
+<!--              id="irps"-->
+<!--              [(ngModel)]="requisicao.irps"-->
+<!--              type="number"-->
+<!--              step="0.01"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--&lt;!&ndash;          <div class="col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label class="form-control-label" for="fornecedor">Fornecedor</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <select&ndash;&gt;-->
+<!--&lt;!&ndash;              class="form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;              id="fornecedor"&ndash;&gt;-->
+<!--&lt;!&ndash;              name="fornecedor"&ndash;&gt;-->
+<!--&lt;!&ndash;              [(ngModel)]="requisicao.fornecedor"&ndash;&gt;-->
+<!--&lt;!&ndash;            >&ndash;&gt;-->
+<!--&lt;!&ndash;              <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{ fornecedor.nome }}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;            </select>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="beneficiario">Beneficiário</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="beneficiario"-->
+<!--              name="beneficiario"-->
+<!--              [(ngModel)]="requisicao.beneficiario"-->
+<!--            >-->
+<!--              <option *ngFor="let beneficiario of beneficiarios" [value]="beneficiario.id">{{ beneficiario.nome }}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="actividade">Atividade</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="actividade"-->
+<!--              name="actividade"-->
+<!--              [(ngModel)]="requisicao.actividade"-->
+<!--            >-->
+<!--              <option *ngFor="let actividade of actividades" [value]="actividade.id">Actividade</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="rubrica_projecto">Rubrica do Projeto</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="rubrica_projecto"-->
+<!--              name="rubrica_projecto"-->
+<!--              [(ngModel)]="requisicao.rubrica_projecto"-->
+<!--            >-->
+<!--              <option *ngFor="let rubrica of rubricasProjecto" [value]="rubrica.id">{{ rubrica.nome }}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="sub_rubrica">SubRubrica</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="sub_rubrica"-->
+<!--              name="sub_rubrica"-->
+<!--              [(ngModel)]="requisicao.sub_rubrica"-->
+<!--            >-->
+<!--              <option *ngFor="let subrubrica of subRubricas" [value]="subrubrica.id">{{ subrubrica.nome }}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="nr_referencia">Número de Referência</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="nr_referencia"-->
+<!--              id="nr_referencia"-->
+<!--              [(ngModel)]="requisicao.nr_referencia"-->
+<!--              type="number"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="nr_documento">Número do Documento</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="nr_documento"-->
+<!--              id="nr_documento"-->
+<!--              [(ngModel)]="requisicao.nr_documento"-->
+<!--              type="number"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="data_emissao">Data de Emissão</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="data_emissao"-->
+<!--              id="data_emissao"-->
+<!--              [(ngModel)]="requisicao.data_emissao"-->
+<!--              type="date"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="valor">Valor</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="valor"-->
+<!--              id="valor"-->
+<!--              [(ngModel)]="requisicao.valor"-->
+<!--              type="number"-->
+<!--              step="0.01"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="valor_total">Valor Total</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="valor_total"-->
+<!--              id="valor_total"-->
+<!--              [(ngModel)]="requisicao.valor_total"-->
+<!--              type="number"-->
+<!--              step="0.01"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="estado_pagamento">Estado de Pagamento</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="estado_pagamento"-->
+<!--              name="estado_pagamento"-->
+<!--              [(ngModel)]="requisicao.estado_pagamento"-->
+<!--            >-->
+<!--              <option value="PENDENTE">Pendente</option>-->
+<!--              <option value="PAGA">Paga</option>-->
+<!--              <option value="ACTIVA">Ativa</option>-->
+<!--            </select>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="valor_moeda_distribuicao">Valor em Moeda de Distribuição</label>-->
+<!--            <input-->
+<!--              class="form-control"-->
+<!--              name="valor_moeda_distribuicao"-->
+<!--              id="valor_moeda_distribuicao"-->
+<!--              [(ngModel)]="requisicao.valor_moeda_distribuicao"-->
+<!--              type="number"-->
+<!--              step="0.01"-->
+<!--            />-->
+<!--          </div>-->
+
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="moeda_distribuicao">Moeda de Distribuição</label>-->
+<!--            <select-->
+<!--              class="form-control"-->
+<!--              id="moeda_distribuicao"-->
+<!--              name="moeda_distribuicao"-->
+<!--              [(ngModel)]="requisicao.moeda_distribuicao"-->
+<!--            >-->
+<!--              <option *ngFor="let moeda of moedas" [value]="moeda.id">Moeda 2</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="text-center mt-4">-->
+<!--          <button type="button" class="btn btn-success" (click)="saveRequisicao()" [disabled]="requisicaoForm.invalid">-->
+<!--            <i class="fas fa-save mr-2"></i>{{ isEdit ? 'Salvar Alterações' : 'Adicionar Requisição' }}-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,0 +1,169 @@
+<!-- show-beneficiario.component.html -->
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <div>
+          <!-- Button to open the modal -->
+          <!-- <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">
+            <i class="fas fa-plus mr-2"></i>Novo
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header bg-transparent">
+        <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+          <i class="fas fa-home mr-2"></i>Home
+        </button>
+        <button type="button" class="btn btn-success" [routerLink]="['/beneficiario']">
+          <i class="fas fa-list mr-2"></i>Lista de Beneficiarios
+        </button>
+        <button type="button" class="btn btn-info" [routerLink]="['/edit-beneficiario', beneficiario.id]">
+          <i class="fas fa-edit"></i> Editar
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <div>Descrição: <strong>{{ beneficiario.nome }}</strong></div>
+            <div>Unidade Orgânica: <strong>{{beneficiario.unidade_organica?.nome}}</strong></div>
+          </div>
+          <div class="col-sm">
+            <div>Email: <strong>{{beneficiario.email}}</strong> </div>
+          </div>
+<!--          <div class="col-sm">-->
+<!--            <div><strong>Descrição:</strong> Naum Armindo Tinga</div>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid mt--7">
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-header bg-transparent">
+        <div class="container">
+          <!-- Tabs -->
+          <mat-tab-group>
+            <!-- Detalhes Tab -->
+            <mat-tab label="Detalhes">
+              <ng-template mat-tab-label>
+                <i class="fas fa-info-circle mr-2"></i> Detalhes
+              </ng-template>
+              <div class="p-3">
+                <div class="row">
+                  <div class="col-sm">
+                    <div>Descrição: <strong>{{ beneficiario.nome }}</strong></div>
+                    <div>Data de Nascimento: <strong>{{ beneficiario.dataNascimento }}</strong></div>
+                    <div>Nacionalidade: <strong>{{ beneficiario.nacionalidade }}</strong></div>
+                    <div>Unidade Orgânica: <strong>{{beneficiario.unidade_organica?.nome}}</strong></div>
+                    <div>NUIT: <strong>{{beneficiario.nuit}}</strong></div>
+                  </div>
+                  <div class="col-sm">
+                    <div>Email: <strong>{{beneficiario.email}}</strong> </div>
+                    <div>Genêro: <strong>{{beneficiario.sexo}}</strong> </div>
+                    <div>Nivel Academico: <strong>{{beneficiario.nivelAcademico}}</strong> </div>
+                    <div>Telefone: <strong>{{beneficiario.telefone}}</strong> </div>
+                    <div>Endereço: <strong>{{beneficiario.endereco}}</strong> </div>
+                  </div>
+                  <!--          <div class="col-sm">-->
+                  <!--            <div><strong>Descrição:</strong> Naum Armindo Tinga</div>-->
+                  <!--          </div>-->
+                </div>
+              </div>
+            </mat-tab>
+
+            <!-- Conta Tab -->
+            <mat-tab label="Conta">
+              <ng-template mat-tab-label>
+                <i class="fas fa-university mr-2"></i> Conta
+              </ng-template>
+              <div class="p-3">
+                <div class="row" *ngFor="let conta of contas">
+                  <div class="col-sm" >
+                    <div>Designação: <strong>{{ conta.designacao }}</strong></div>
+                    <div>Número de Conta: <strong>{{ conta.nr_conta }}</strong></div>
+                    <div>NIB: <strong>{{ conta.nib }}</strong></div>
+                    <div>Moeda: <strong>{{ conta.moeda?.sigla }}</strong></div>
+                  </div>
+                  <div class="col-sm">
+                    <div>Banco: <strong>{{conta.banco?.nome}}</strong> </div>
+                    <div>Balcão: <strong>{{conta.balcao}}</strong> </div>
+                    <div>IBAN: <strong>{{conta.iban}}</strong> </div>
+                    <div>SWIFT: <strong>{{conta.swift}}</strong> </div>
+                  </div>
+                  <div class="col-sm">
+                    <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-conta', conta.id]">
+                      <i class="fas fa-edit"></i> Editar
+                    </button>
+                  </div>
+                  <div class="col-12">
+                    <hr> <!-- This will add a horizontal line to separate each account -->
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <!-- Subprojecto Tab -->
+            <mat-tab label="Subprojecto">
+              <ng-template mat-tab-label>
+                <i class="fas fa-project-diagram mr-2"></i> Subprojecto
+              </ng-template>
+              <div class="p-3">
+                <h4>Subprojetos Associados</h4>
+                <ul>
+                  <li>Subprojeto 1</li>
+                  <li>Subprojeto 2</li>
+                </ul>
+              </div>
+            </mat-tab>
+
+            <!-- Requisição Tab -->
+            <mat-tab label="Requisição">
+              <ng-template mat-tab-label>
+                <i class="fas fa-file-alt mr-2"></i> Requisição
+              </ng-template>
+              <div class="p-3">
+                <h4>Requisições Realizadas</h4>
+                <ul>
+                  <li>Requisição 1</li>
+                  <li>Requisição 2</li>
+                </ul>
+              </div>
+            </mat-tab>
+
+            <!-- Ordem de Pagamentos Tab -->
+            <mat-tab label="Ordem de Pagamentos">
+              <ng-template mat-tab-label>
+                <i class="fas fa-file-invoice-dollar mr-2"></i> Ordem de Pagamentos
+              </ng-template>
+              <div class="p-3">
+                <h4>Ordens de Pagamento Efetuadas</h4>
+                <ul>
+                  <li>Ordem de Pagamento 1</li>
+                  <li>Ordem de Pagamento 2</li>
+                </ul>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Page content -->
+      </div>
+    </div>
+  </div>
+</div>
+

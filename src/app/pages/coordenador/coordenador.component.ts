@@ -7,6 +7,7 @@ import { CoordenadorService } from 'src/app/services/coordenador/coordenador.ser
   selector: 'app-coordenador',
   templateUrl: './coordenador.component.html',
 })
+
 export class CoordenadorComponent implements OnInit {
   coordenadores: Coordenador[];
 

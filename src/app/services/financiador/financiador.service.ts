@@ -3,6 +3,8 @@ import {Injectable} from "@angular/core";
 import {environment} from "../../../environments/environment";
 import {Financiador} from "../../models/financiador/financiador";
 import {catchError, Observable, throwError} from "rxjs";
+import {Conta} from "../../models/conta/conta";
+import {Financiamento} from "../../models/financiamento/financiamento";
 
 
 @Injectable({
@@ -21,6 +23,14 @@ export class FinanciadorService {
 
   getFinanciadorById(id: number): Observable<Financiador> {
     return this.http.get<Financiador>(`${this.apiUrl}/${id}`);
+  }
+
+  getFinanciadorContas(id: number): Observable<Conta[]> {
+    return this.http.get<Conta[]>(`${this.apiUrl}/${id}/contas/`);
+  }
+
+  getFinanciadorFinanciamentos(id: number): Observable<Financiamento[]> {
+    return this.http.get<Financiamento[]>(`${this.apiUrl}/${id}/financiamentos/`);
   }
 
   saveFinanciador(financiador: Financiador): Observable<Financiador> {

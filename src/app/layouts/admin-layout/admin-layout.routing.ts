@@ -28,6 +28,15 @@ import {FinanciadorComponent} from "../../pages/financiador/financiador.componen
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
+import {ProjectoComponent} from "../../pages/projecto/projecto.component";
+import {PersistProjectoComponent} from "../../pages/projecto/persist.projecto.component";
+import {ShowBeneficiarioComponent} from "../../pages/beneficiario/show.beneficiario.component";
+import {ShowFinanciadorComponent} from "../../pages/financiador/show.financiador.component";
+import {ShowProjectoComponent} from "../../pages/projecto/show.projecto.component";
+import {ShowRubricaProjectoComponent} from "../../pages/projecto/rubricaProjecto/show.rubricaProjecto.component";
+import {SubRubricaComponent} from "../../pages/subRubrica/subRubrica.component";
+import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
+import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
 import { SubProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
 
 
@@ -68,6 +77,7 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'beneficiario', component: BeneficiarioComponent},
     {path: 'persist-beneficiario', component: PersistBeneficiarioComponent},
     {path: 'edit-beneficiario/:id', component: PersistBeneficiarioComponent},
+    {path: 'view-beneficiario/:id', component: ShowBeneficiarioComponent},
 
   // Uidade Organica Routes
     { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent },
@@ -88,12 +98,29 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'financiador',           component: FinanciadorComponent },
     { path: 'persist-financiador',           component: PersistFinanciadorComponent },
     { path: 'edit-financiador/:id',           component: PersistFinanciadorComponent },
+    { path: 'view-financiador/:id',           component: ShowFinanciadorComponent },
 
   // Financiamento Routes
     { path: 'financiamento',           component: FinanciamentoComponent },
     { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
     { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
 
+  // Projecto Routes
+    { path: 'projecto',           component: ProjectoComponent },
+    { path: 'persist-projecto',           component: PersistProjectoComponent },
+    { path: 'edit-projecto/:id',           component: PersistProjectoComponent },
+    { path: 'view-projecto/:id',           component: ShowProjectoComponent },
+
+  // Rubrica Projecto Routes
+    { path: 'rubricaProjecto',           component: ShowRubricaProjectoComponent },
+    { path: 'edit-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent },
+    { path: 'view-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent },
+
+  // Sub Rubrica Routes
+    { path: 'view-subRubrica/:id',           component: SubRubricaComponent },
+
+  // Requisição Rubrica Routes
+    { path: 'requisicaoRubrica', component: PersistRequisicaoRubrica },
   // SubProjecto Routes
   {path:'subProjecto',component:SubProjectoComponent},
   {path:'edit-subProjecto/:id',component:SubProjectoComponent},

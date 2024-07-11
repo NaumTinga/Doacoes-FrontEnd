@@ -35,9 +35,18 @@ import {FinanciadorComponent} from "../../pages/financiador/financiador.componen
 import {PersistFinanciadorComponent} from "../../pages/financiador/persist.financiador.component";
 import {FinanciamentoComponent} from "../../pages/financiamento/financiamento.component";
 import {PersistFinanciamentoComponent} from "../../pages/financiamento/persist.financiamento.component";
+import {ProjectoComponent} from "../../pages/projecto/projecto.component";
+import {PersistProjectoComponent} from "../../pages/projecto/persist.projecto.component";
+import {ShowBeneficiarioComponent} from "../../pages/beneficiario/show.beneficiario.component";
+import {MatTabsModule} from "@angular/material/tabs";
+import {ShowFinanciadorComponent} from "../../pages/financiador/show.financiador.component";
+import {ShowProjectoComponent} from "../../pages/projecto/show.projecto.component";
+import {ShowRubricaProjectoComponent} from "../../pages/projecto/rubricaProjecto/show.rubricaProjecto.component";
+import {SubRubricaComponent} from "../../pages/subRubrica/subRubrica.component";
+import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
+import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
 import {SubProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
 import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.subProjecto.component';
-
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -52,6 +61,7 @@ import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.s
     NgbModule,
     ClipboardModule,
     NgbModalModule,
+    MatTabsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -81,9 +91,18 @@ import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.s
     PersistFinanciadorComponent,
     FinanciamentoComponent,
     PersistFinanciamentoComponent,
+    ProjectoComponent,
+    PersistProjectoComponent,
+    ShowBeneficiarioComponent,
+    ShowFinanciadorComponent,
+    ShowProjectoComponent,
+    ShowRubricaProjectoComponent,
+    SubRubricaComponent,
+    RequisicaoComponent,
+    PersistRequisicaoRubrica,
     SubProjectoComponent,
     PersistSubProjectoComponent
-  ]
+  ],
 })
 
 export class AdminLayoutModule {}

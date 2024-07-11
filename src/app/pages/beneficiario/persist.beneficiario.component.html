@@ -1,5 +1,6 @@
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
+    <h1 style="text-align: center; color: aliceblue;" class="font-weight-bold">Novo Beneficiario </h1>
     <div class="header-body">
       <div class="row">
         <!--Add some content here -->
@@ -10,10 +11,20 @@
 
 <div class="container-fluid mt--6">
   <div class="card mb-4">
-    <div class="card-header">
-      <h3 class="mb-0">{{ isEdit ? 'Editar Beneficiario' : 'Adicionar Novo Beneficiario' }}</h3>
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+      <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+        <i class="fas fa-home mr-2"></i>Home
+      </button>
+      &nbsp;
+      <button type="button" class="btn btn-success" [routerLink]="['/beneficiario']">
+        <i class="fas fa-list mr-2"></i>Lista de Beneficiarios
+      </button>
     </div>
+
     <div class="card-body">
+      <div class="card-header">
+        <h3 class="mb-0">{{ isEdit ? 'Editar Beneficiario' : 'Adicionar Novo Beneficiario' }}</h3>
+      </div>
       <form #beneficiarioForm="ngForm">
         <div class="row">
           <div class="col-md-6">
@@ -129,7 +140,7 @@
               id="unidade_organica"
               name="unidade_organica"
               required="true"
-              [(ngModel)]="beneficiario.unidadeOrganica"
+              [(ngModel)]="beneficiario.unidade_organica"
               #unidade_organica="ngModel"
             >
               <option *ngFor="let unidade of unidadeOrganicas" [value]="unidade.id">{{ unidade.nome }}</option>

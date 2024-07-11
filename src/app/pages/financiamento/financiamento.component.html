@@ -41,12 +41,12 @@
               </thead>
               <tbody>
               <tr *ngFor="let financiamento of financiamentos">
-                <th scope="row">{{financiamento.descricao}}</th>
-                <th scope="row">{{financiamento.financiador?.nome}}</th>
-                <th scope="row">{{financiamento.valor}}</th>
-                <th scope="row">{{financiamento.moeda_financiador?.designacao}}</th>
-                <th scope="row">{{financiamento.data_inicio}}</th>
-                <th scope="row">{{financiamento.data_fim}}</th>
+                <td >{{financiamento.descricao}}</td>
+                <td >{{financiamento.financiador?.nome}}</td>
+                <td >{{ financiamento.valor | number:'1.2-2' }}</td>
+                <td >{{financiamento.moeda_financiador?.sigla}}</td>
+                <td >{{financiamento.data_inicio}}</td>
+                <td >{{financiamento.data_fim}}</td>
                 <td>
                   <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-financiamento', financiamento.id]">
                     <i class="fas fa-edit"></i> Editar
