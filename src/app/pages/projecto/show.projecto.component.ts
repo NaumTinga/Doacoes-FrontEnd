@@ -5,7 +5,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {RubricaProjecto} from "../../models/rubricaProjecto/rubricaProjecto";
 import {RubricaProjectoService} from "../../services/rubricaProjecto/rubricaProjecto.service";
 import Swal from "sweetalert2";
-import {Conta} from "../../models/conta/conta";
 
 @Component({
   selector: 'app-show-projecto',
@@ -50,13 +49,14 @@ export class ShowProjectoComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,) {
   }
+
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.getProjecto(id);
     this.getRubricasProjecto(id);
   }
 
-  getProjecto(id:number): void {
+  getProjecto(id: number): void {
     this.projectoService.getProjectoById(id).subscribe(
       (data: Projecto) => {
         this.projecto = data;
@@ -65,7 +65,7 @@ export class ShowProjectoComponent implements OnInit {
     )
   }
 
-  getRubricasProjecto(id:number): void {
+  getRubricasProjecto(id: number): void {
     this.projectoService.getRubricasProjecto(id).subscribe(
       (data: RubricaProjecto[]) => {
         this.rubricaProjectos = data;
@@ -74,10 +74,10 @@ export class ShowProjectoComponent implements OnInit {
   }
 
 
-  saveRubricaProjecto(){
+  saveRubricaProjecto() {
     this.rubricaProjecto.projecto = this.projecto.id;  // Automatically set the projecto
-    if (this.isEdit){
-      this.rubricaProjectoService.updateRubricaProjecto(this.rubricaProjecto).subscribe(() =>{
+    if (this.isEdit) {
+      this.rubricaProjectoService.updateRubricaProjecto(this.rubricaProjecto).subscribe(() => {
         Swal.fire({
           title: 'Sucesso',
           text: 'Rubrica do Projecto Actualizada!',
@@ -90,21 +90,25 @@ export class ShowProjectoComponent implements OnInit {
         }).then(() => {
           this.router.navigate(['/view-projecto', this.projecto.id]);
         });
+        this.resetForm();
+        this.getRubricasProjecto(this.projecto.id);
       })
-    }else {
+    } else {
       this.rubricaProjectoService.saveRubricaProjecto(this.rubricaProjecto).subscribe(() => {
-        Swal.fire({
-          title: 'Sucesso',
-          text: 'Rubrica do Projecto Adicionada!',
-          icon: 'success',
-          confirmButtonText: 'OK',
-          buttonsStyling: false,
-          customClass: {
-            confirmButton: 'btn btn-success'
-          }
-        }).then(() => {
-          this.refreshPage();
-        });
+          Swal.fire({
+            title: 'Sucesso',
+            text: 'Rubrica do Projecto Adicionada!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            buttonsStyling: false,
+            customClass: {
+              confirmButton: 'btn btn-success'
+            }
+          }).then(() => {
+            this.refreshPage();
+          });
+          this.resetForm();
+          this.getRubricasProjecto(this.projecto.id);
         }
       );
     }
@@ -113,5 +117,11 @@ export class ShowProjectoComponent implements OnInit {
   refreshPage() {
     this.router.navigate([this.router.url]);
   }
+
+  resetForm() {
+    this.rubricaProjecto = new RubricaProjecto();
+    this.isEdit = false;
+  }
+
 
 }

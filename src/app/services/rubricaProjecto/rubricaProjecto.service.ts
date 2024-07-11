@@ -4,6 +4,7 @@ import {environment} from "../../../environments/environment";
 import {catchError, Observable, throwError} from "rxjs";
 import {RubricaProjecto} from "../../models/rubricaProjecto/rubricaProjecto";
 import {Beneficiario} from "../../models/beneficiario/beneficiario.model";
+import {SubRubrica} from "../../models/subRubrica/subRubrica";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class RubricaProjectoService {
     return this.http.get<RubricaProjecto>(`${this.apiUrl}/${id}`);
   }
 
+  getSubRubricasOfRubricaProjecto(id: number): Observable<SubRubrica[]> {
+    return this.http.get<SubRubrica[]>(`${this.apiUrl}/${id}/sub_rubricas_projecto/`);
+
+  }
   saveRubricaProjecto(rubricaProjecto: RubricaProjecto): Observable<RubricaProjecto> {
     return this.http.post<RubricaProjecto>(`${this.apiUrl}/`,rubricaProjecto).pipe(catchError(this.handleError));
   }

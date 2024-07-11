@@ -35,6 +35,8 @@ import {ShowFinanciadorComponent} from "../../pages/financiador/show.financiador
 import {ShowProjectoComponent} from "../../pages/projecto/show.projecto.component";
 import {ShowRubricaProjectoComponent} from "../../pages/projecto/rubricaProjecto/show.rubricaProjecto.component";
 import {SubRubricaComponent} from "../../pages/subRubrica/subRubrica.component";
+import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
+import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
 
 
 
@@ -115,6 +117,9 @@ export const AdminLayoutRoutes: Routes = [
 
   // Sub Rubrica Routes
     { path: 'view-subRubrica/:id',           component: SubRubricaComponent },
+
+  // Requisição Rubrica Routes
+    { path: 'requisicaoRubrica', component: PersistRequisicaoRubrica },
 
 
 ];

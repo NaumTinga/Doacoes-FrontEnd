@@ -86,8 +86,10 @@ export class ShowRubricaProjectoComponent implements OnInit {
             confirmButton: 'btn btn-success'
           }
         }).then(() => {
-          this.router.navigate(['/view-rubricaProjecto', this.rubricaProjecto.id]);
+          this.refreshPage();
         });
+        this.resetForm()
+        this.getRubricaProjecto(this.rubricaProjecto.id);
       })
     } else {
       this.subRubricaService.saveSubRubrica(this.subRubrica).subscribe(() => {
@@ -101,11 +103,22 @@ export class ShowRubricaProjectoComponent implements OnInit {
               confirmButton: 'btn btn-success'
             }
           }).then(() => {
-            this.router.navigate(['/view-rubricaProjecto', this.rubricaProjecto.id]);
+            this.refreshPage();
           });
+          this.resetForm()
+          this.getSubRubricas();
         }
       );
     }
+  }
+
+  refreshPage() {
+    this.router.navigate([this.router.url]);
+  }
+
+  resetForm() {
+    this.rubricaProjecto = new RubricaProjecto();
+    this.isEdit = false;
   }
 
 }
