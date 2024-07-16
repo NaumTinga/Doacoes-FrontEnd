@@ -45,6 +45,8 @@ import {ShowRubricaProjectoComponent} from "../../pages/projecto/rubricaProjecto
 import {SubRubricaComponent} from "../../pages/subRubrica/subRubrica.component";
 import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
 import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
+import {CambioComponent} from "../../pages/cambio/cambio.component";
+import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.component";
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -98,6 +100,8 @@ import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubric
     SubRubricaComponent,
     RequisicaoComponent,
     PersistRequisicaoRubrica,
+    CambioComponent,
+    PersistCambioComponent,
 
   ],
 })

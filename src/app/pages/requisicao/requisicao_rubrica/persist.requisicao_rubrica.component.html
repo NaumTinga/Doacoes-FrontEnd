@@ -141,7 +141,7 @@
               id="moeda_requisicao"
               name="moeda_requisicao"
             >
-              <option *ngFor="let moeda of moedas" [value]="moeda.id">Moeda</option>
+              <option *ngFor="let moeda of moedas" [value]="moeda.id">{{moeda.sigla}}</option>
             </select>
           </div>
 
@@ -224,6 +224,7 @@
               name="valor_total"
               step="0.01"
               type="number"
+              disabled
             />
           </div>
 

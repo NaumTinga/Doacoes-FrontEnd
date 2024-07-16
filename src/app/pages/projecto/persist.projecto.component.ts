@@ -145,7 +145,7 @@ export class PersistProjectoComponent implements OnInit {
               confirmButtonText: 'OK',
               buttonsStyling: false,
               customClass: {
-                confirmButton: 'btn btn-success'
+                confirmButton: 'btn btn-danger'
               }
             });
           }

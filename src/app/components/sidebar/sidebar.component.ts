@@ -28,6 +28,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/financiamento', title: 'Financiamento',  icon:'ni-money-coins text-green', class: '' },
     { path: '/projecto', title: 'Projecto',  icon:'ni-money-coins text-green', class: '' },
     { path: '/requisicaoRubrica', title: 'Requisições',  icon:'ni-single-copy-04 text-green', class: '' },
+    { path: '/cambio', title: 'Câmbio',  icon:'ni-money-coins text-green', class: '' },
 ];
 
 @Component({
