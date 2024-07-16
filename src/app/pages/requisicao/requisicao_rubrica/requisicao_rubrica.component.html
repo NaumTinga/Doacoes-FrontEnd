@@ -46,7 +46,20 @@
                 <th scope="row">{{ requisicao.valor_convertido | number: '1.2-2'}} {{requisicao.moeda_requisicao?.sigla}}</th>
                 <th scope="row">{{requisicao.data_emissao | date: 'yyyy-MM-dd'}}</th>
                 <th scope="row">{{requisicao.nr_referencia}}</th>
-                <th scope="row">{{requisicao.estado_pagamento}}</th>
+                <td>
+                  <span class="badge badge-info"  [ngClass]="{
+                      'badge-warning': requisicao.estado_pagamento === 'PENDENTE',
+                      'badge-success': requisicao.estado_pagamento === 'PAGA',
+                      'badge-danger': requisicao.estado_pagamento === 'ACTIVA'
+                    }">{{ requisicao.estado_pagamento }}</span>
+<!--                  <span class="badge badge-dot">-->
+<!--                    <i class="bg-info" [ngClass]="{-->
+<!--                      'bg-warning': requisicao.estado_pagamento === 'PENDENTE',-->
+<!--                      'bg-success': requisicao.estado_pagamento === 'PAGA',-->
+<!--                      'bg-danger': requisicao.estado_pagamento === 'ACTIVA'-->
+<!--                    }"></i>  {{requisicao.estado_pagamento}}-->
+<!--                  </span>-->
+                </td>
                 <td>
                   <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', requisicao.id]">
                     <i class="fas fa-edit"></i> Editar
