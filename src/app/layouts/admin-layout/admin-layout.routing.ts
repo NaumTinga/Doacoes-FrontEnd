@@ -39,6 +39,7 @@ import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
 import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
 import {CambioComponent} from "../../pages/cambio/cambio.component";
 import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.component";
+import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
 
 
 
@@ -121,7 +122,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'view-subRubrica/:id',           component: SubRubricaComponent },
 
   // Requisição Rubrica Routes
-    { path: 'requisicaoRubrica', component: PersistRequisicaoRubrica },
+    { path: 'requisicao-rubrica', component: RequisicaoRubricaComponent },
+    { path: 'persist-requisicao-rubrica', component: PersistRequisicaoRubrica },
 
   // Cambio  Routes
     { path: 'cambio', component: CambioComponent },

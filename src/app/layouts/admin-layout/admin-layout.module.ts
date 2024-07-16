@@ -47,6 +47,7 @@ import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
 import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
 import {CambioComponent} from "../../pages/cambio/cambio.component";
 import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.component";
+import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -100,6 +101,7 @@ import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.compone
     SubRubricaComponent,
     RequisicaoComponent,
     PersistRequisicaoRubrica,
+    RequisicaoRubricaComponent,
     CambioComponent,
     PersistCambioComponent,
 

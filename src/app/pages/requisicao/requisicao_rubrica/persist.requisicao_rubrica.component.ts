@@ -13,7 +13,7 @@ import {MoedaService} from "../../../services/moeda/moeda.service";
 import Swal from "sweetalert2";
 
 @Component({
-  selector: "app-requisicao_rubrica",
+  selector: "app-persist-requisicao_rubrica",
   templateUrl: "./persist.requisicao_rubrica.component.html",
 })
 
