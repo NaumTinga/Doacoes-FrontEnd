@@ -195,18 +195,19 @@
           </div>
 
           <div class="col-md-6">
-            <label class="form-control-label" for="data_emissao">Data de Emissão</label>
+            <label class="form-control-label" for="data_emissao">Data de Emissão *</label>
             <input
               [(ngModel)]="requisicaoRubrica.data_emissao"
               class="form-control"
               id="data_emissao"
               name="data_emissao"
               type="date"
+              required="true"
             />
           </div>
 
           <div class="col-md-6">
-            <label class="form-control-label" for="valor_inicial">Valor</label>
+            <label class="form-control-label" for="valor_inicial">Valor *</label>
             <input
               [(ngModel)]="requisicaoRubrica.valor_inicial"
               class="form-control"
@@ -214,6 +215,7 @@
               name="valor"
               step="0.01"
               type="number"
+              required="true"
               (change)="calculateCurrencyConversion()"
             />
           </div>
@@ -231,20 +233,6 @@
               [value]="requisicaoRubrica.valor_convertido || 'N/A'"
             />
           </div>
-
-          <!--          <div class="col-md-6">-->
-          <!--            <label class="form-control-label" for="estado_pagamento">Estado de Pagamento</label>-->
-          <!--            <select-->
-          <!--              class="form-control"-->
-          <!--              id="estado_pagamento"-->
-          <!--              name="estado_pagamento"-->
-          <!--              [(ngModel)]="requisicaoRubrica.estado_pagamento"-->
-          <!--            >-->
-          <!--              <option value="PENDENTE">Pendente</option>-->
-          <!--              <option value="PAGA">Paga</option>-->
-          <!--              <option value="ACTIVA">Ativa</option>-->
-          <!--            </select>-->
-          <!--          </div>-->
 
           <div class="col-md-6">
             <label class="form-control-label" for="valor_moeda_distribuicao">Valor em Moeda de Distribuição</label>

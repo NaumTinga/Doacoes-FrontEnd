@@ -32,7 +32,7 @@ export class PersistRequisicaoRubrica implements OnInit {
   cambios : Cambio[] = [];
   serverErrors = {};
   isEdit = false;
-  taxaCambio = Cambio;
+  taxaCambio: any;
 
   constructor(private subRubricaService: SubRubricaService,
               private rubricaProjectoService: RubricaProjectoService,
@@ -99,12 +99,7 @@ export class PersistRequisicaoRubrica implements OnInit {
   }
 
   onMoedaChange(){
-    const moeda_baseId = this.selectedSubRubrica?.moeda_sub_rubrica?.id;
-    const moeda_alvoId = this.requisicaoRubrica.moeda_requisicao?.id;
-    console.log('Base:',moeda_baseId,'Alvo:', moeda_alvoId);
-    console.log('Moeda Alvo selecionada: ',this.requisicaoRubrica.moeda_requisicao);
-
-    if (moeda_baseId && moeda_alvoId) {
+    if (this.selectedSubRubrica?.moeda_sub_rubrica?.id && this.requisicaoRubrica.moeda_requisicao?.id) {
       this.cambioService.getTaxaCambio( this.selectedSubRubrica?.moeda_sub_rubrica?.id, this.requisicaoRubrica.moeda_requisicao?.id)
         .subscribe((data) => {
         console.log('Taxa de cambio', data.taxa);
@@ -115,22 +110,10 @@ export class PersistRequisicaoRubrica implements OnInit {
 
   // Calculate currency conversion based on cambios
   calculateCurrencyConversion() {
-    if (
-      this.requisicaoRubrica.moeda_requisicao &&
-      this.requisicaoRubrica.moeda_distribuicao &&
-      this.requisicaoRubrica.valor_inicial
-    ) {
-      const cambio = this.cambios.find(
-        (c) =>
-          c.moeda_alvo === this.requisicaoRubrica.moeda_requisicao.sigla &&
-          c.moeda_base === this.requisicaoRubrica.moeda_distribuicao.sigla
-      );
-      if (cambio) {
-        this.requisicaoRubrica.valor_convertido =
-          this.requisicaoRubrica.valor_inicial * cambio.taxa;
-        console.log("Valor Convertido: ",this.requisicaoRubrica.valor_convertido);
+      if (this.taxaCambio) {
+        this.requisicaoRubrica.valor_convertido = Number((this.requisicaoRubrica.valor_inicial * this.taxaCambio).toFixed(2));
+          console.log("Valor Convertido: ",this.requisicaoRubrica.valor_convertido);
       }
-    }
   }
 
   // Fetch Sub Rubricas of the selected Rubrica
@@ -184,10 +167,11 @@ export class PersistRequisicaoRubrica implements OnInit {
           });
         })
     } else {
+      this.requisicaoRubrica.moeda_requisicao = this.requisicaoRubrica.moeda_requisicao.id;
+      console.log('Moeda Requisicao', this.requisicaoRubrica.moeda_requisicao);
       this.requisicaoRubricaService.saveRequisicaoRubrica(this.requisicaoRubrica).subscribe(
         () => {
           console.log("Body da requisicao: ", this.requisicaoRubrica);
-          console.log("Error: ", this.serverErrors)
           Swal.fire({
             title: 'Sucesso',
             text: 'Requisição Emitida!',
@@ -202,6 +186,17 @@ export class PersistRequisicaoRubrica implements OnInit {
           });
         },
         (error) => {
+          console.error('Erro ao Emitir Requisição:', error);
+          if (error.status === 400) {
+            // Assuming your backend sends an error object with a 'message' property
+            const errorMessage = error.error.message || 'Erro ao Emitir Requisição!';
+            console.error('Detalhes do erro:', errorMessage);
+            // Log detailed error messages if available
+            if (error.error.errors) {
+              console.error('Erros detalhados:', error.error.errors);
+            }
+          }
+          console.log('Body da Requisicao: ', this.requisicaoRubrica);
           Swal.fire({
             title: 'Error',
             text: 'Erro ao Emitir Requisição!',
