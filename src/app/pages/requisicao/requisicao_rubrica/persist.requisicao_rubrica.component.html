@@ -16,7 +16,7 @@
         <i class="fas fa-home mr-2"></i>Home
       </button>
       &nbsp;
-      <button [routerLink]="['/requisicao']" class="btn btn-success" type="button">
+      <button [routerLink]="['/requisicao-rubrica']" class="btn btn-success" type="button">
         <i class="fas fa-list mr-2"></i>Lista de Requisições
       </button>
     </div>
@@ -64,6 +64,7 @@
                 name="moeda_distribuicao"
                 type="text"
                 disabled
+                (change)="onMoedaChange()"
                 [value]="selectedSubRubrica?.moeda_sub_rubrica?.sigla || 'N/A'"
               />
             </div>
@@ -140,8 +141,9 @@
               class="form-control"
               id="moeda_requisicao"
               name="moeda_requisicao"
+              (ngModelChange)="onMoedaChange()"
             >
-              <option *ngFor="let moeda of moedas" [value]="moeda.id">{{moeda.sigla}}</option>
+              <option *ngFor="let moeda of moedas" [ngValue]="moeda">{{moeda.sigla}}</option>
             </select>
           </div>
 
@@ -212,6 +214,7 @@
               name="valor"
               step="0.01"
               type="number"
+              (change)="calculateCurrencyConversion()"
             />
           </div>
 
@@ -225,6 +228,7 @@
               step="0.01"
               type="number"
               disabled
+              [value]="requisicaoRubrica.valor_convertido || 'N/A'"
             />
           </div>
 

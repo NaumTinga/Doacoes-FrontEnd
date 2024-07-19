@@ -23,6 +23,10 @@ export class CambioService {
     return this.http.get<Cambio>(`${this.apiUrl}/${id}`);
   }
 
+  getTaxaCambio(moeda_base: number, moeda_alvo: number): Observable<Cambio> {
+    return this.http.get<Cambio>(`${this.apiUrl}/get_most_recent_cambio/?moeda_base=${moeda_base}&moeda_alvo=${moeda_alvo}`);
+  }
+
   saveCambio(cambio: Cambio): Observable<Cambio> {
     return this.http.post<Cambio>(`${this.apiUrl}/`, cambio);
   }
