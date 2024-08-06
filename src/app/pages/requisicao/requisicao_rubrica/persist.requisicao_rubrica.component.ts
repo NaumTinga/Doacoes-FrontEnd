@@ -13,7 +13,7 @@ import {MoedaService} from "../../../services/moeda/moeda.service";
 import Swal from "sweetalert2";
 import {Cambio} from "../../../models/cambio/cambio";
 import {CambioService} from "../../../services/cambio/cambio.service";
-import {Projecto} from "../../../models/projecto/projecto";
+
 
 @Component({
   selector: "app-persist-requisicao_rubrica",

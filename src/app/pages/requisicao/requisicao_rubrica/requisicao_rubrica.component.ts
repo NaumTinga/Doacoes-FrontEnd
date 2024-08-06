@@ -4,7 +4,6 @@ import {RequisicaoRubricaService} from "../../../services/requisicao/requisicaoR
 import {RequisicaoRubrica} from "../../../models/requisicao/requisicaoRubrica";
 import {Cambio} from "../../../models/cambio/cambio";
 import {CambioService} from "../../../services/cambio/cambio.service";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from "sweetalert2";
 
 @Component({
