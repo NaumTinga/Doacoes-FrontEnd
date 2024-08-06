@@ -1,10 +1,8 @@
 <!-- projecto.component.html -->
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
-
     <div class="header-body">
-      <div class="row">
-      </div>
+      <div class="row"></div>
     </div>
   </div>
 </div>
@@ -16,7 +14,6 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header bg-transparent">
-
           <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
             <i class="fas fa-home mr-2"></i>Home
           </button>
@@ -24,13 +21,17 @@
           <button type="button" class="btn btn-success" (click)="checkCambio()">
             <i class="fas fa-plus mr-2"></i>Emitir requisição
           </button>
+
+          <button *ngIf="selectedRequisicoes.length > 0" type="button" class="btn btn-default" (click)="pagarSelectedRequisicoes()">
+            <i class="fas fa-money-bill-alt mr-2"></i>Pagar
+          </button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
               <tr>
-                <th scope="col">Rubrica do Projecto</th>
+                <th scope="col">Sel.</th>
                 <th scope="col">Sub Rubrica</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Data de Emissão</th>
@@ -41,30 +42,32 @@
               </thead>
               <tbody>
               <tr *ngFor="let requisicao of requisicoes">
-                <th scope="row">{{requisicao.rubrica_projecto?.nome}}</th>
+                <th scope="row">
+                  <input type="checkbox"
+                         [disabled]="requisicao.estado_pagamento === 'PAGA' ||
+                                    (selectedDataEmissao && requisicao.data_emissao !== selectedDataEmissao)"
+                         (change)="onCheckboxChange($event, requisicao)"
+                         autocomplete="off">
+                </th>
                 <th scope="row">{{requisicao.sub_rubrica?.nome}}</th>
                 <th scope="row">{{ requisicao.valor_convertido | number: '1.2-2'}} {{requisicao.moeda_requisicao?.sigla}}</th>
                 <th scope="row">{{requisicao.data_emissao | date: 'yyyy-MM-dd'}}</th>
                 <th scope="row">{{requisicao.nr_referencia}}</th>
                 <td>
-                  <span class="badge badge-info"  [ngClass]="{
+                  <span class="badge"  [ngClass]="{
                       'badge-warning': requisicao.estado_pagamento === 'PENDENTE',
                       'badge-success': requisicao.estado_pagamento === 'PAGA',
                       'badge-danger': requisicao.estado_pagamento === 'ACTIVA'
                     }">{{ requisicao.estado_pagamento }}</span>
-<!--                  <span class="badge badge-dot">-->
-<!--                    <i class="bg-info" [ngClass]="{-->
-<!--                      'bg-warning': requisicao.estado_pagamento === 'PENDENTE',-->
-<!--                      'bg-success': requisicao.estado_pagamento === 'PAGA',-->
-<!--                      'bg-danger': requisicao.estado_pagamento === 'ACTIVA'-->
-<!--                    }"></i>  {{requisicao.estado_pagamento}}-->
-<!--                  </span>-->
                 </td>
                 <td>
-                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', requisicao.id]">
+                  <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', requisicao.id]">
+                    <i class="fas fa-print"></i>
+                  </button>
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicao-rubrica', requisicao.id]">
                     <i class="fas fa-edit"></i> Editar
                   </button>
-                  <button type="button" class="btn btn-success btn-sm mr-2" [routerLink]="['/view-requisicaoRubrica', requisicao.id]">
+                  <button type="button" class="btn btn-success btn-sm mr-2" (click)="viewRequisicaoRubrica(requisicao)">
                     <i class="fas fa-edit"></i> Ver
                   </button>
                 </td>
@@ -77,4 +80,3 @@
     </div>
   </div>
 </div>
-

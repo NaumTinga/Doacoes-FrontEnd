@@ -14,13 +14,14 @@ import Swal from "sweetalert2";
 export class RequisicaoRubricaComponent implements OnInit {
   requisicoes: RequisicaoRubrica[] = [];
   cambios: Cambio[] = [];
+  selectedRequisicoes: RequisicaoRubrica[] = [];
+  selectedDataEmissao: Date = null;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private requisicoesRubricaService: RequisicaoRubricaService,
     private cambioService: CambioService,
-    private modalService: NgbModal
   ) {}
 
   ngOnInit() {
@@ -42,6 +43,25 @@ export class RequisicaoRubricaComponent implements OnInit {
     });
   }
 
+  viewRequisicaoRubrica(requisicao: RequisicaoRubrica): void {
+    Swal.fire({
+      title: `Requisição ${requisicao.id}`,
+      html: `
+      <strong>Descrição:</strong> ${requisicao.descricao}<br>
+      <strong>Valor:</strong> ${requisicao.valor_convertido}<br>
+      <strong>Data:</strong> ${new Date(requisicao.data_emissao).toLocaleDateString()}
+    `,
+      icon: 'info',
+      confirmButtonText: 'OK',
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'btn btn-info'
+      }
+    });
+  }
+
+
+  // Checks if the cambio is updated or not
   checkCambio(): void {
     const currentDate = new Date();
     const matchingCambio = this.cambios.some(cambio => {
@@ -69,13 +89,39 @@ export class RequisicaoRubricaComponent implements OnInit {
       })
     }
   }
-
+  // Used in the checkCambio method to get the dates
   isSameDay(date1: Date, date2: Date): boolean {
     return (
       date1.getFullYear() === date2.getFullYear() &&
       date1.getMonth() === date2.getMonth() &&
       date1.getDate() === date2.getDate()
     );
+  }
+
+  // Handlers for selected requisicoes
+  onCheckboxChange(event: any, requisicao: RequisicaoRubrica) {
+    if (event.target.checked) {
+      if (this.selectedRequisicoes.length === 0) {
+        this.selectedDataEmissao = requisicao.data_emissao;
+        this.selectedRequisicoes.push(requisicao);
+      } else if (requisicao.data_emissao === this.selectedDataEmissao) {
+        this.selectedRequisicoes.push(requisicao);
+      } else {
+        event.target.checked = false; // Deselect checkbox if data_emissao does not match
+      }
+    } else {
+      const index = this.selectedRequisicoes.indexOf(requisicao);
+      if (index > -1) {
+        this.selectedRequisicoes.splice(index, 1);
+      }
+      if (this.selectedRequisicoes.length === 0) {
+        this.selectedDataEmissao = null;
+      }
+    }
+  }
+
+  pagarSelectedRequisicoes() {
+    // Handle payment logic for selected requisicoes
   }
 
 }

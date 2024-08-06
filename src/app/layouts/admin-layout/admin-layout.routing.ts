@@ -124,6 +124,7 @@ export const AdminLayoutRoutes: Routes = [
   // Requisição Rubrica Routes
     { path: 'requisicao-rubrica', component: RequisicaoRubricaComponent },
     { path: 'persist-requisicao-rubrica', component: PersistRequisicaoRubrica },
+    { path: 'edit-requisicao-rubrica/:id', component: PersistRequisicaoRubrica },
 
   // Cambio  Routes
     { path: 'cambio', component: CambioComponent },
