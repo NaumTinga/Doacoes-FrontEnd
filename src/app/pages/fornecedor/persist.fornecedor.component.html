@@ -1,6 +1,6 @@
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
-    <h1 class="font-weight-bold" style="text-align: center; color: aliceblue;">Novo Financiador</h1>
+    <h1 class="font-weight-bold" style="text-align: center; color: aliceblue;">Novo Fornecedor</h1>
     <div class="header-body">
       <div class="row">
         <!--Add some content here -->
@@ -17,8 +17,8 @@
         <i class="fas fa-home mr-2"></i>Home
       </button>
       &nbsp;
-      <button [routerLink]="['/financiador']" class="btn btn-success" type="button">
-        <i class="fas fa-list mr-2"></i>Lista de Financiadores
+      <button [routerLink]="['/fornecedor']" class="btn btn-success" type="button">
+        <i class="fas fa-list mr-2"></i>Lista de Fornecedores
       </button>
     </div>
     <div class="card-body">
@@ -29,14 +29,14 @@
         </button>
       </div> -->
       <div class="card-header">
-        <h3 class="mb-0 text-left">{{ isEdit ? 'Editar Financiador' : 'Adicionar Novo Financiador' }}</h3>
+        <h3 class="mb-0 text-left">{{ isEdit ? 'Editar Fornecedor' : 'Adicionar Novo Fornecedor' }}</h3>
       </div>
-      <form #financiadorForm="ngForm">
+      <form #fornecedorForm="ngForm">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label class="form-control-label" for="nome">Nome *</label>
-              <input #nome="ngModel" [(ngModel)]="financiador.nome" class="form-control" id="nome" name="nome"
+              <input #nome="ngModel" [(ngModel)]="fornecedor.nome" class="form-control" id="nome" name="nome"
                      placeholder="Nome" required="true" type="text">
               <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
                 O nome é obrigatória.
@@ -47,7 +47,7 @@
             <label class="form-control-label" for="nome">País *</label>
             <select
               #pais="ngModel"
-              [(ngModel)]="financiador.pais"
+              [(ngModel)]="fornecedor.pais"
               class="form-control"
               id="pais"
               name="pais"
@@ -61,7 +61,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="form-control-label" for="email">Email</label>
-              <input #email="ngModel" [(ngModel)]="financiador.email" class="form-control" id="email" name="email"
+              <input #email="ngModel" [(ngModel)]="fornecedor.email" class="form-control" id="email" name="email"
                      placeholder="Email" type="text">
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
                 A email é obrigatória.
@@ -75,27 +75,27 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="form-control-label" for="telefone">Telefone</label>
-              <input #telefone="ngModel" [(ngModel)]="financiador.telefone" class="form-control" id="telefone"
+              <input #telefone="ngModel" [(ngModel)]="fornecedor.telefone" class="form-control" id="telefone"
                      name="telefone" placeholder="Telefone" type="text">
               <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="invalid-feedback">
                 O telefone é obrigatório.
               </div>
             </div>
           </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="form-control-label" for="endereco">Endereço</label>
-                <input #endereco="ngModel" [(ngModel)]="financiador.endereco" class="form-control" id="endereco"
-                       name="endereco" placeholder="Endereço" type="text">
-                <div *ngIf="endereco.invalid && (endereco.dirty || endereco.touched)" class="invalid-feedback">
-                  O endereço é obrigatório.
-                </div>
-              </div>
-            </div>
+<!--          <div class="col-md-6">-->
+<!--            <div class="form-group">-->
+<!--              <label class="form-control-label" for="endereco">Endereço</label>-->
+<!--              <input #endereco="ngModel" [(ngModel)]="fornecedor.endereco" class="form-control" id="endereco"-->
+<!--                     name="endereco" placeholder="Endereço" type="text">-->
+<!--              <div *ngIf="endereco.invalid && (endereco.dirty || endereco.touched)" class="invalid-feedback">-->
+<!--                O endereço é obrigatório.-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
         <div class="row">
           <div class="col-md-6">
-            <button (click)="saveFinanciador()" [disabled]="financiadorForm.invalid" class="btn btn-success"
+            <button (click)="saveFornecedor()" [disabled]="fornecedorForm.invalid" class="btn btn-success"
                     type="button">
               <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
             </button>

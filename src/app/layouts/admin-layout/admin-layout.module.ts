@@ -48,9 +48,10 @@ import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubric
 import {CambioComponent} from "../../pages/cambio/cambio.component";
 import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.component";
 import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
+import {FornecedorComponent} from "../../pages/fornecedor/fornecedor.component";
+import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornecedor.component";
 
 
-// import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -104,6 +105,8 @@ import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubr
     RequisicaoRubricaComponent,
     CambioComponent,
     PersistCambioComponent,
+    FornecedorComponent,
+    PersistFornecedorComponent,
 
   ],
 })

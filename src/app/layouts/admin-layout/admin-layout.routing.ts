@@ -13,7 +13,6 @@ import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
 import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
-//import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
 import { BeneficiarioComponent } from 'src/app/pages/beneficiario/beneficiario.component';
@@ -39,6 +38,8 @@ import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubric
 import {CambioComponent} from "../../pages/cambio/cambio.component";
 import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.component";
 import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
+import {FornecedorComponent} from "../../pages/fornecedor/fornecedor.component";
+import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornecedor.component";
 
 
 
@@ -129,6 +130,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'cambio', component: CambioComponent },
     { path: 'persist-cambio', component: PersistCambioComponent },
     { path: 'edit-cambio/:id', component: PersistCambioComponent },
+
+  // Fornecedor Routes
+    { path: 'fornecedor', component: FornecedorComponent },
+    { path: 'persist-fornecedor', component: PersistFornecedorComponent },
+    { path: 'edit-fornecedor/:id', component: PersistFornecedorComponent },
+    { path: 'view-fornecedor/:id', component: PersistFornecedorComponent },
 
 
 ];
