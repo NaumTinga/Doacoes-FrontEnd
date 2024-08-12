@@ -121,7 +121,7 @@
             />
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-6">
             <label class="form-control-label" for="descricao">Descrição*</label>
             <input
               [(ngModel)]="requisicaoRubrica.descricao"
@@ -135,12 +135,13 @@
 
 
           <div class="col-md-6">
-            <label class="form-control-label" for="moeda_requisicao">Moeda da Requisição</label>
+            <label class="form-control-label" for="moeda_requisicao">Moeda da Despesa *</label>
             <select
               [(ngModel)]="requisicaoRubrica.moeda_requisicao"
               class="form-control"
               id="moeda_requisicao"
               name="moeda_requisicao"
+              required="true"
               (ngModelChange)="onMoedaChange()"
             >
               <option *ngFor="let moeda of moedas" [ngValue]="moeda">{{moeda.sigla}}</option>
@@ -148,7 +149,7 @@
           </div>
 
           <div class="col-md-6">
-            <label class="form-control-label" for="irps">IRPS</label>
+            <label class="form-control-label" for="irps">IRPS %</label>
             <input
               [(ngModel)]="requisicaoRubrica.irps"
               class="form-control"
@@ -159,38 +160,27 @@
             />
           </div>
 
-          <!--          <div class="col-md-6">-->
-          <!--            <label class="form-control-label" for="fornecedor">Fornecedor</label>-->
-          <!--            <select-->
-          <!--              class="form-control"-->
-          <!--              id="fornecedor"-->
-          <!--              name="fornecedor"-->
-          <!--              [(ngModel)]="requisicao.fornecedor"-->
-          <!--            >-->
-          <!--              <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{ fornecedor.nome }}</option>-->
-          <!--            </select>-->
-          <!--          </div>-->
-
-
           <div class="col-md-6">
-            <label class="form-control-label" for="nr_referencia">Número de Referência</label>
+            <label class="form-control-label" for="nr_referencia">Número de Referência *</label>
             <input
               [(ngModel)]="requisicaoRubrica.nr_referencia"
               class="form-control"
               id="nr_referencia"
               name="nr_referencia"
               type="number"
+              required="true"
             />
           </div>
 
           <div class="col-md-6">
-            <label class="form-control-label" for="nr_documento">Número do Documento</label>
+            <label class="form-control-label" for="nr_documento">Número do Documento *</label>
             <input
               [(ngModel)]="requisicaoRubrica.nr_documento"
               class="form-control"
               id="nr_documento"
               name="nr_documento"
               type="number"
+              required="true"
             />
           </div>
 
@@ -207,7 +197,7 @@
           </div>
 
           <div class="col-md-6">
-            <label class="form-control-label" for="valor_inicial">Valor *</label>
+            <label class="form-control-label" for="valor_inicial">Valor da Despesa (MT)*</label>
             <input
               [(ngModel)]="requisicaoRubrica.valor_inicial"
               class="form-control"
@@ -221,7 +211,7 @@
           </div>
 
           <div class="col-md-6">
-            <label class="form-control-label" for="valor_total">Valor Total</label>
+            <label class="form-control-label" for="valor_total">Valor em (USD)</label>
             <input
               [(ngModel)]="requisicaoRubrica.valor_convertido"
               class="form-control"
@@ -234,18 +224,43 @@
             />
           </div>
 
+<!--          <div class="col-md-6">-->
+<!--            <label class="form-control-label" for="valor_moeda_distribuicao">Valor em Moeda de Distribuição</label>-->
+<!--            <input-->
+<!--              [(ngModel)]="requisicaoRubrica.valor_moeda_distribuicao"-->
+<!--              class="form-control"-->
+<!--              id="valor_moeda_distribuicao"-->
+<!--              name="valor_moeda_distribuicao"-->
+<!--              step="0.01"-->
+<!--              type="number"-->
+<!--            />-->
+<!--          </div>-->
+
           <div class="col-md-6">
-            <label class="form-control-label" for="valor_moeda_distribuicao">Valor em Moeda de Distribuição</label>
-            <input
-              [(ngModel)]="requisicaoRubrica.valor_moeda_distribuicao"
-              class="form-control"
-              id="valor_moeda_distribuicao"
-              name="valor_moeda_distribuicao"
-              step="0.01"
-              type="number"
-            />
+            <label class="form-check-label" for="pagarFornecedor">Pagar a um Fornecedor</label>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="pagarFornecedor"
+                [(ngModel)]="pagarFornecedor"
+              />
+            </div>
           </div>
 
+          <div class="col-md-6" *ngIf="pagarFornecedor">
+            <label class="form-control-label" for="fornecedor">Fornecedor</label>
+            <select
+              class="form-control"
+              id="fornecedor"
+              name="fornecedor"
+              [(ngModel)]="requisicaoRubrica.fornecedor"
+            >
+              <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+                {{ fornecedor.nome }}
+              </option>
+            </select>
+          </div>
 
         </div>
 

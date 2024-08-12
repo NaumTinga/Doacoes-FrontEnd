@@ -50,7 +50,7 @@
                          autocomplete="off">
                 </th>
                 <th scope="row">{{requisicao.sub_rubrica?.nome}}</th>
-                <th scope="row">{{ requisicao.valor_convertido | number: '1.2-2'}} {{requisicao.moeda_requisicao?.sigla}}</th>
+                <th scope="row">{{ requisicao.valor_inicial | number: '1.2-2'}} {{requisicao.moeda_requisicao?.sigla}}</th>
                 <th scope="row">{{requisicao.data_emissao | date: 'yyyy-MM-dd'}}</th>
                 <th scope="row">{{requisicao.nr_referencia}}</th>
                 <td>

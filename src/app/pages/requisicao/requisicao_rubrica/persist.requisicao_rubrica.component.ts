@@ -13,6 +13,8 @@ import {MoedaService} from "../../../services/moeda/moeda.service";
 import Swal from "sweetalert2";
 import {Cambio} from "../../../models/cambio/cambio";
 import {CambioService} from "../../../services/cambio/cambio.service";
+import {Fornecedor} from "../../../models/fornecedor/fornecedor";
+import {FornecedorService} from "../../../services/fornecedor/fornecedor.service";
 
 
 @Component({
@@ -31,8 +33,10 @@ export class PersistRequisicaoRubrica implements OnInit {
   moeda: Moeda;
   selectedSubRubrica: SubRubrica;
   cambios : Cambio[] = [];
+  fornecedores: Fornecedor[] = [];
   serverErrors = {};
   isEdit = false;
+  pagarFornecedor: boolean = false;
   taxaCambio: any;
 
   constructor(private subRubricaService: SubRubricaService,
@@ -41,6 +45,7 @@ export class PersistRequisicaoRubrica implements OnInit {
               private requisicaoRubricaService: RequisicaoRubricaService,
               private moedaService: MoedaService,
               private cambioService: CambioService,
+              private fornecedorService: FornecedorService,
               private router: Router,
               private route: ActivatedRoute) {
   }
@@ -50,6 +55,7 @@ export class PersistRequisicaoRubrica implements OnInit {
     this.loadRubricasProjecto();
     this.loadMoedas();
     this.loadCambios();
+    this.loadFornecedores();
 
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -94,6 +100,14 @@ export class PersistRequisicaoRubrica implements OnInit {
     })
   }
 
+  // Fetch Fornecedores
+  loadFornecedores(){
+    this.fornecedorService.getFornecedores().subscribe((data: Fornecedor[]) => {
+      this.fornecedores = data;
+      console.log("Lista de Fornecedores: ", this.fornecedores);
+    })
+  }
+
   getTaxaCambio(): void {
     const moeda_baseId = this.selectedSubRubrica.moeda_sub_rubrica.id;
     const moeda_alvoId = this.requisicaoRubrica.moeda_requisicao.id;
@@ -123,7 +137,7 @@ export class PersistRequisicaoRubrica implements OnInit {
   // Calculate currency conversion based on cambios
   calculateCurrencyConversion() {
       if (this.taxaCambio) {
-        this.requisicaoRubrica.valor_convertido = Number((this.requisicaoRubrica.valor_inicial * this.taxaCambio).toFixed(2));
+        this.requisicaoRubrica.valor_convertido = Number((this.requisicaoRubrica.valor_inicial / this.taxaCambio).toFixed(2));
           console.log("Valor Convertido: ",this.requisicaoRubrica.valor_convertido);
       }
   }
