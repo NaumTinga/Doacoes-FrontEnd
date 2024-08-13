@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {ClipboardModule} from 'ngx-clipboard';
 
@@ -53,6 +53,9 @@ import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornece
 import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
 import {AssinanteComponent} from "../../pages/assinante/assinante.component";
 
+import { subProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
+import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.subProjecto.component';
+import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
 
 
 
@@ -113,6 +116,12 @@ import {AssinanteComponent} from "../../pages/assinante/assinante.component";
     AssinanteComponent,
 
   ],
+    subProjectoComponent,
+    PersistSubProjectoComponent,
+    ParametrosComponent,
+
+
+  ]
 })
 
 export class AdminLayoutModule {

@@ -1,5 +1,5 @@
 <!-- financiador.component.html -->
-<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8" id ='gradient'>
   <div class="container-fluid">
 
     <div class="header-body">
@@ -17,7 +17,7 @@
       <div class="card shadow">
         <div class="card-header bg-transparent">
 
-          <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+          <button type="button" class="btn btn-success" (click)="exportClick()">
             <i class="fas fa-home mr-2"></i>Home
           </button>
           &nbsp;
