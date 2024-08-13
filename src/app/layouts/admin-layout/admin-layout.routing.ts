@@ -13,6 +13,7 @@ import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
 import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
+//import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
 import { BeneficiarioComponent } from 'src/app/pages/beneficiario/beneficiario.component';
@@ -43,6 +44,9 @@ import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornece
 import {AssinanteComponent} from "../../pages/assinante/assinante.component";
 import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
 
+import { subProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
+import { PersistSubProjectoComponent} from 'src/app/pages/subProjecto/persist.subProjecto.component';
+import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -81,7 +85,6 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'beneficiario', component: BeneficiarioComponent},
     {path: 'persist-beneficiario', component: PersistBeneficiarioComponent},
     {path: 'edit-beneficiario/:id', component: PersistBeneficiarioComponent},
-    {path: 'view-beneficiario/:id', component: ShowBeneficiarioComponent},
 
   // Uidade Organica Routes
     { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent },
@@ -108,6 +111,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'financiamento',           component: FinanciamentoComponent },
     { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
     { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
+ // SubProjecto Routes
+ {path: 'subProjecto', component: subProjectoComponent},
+ {path: 'persist-subProjecto', component: PersistSubProjectoComponent},
 
   // Projecto Routes
     { path: 'projecto',           component: ProjectoComponent },
@@ -146,4 +152,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'view-assinante/:id', component: PersistAssinanteComponent },
 
 
+ //Parametros Routes
+ {path: 'parametros', component: ParametrosComponent},
 ];

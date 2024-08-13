@@ -1,14 +1,14 @@
-<!-- financiador.component.html -->
+<!-- subProjecto.component.html -->
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
-  
+
       <div class="header-body">
         <div class="row">
         </div>
       </div>
     </div>
   </div>
-  
+
   <!-- Page content -->
   <div class="container-fluid mt--7">
     <!-- Table -->
@@ -16,14 +16,14 @@
       <div class="col">
         <div class="card shadow">
           <div class="card-header bg-transparent">
-  
+
             <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
               <i class="fas fa-home mr-2"></i>Home
             </button>
             &nbsp;
             <button type="button" class="btn btn-success" [routerLink]="['/persist-subProjecto']">
               <i class="fas fa-plus mr-2"></i>Novo
-            </button> 
+            </button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -42,7 +42,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let subProjecto of subProjectos">
+                <tr *ngFor="let subProjecto of getSubProjectos">
                   <th scope="row">{{subProjecto.descricao}}</th>
                   <th scope="row">{{subProjecto.projecto?.nome}}</th>
                   <th scope="row">{{subProjecto.valor}}</th>
@@ -63,5 +63,3 @@
       </div>
     </div>
   </div>
-  
-  
