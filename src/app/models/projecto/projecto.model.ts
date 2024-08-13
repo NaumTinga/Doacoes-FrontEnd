@@ -6,6 +6,7 @@ export class Projecto{
     dataFim: Date;
     coordenador: string;
     financiamento: number;
+
     constructor() {
     }
 }

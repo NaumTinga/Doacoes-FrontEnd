@@ -42,17 +42,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let subProjecto of getSubProjectos">
+                <tr *ngFor="let subProjecto of subProjectos">
                   <th scope="row">{{subProjecto.descricao}}</th>
                   <th scope="row">{{subProjecto.projecto?.nome}}</th>
                   <th scope="row">{{subProjecto.valor}}</th>
-                  <th scope="row">{{subProjecto.beneficiario?.designacao}}</th>
-                  <th scope="row">{{subProjecto.data_inicio}}</th>
-                  <th scope="row">{{subProjecto.data_fim}}</th>
+                  <th scope="row">{{subProjecto.beneficiario?.nome}}</th>
+                  <th scope="row">{{subProjecto.dataInicio}}</th>
+                  <th scope="row">{{subProjecto.dataFim}}</th>
                   <td>
-                    <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-financiamento', financiamento.id]">
-                      <i class="fas fa-edit"></i> Editar
-                    </button>
+<!--                    <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-financiamento', financiamento.id]">-->
+<!--                      <i class="fas fa-edit"></i> Editar-->
+<!--                    </button>-->
                   </td>
                 </tr>
                 </tbody>

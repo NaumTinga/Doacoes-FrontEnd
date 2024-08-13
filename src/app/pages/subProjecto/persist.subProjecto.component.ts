@@ -5,9 +5,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 import { Projecto } from "src/app/models/projecto/projecto.model";
 import { ProjectoService } from "src/app/services/projecto/projecto.service";
 import { Beneficiario } from "src/app/models/beneficiario/beneficiario.model";
-import { Actividade } from "src/app/models/actividade/actividade.model";
 import Swal from "sweetalert2";
 import { BeneficiarioService } from "src/app/services/beneficiario/beneficiario.service";
+
 @Component({
     selector: 'app-persist.subProjecto',
     templateUrl: './persist.subProjecto.component.html',
@@ -16,16 +16,16 @@ import { BeneficiarioService } from "src/app/services/beneficiario/beneficiario.
 export class PersistSubProjectoComponent implements OnInit {
     subProjecto: SubProjecto = new SubProjecto();
     isEdit = false;
-    
+
     beneficiarios: Beneficiario[];
-    projectos: Projecto[];
+    projectos: Projecto[] = [];
     constructor(private subProjectoService: SubProjectoService,
         private router: Router,
 
         private beneficiarioService: BeneficiarioService,
         private projectoService: ProjectoService,
         private route: ActivatedRoute, ){
-    
+
     }
     ngOnInit() {
         const id = this.route.snapshot.paramMap.get('id');
@@ -33,7 +33,7 @@ export class PersistSubProjectoComponent implements OnInit {
             this.isEdit = true;
             this.subProjectoService.getSubProjectoById(+id).subscribe((data: SubProjecto) =>{
                 this.subProjecto = data;
-                
+
             });
         }
         // Fetch list of Beneficiarios
@@ -41,12 +41,13 @@ export class PersistSubProjectoComponent implements OnInit {
             this.beneficiarios = data;
         })
         // Fetch list of Projectos
-        this.projectoService.getProjectos().subscribe((data:Projecto[])=>{
-            this.projectos = data;
-        })
+      this.projectoService.getProjectos().subscribe((data: Projecto[]) => {
+        this.projectos = data;
+      })
+
         }
 
-        
+
         saveSubProjecto(){
             if(this.isEdit){
                 this.subProjectoService.updateSubProjecto(this.subProjecto).subscribe(()=> {
@@ -79,10 +80,10 @@ export class PersistSubProjectoComponent implements OnInit {
                         this.router.navigate(['/subProjecto']);
                       });
                     });
-              
-            }    
+
+            }
             }
         }
-        
-    
+
+
 

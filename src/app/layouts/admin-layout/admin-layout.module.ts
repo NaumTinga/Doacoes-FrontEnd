@@ -53,7 +53,7 @@ import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornece
 import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
 import {AssinanteComponent} from "../../pages/assinante/assinante.component";
 
-import { subProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
+import { SubProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
 import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.subProjecto.component';
 import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
 
@@ -114,14 +114,10 @@ import { ParametrosComponent } from 'src/app/pages/parametros/parametros.compone
     PersistFornecedorComponent,
     PersistAssinanteComponent,
     AssinanteComponent,
-
-  ],
-    subProjectoComponent,
+    SubProjectoComponent,
     PersistSubProjectoComponent,
     ParametrosComponent,
-
-
-  ]
+  ],
 })
 
 export class AdminLayoutModule {

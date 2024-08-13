@@ -44,7 +44,7 @@ import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornece
 import {AssinanteComponent} from "../../pages/assinante/assinante.component";
 import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
 
-import { subProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
+import { SubProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
 import { PersistSubProjectoComponent} from 'src/app/pages/subProjecto/persist.subProjecto.component';
 import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
 
@@ -112,7 +112,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
     { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
  // SubProjecto Routes
- {path: 'subProjecto', component: subProjectoComponent},
+ {path: 'subProjecto', component: SubProjectoComponent},
  {path: 'persist-subProjecto', component: PersistSubProjectoComponent},
 
   // Projecto Routes
