@@ -13,7 +13,6 @@ import {ContaComponent} from "../../pages/conta/conta.component";
 import {PersistContaComponent} from "../../pages/conta/persist.conta.component";
 import { ActividadeComponent } from 'src/app/pages/actividade/actividade.component';
 import { PersistActividadeComponent } from 'src/app/pages/actividade/persist.actividade.component';
-//import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { CoordenadorComponent } from 'src/app/pages/coordenador/coordenador.component';
 import { PersistCoordenadorComponent } from 'src/app/pages/coordenador/persist.coordenador.component';
 import { BeneficiarioComponent } from 'src/app/pages/beneficiario/beneficiario.component';
@@ -35,9 +34,14 @@ import {ShowFinanciadorComponent} from "../../pages/financiador/show.financiador
 import {ShowProjectoComponent} from "../../pages/projecto/show.projecto.component";
 import {ShowRubricaProjectoComponent} from "../../pages/projecto/rubricaProjecto/show.rubricaProjecto.component";
 import {SubRubricaComponent} from "../../pages/subRubrica/subRubrica.component";
-import {RequisicaoComponent} from "../../pages/requisicao/requisicao.component";
 import {PersistRequisicaoRubrica} from "../../pages/requisicao/requisicao_rubrica/persist.requisicao_rubrica.component";
-import { SubProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
+import {CambioComponent} from "../../pages/cambio/cambio.component";
+import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.component";
+import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
+import {FornecedorComponent} from "../../pages/fornecedor/fornecedor.component";
+import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornecedor.component";
+import {AssinanteComponent} from "../../pages/assinante/assinante.component";
+import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
 
 
 
@@ -120,11 +124,26 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'view-subRubrica/:id',           component: SubRubricaComponent },
 
   // Requisição Rubrica Routes
-    { path: 'requisicaoRubrica', component: PersistRequisicaoRubrica },
-  // SubProjecto Routes
-  {path:'subProjecto',component:SubProjectoComponent},
-  {path:'edit-subProjecto/:id',component:SubProjectoComponent},
-  {path:'persist-subProjecto',component:SubProjectoComponent}
+    { path: 'requisicao-rubrica', component: RequisicaoRubricaComponent },
+    { path: 'persist-requisicao-rubrica', component: PersistRequisicaoRubrica },
+    { path: 'edit-requisicao-rubrica/:id', component: PersistRequisicaoRubrica },
+
+  // Cambio  Routes
+    { path: 'cambio', component: CambioComponent },
+    { path: 'persist-cambio', component: PersistCambioComponent },
+    { path: 'edit-cambio/:id', component: PersistCambioComponent },
+
+  // Fornecedor Routes
+    { path: 'fornecedor', component: FornecedorComponent },
+    { path: 'persist-fornecedor', component: PersistFornecedorComponent },
+    { path: 'edit-fornecedor/:id', component: PersistFornecedorComponent },
+    { path: 'view-fornecedor/:id', component: PersistFornecedorComponent },
+
+  // Assinante Routes
+    { path: 'assinante', component: AssinanteComponent },
+    { path: 'persist-assinante', component: PersistAssinanteComponent },
+    { path: 'edit-assinante/:id', component: PersistAssinanteComponent },
+    { path: 'view-assinante/:id', component: PersistAssinanteComponent },
 
 
 ];

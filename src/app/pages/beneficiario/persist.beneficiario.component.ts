@@ -81,6 +81,7 @@ export class PersistBeneficiarioComponent implements OnInit {
     } else {
       this.beneficiarioService.createBeneficiario(this.beneficiario).subscribe(
         () => {
+          console.log('Beneficiario: ', this.beneficiario);
           Swal.fire({
             title: 'Sucesso',
             text: 'Beneficiario Adicionado!',

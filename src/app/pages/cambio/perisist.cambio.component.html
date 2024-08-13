@@ -1,0 +1,61 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <!-- Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3 class="mb-0">{{ isEdit ? 'Actualizar' : 'Adicionar' }} Câmbio</h3>
+    </div>
+    <div class="card-body">
+      <form #cambioForm="ngForm">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-control-label" for="moeda_base">Moeda Origem *</label>
+              <select [(ngModel)]="cambio.moeda_base" class="form-control" id="moeda_base" required name="moeda_base">
+                <option *ngFor="let moeda of moedas" [value]="moeda.id">{{ moeda.sigla }}</option>
+              </select>
+              <div *ngIf="cambioForm.controls.moeda_base?.invalid && (cambioForm.controls.moeda_base.dirty || cambioForm.controls.moeda_base.touched)" class="invalid-feedback">
+                A Moeda Base é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-control-label" for="moeda_alvo">Moeda Destino *</label>
+              <select [(ngModel)]="cambio.moeda_alvo" class="form-control" id="moeda_alvo" required name="moeda_alvo">
+                <option *ngFor="let moeda of moedas" [value]="moeda.id">{{ moeda.sigla }}</option>
+              </select>
+              <div *ngIf="cambioForm.controls.moeda_alvo?.invalid && (cambioForm.controls.moeda_alvo.dirty || cambioForm.controls.moeda_alvo.touched)" class="invalid-feedback">
+                A Moeda Destino é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-control-label" for="taxa">Taxa de Câmbio *</label>
+              <input class="form-control" id="taxa" name="taxa" required [(ngModel)]="cambio.taxa" type="number" step="0.0001">
+              <div *ngIf="cambioForm.controls.taxa?.invalid && (cambioForm.controls.taxa.dirty || cambioForm.controls.taxa.touched)" class="invalid-feedback">
+                A Taxa de Câmbio é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="cambioForm.invalid" (click)="saveCambio()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

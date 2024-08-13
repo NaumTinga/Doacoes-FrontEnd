@@ -23,14 +23,17 @@ export const ROUTES: RouteInfo[] = [
     {path: '/coordenador', title: 'Coordenador', icon: 'ni-user-run text-blue', class: ''},
     {path: '/beneficiario', title: 'Beneficiário', icon: 'ni-circle-08 text-blue', class: ''},
     {path: '/financiador', title: 'Financiador', icon: 'ni-circle-08 text-blue', class: ''},
+    {path: '/fornecedor', title: 'Fornecedor', icon: 'ni-circle-08 text-blue', class: ''},
+    {path: '/assinante', title: 'Assinante', icon: 'ni-circle-08 text-blue', class: ''},
     { path: '/unidadeOrganica', title: 'Unidade Orgânica',  icon:'ni-building text-yellow', class: '' },
-
     { path: '/rubricaEstado', title: 'Rubrica do Estado',  icon:'ni-collection text-red', class: '' },
     { path: '/financiamento', title: 'Financiamento',  icon:'ni-money-coins text-green', class: '' },
     { path: '/projecto', title: 'Projecto',  icon:'ni-money-coins text-green', class: '' },
+    { path: '/requisicao-rubrica', title: 'Requisições',  icon:'ni-single-copy-04 text-green', class: '' },
+    { path: '/cambio', title: 'Câmbio',  icon:'ni-money-coins text-green', class: '' },
     { path: '/requisicaoRubrica', title: 'Requisições',  icon:'ni-single-copy-04 text-green', class: '' },
     {path: '/subProjecto', title: 'SubProjecto', icon: 'ni-tag text-blue', class: ''},
-  
+
 
 ];
 

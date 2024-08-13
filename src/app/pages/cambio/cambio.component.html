@@ -1,0 +1,60 @@
+<!-- cambio.component.html -->
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row">
+        <div>
+          <!-- Button to open the modal -->
+          <!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
+          <!--            <i class="fas fa-plus mr-2"></i>Novo-->
+          <!--          </button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <!--          <button type="button" class="btn btn-success" (click)="open(classic3, 'modal_mini', 'sm')">-->
+          <!--            <i class="fas fa-plus mr-2"></i>Novo-->
+          <!--          </button>-->
+          <button type="button" class="btn btn-success" [routerLink]="['/persist-cambio']">
+            <i class="fas fa-plus mr-2"></i>Adicionar
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+              <tr>
+                <th scope="col">Data de Actualização</th>
+                <th scope="col">Moeda</th>
+                <th scope="col">Valor em Meticais</th>
+                <th scope="col">Acção</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let cambio of cambios">
+                <th scope="row">{{cambio.updated_at | date:'yyyy-MM-dd'}}</th>
+                <td>{{cambio.moeda_base?.sigla}}</td>
+                <td>{{cambio.taxa}} MZN</td>
+                <td>
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-cambio', cambio.id]">
+                    <i class="fas fa-edit"></i> Actualizar
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

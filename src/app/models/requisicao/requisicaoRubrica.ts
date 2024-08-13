@@ -5,6 +5,7 @@ import {Actividade} from "../actividade/actividade.model";
 import {RubricaProjecto} from "../rubricaProjecto/rubricaProjecto";
 import {SubRubrica} from "../subRubrica/subRubrica";
 import {EstadoPagamentoEnum} from "../enums/EstadoPagamentoEnum";
+import {Fornecedor} from "../fornecedor/fornecedor";
 
 export class RequisicaoRubrica {
   id: any;
@@ -16,7 +17,7 @@ export class RequisicaoRubrica {
   moeda_distribuicao: Moeda;
   valor_moeda_distribuicao: any;
   irps: any;
-  // fornecedor: Fornecedor;
+  fornecedor: Fornecedor;
   rubrica_projecto: RubricaProjecto;
   sub_rubrica: SubRubrica;
   nr_referencia: any;
