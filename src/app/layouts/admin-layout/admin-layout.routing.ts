@@ -40,6 +40,8 @@ import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.compone
 import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
 import {FornecedorComponent} from "../../pages/fornecedor/fornecedor.component";
 import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornecedor.component";
+import {AssinanteComponent} from "../../pages/assinante/assinante.component";
+import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
 
 
 
@@ -136,6 +138,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'persist-fornecedor', component: PersistFornecedorComponent },
     { path: 'edit-fornecedor/:id', component: PersistFornecedorComponent },
     { path: 'view-fornecedor/:id', component: PersistFornecedorComponent },
+
+  // Assinante Routes
+    { path: 'assinante', component: AssinanteComponent },
+    { path: 'persist-assinante', component: PersistAssinanteComponent },
+    { path: 'edit-assinante/:id', component: PersistAssinanteComponent },
+    { path: 'view-assinante/:id', component: PersistAssinanteComponent },
 
 
 ];

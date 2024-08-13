@@ -1,0 +1,62 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <h1 style="text-align: center; color: aliceblue;" class="font-weight-bold">Novo Assinante </h1>
+    <div class="header-body">
+      <div class="row">
+        <!--Add some content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+      <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+        <i class="fas fa-home mr-2"></i>Home
+      </button>
+      &nbsp;
+      <button type="button" class="btn btn-success" [routerLink]="['/assinante']">
+        <i class="fas fa-list mr-2"></i>Lista de Assinantes
+      </button>
+    </div>
+
+    <div class="card-body">
+      <div class="card-header">
+        <h3 class="mb-0 text-left">{{ isEdit ? 'Editar Assinante' : 'Adicionar Novo Assinante' }}</h3>
+      </div>
+      <form #assinanteForm="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="nome">Nome *</label>
+              <input class="form-control" required="true" name="nome" #nome="ngModel" id="nome" [(ngModel)]="assinante.nome" placeholder="Nome" type="text">
+              <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="invalid-feedback">
+                O nome é obrigatório.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="tipo_assinante">Tipo de Assinante *</label>
+              <select class="form-control" required="true" id="tipo_assinante" name="tipo_assinante" #tipo_assinante="ngModel" [(ngModel)]="assinante.tipo_assinante"  type="text">
+                <option *ngFor="let option of  assinanteOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="tipo_assinante.invalid && (tipo_assinante.dirty || tipo_assinante.touched)" class="invalid-feedback">
+                O Tipo de Assinante é obrigatória.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success" [disabled]="assinanteForm.invalid" (click)="save()">
+              <i class="fas fa-plus mr-2"></i>{{ isEdit ? 'Salvar' : 'Gravar' }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

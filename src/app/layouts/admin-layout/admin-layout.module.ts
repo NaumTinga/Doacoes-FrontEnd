@@ -50,6 +50,8 @@ import {PersistCambioComponent} from "../../pages/cambio/perisist.cambio.compone
 import {RequisicaoRubricaComponent} from "../../pages/requisicao/requisicao_rubrica/requisicao_rubrica.component";
 import {FornecedorComponent} from "../../pages/fornecedor/fornecedor.component";
 import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornecedor.component";
+import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante.component";
+import {AssinanteComponent} from "../../pages/assinante/assinante.component";
 
 
 
@@ -107,6 +109,8 @@ import {PersistFornecedorComponent} from "../../pages/fornecedor/persist.fornece
     PersistCambioComponent,
     FornecedorComponent,
     PersistFornecedorComponent,
+    PersistAssinanteComponent,
+    AssinanteComponent,
 
   ],
 })
