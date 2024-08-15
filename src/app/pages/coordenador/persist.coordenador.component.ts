@@ -5,7 +5,6 @@ import {Coordenador} from "../../models/coordenador/coordenador.model";
 import Swal from 'sweetalert2';
 import {UnidadeOrganicaService} from "../../services/unidadeOrganica/unidadeOrganica.service";
 import {UnidadeOrganica} from "../../models/unidadeOrganica/unidadeOrganica";
-import {error} from "protractor";
 import {SexoEnum} from "../../models/enums/sexo.enum";
 import {NivelAcademicoEnum} from "../../models/enums/nivelAcademico.enum";
 

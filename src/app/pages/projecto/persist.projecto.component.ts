@@ -7,7 +7,7 @@ import {FinanciamentoService} from "../../services/financiamento/financiamento.s
 import {CoordenadorService} from "../../services/coordenador/coordenador.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import Swal from "sweetalert2";
-import {error} from "protractor";
+
 
 @Component({
   selector: 'app-persist-projecto',
