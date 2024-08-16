@@ -11,7 +11,7 @@ export class OrdemPagamento {
   valor: any;
   valor_extenso: any;
   descricao: any;
-  tipoOperacao: TipoOperacaoEnum;
+  tipo_operacao: TipoOperacaoEnum;
   conta_ordenador: Conta;
   beneficiario: Beneficiario;
   fornecedor: Fornecedor;
