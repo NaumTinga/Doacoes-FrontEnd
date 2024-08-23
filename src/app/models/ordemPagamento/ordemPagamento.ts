@@ -16,5 +16,6 @@ export class OrdemPagamento {
   beneficiario: Beneficiario;
   fornecedor: Fornecedor;
   actividade: Actividade;
-  assinante: Assinante;
+  assinante_principal: Assinante;
+  assinante_secundario: Assinante;
 }

@@ -56,6 +56,8 @@ import {AssinanteComponent} from "../../pages/assinante/assinante.component";
 import { SubProjectoComponent } from 'src/app/pages/subProjecto/subProjecto.component';
 import { PersistSubProjectoComponent } from 'src/app/pages/subProjecto/persist.subProjecto.component';
 import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
+import {OrdemPagamentoComponent} from "../../pages/ordemPagamento/ordem-pagamento";
+import {PersistOrdemPagamentoComponent} from "../../pages/ordemPagamento/persist-ordem-pagamento";
 
 
 
@@ -117,6 +119,8 @@ import { ParametrosComponent } from 'src/app/pages/parametros/parametros.compone
     SubProjectoComponent,
     PersistSubProjectoComponent,
     ParametrosComponent,
+    OrdemPagamentoComponent,
+    PersistOrdemPagamentoComponent,
   ],
 })
 

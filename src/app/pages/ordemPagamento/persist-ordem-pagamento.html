@@ -1,0 +1,211 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <h1 class="font-weight-bold" style="text-align: center; color: aliceblue;">Emitir Ordem de Pagamento</h1>
+    <div class="header-body">
+      <div class="row">
+        <!--Adicione conteúdo aqui -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header mb-3 " style="background-color: #cefff9;">
+      <button [routerLink]="['/dashboard']" class="btn btn-success" type="button">
+        <i class="fas fa-home mr-2"></i>Home
+      </button>
+      &nbsp;
+      <button [routerLink]="['/ordem-pagamento']" class="btn btn-success" type="button">
+        <i class="fas fa-list mr-2"></i>Lista de Ordens de Pagamentos
+      </button>
+    </div>
+
+    <div class="card-body">
+      <div class="card-header">
+        <h3 class="mb-0">{{ isEdit ? 'Editar Ordem de Pagamento' : 'Nova Ordem de Pagamento' }}</h3>
+      </div>
+      <form #ordemPagamentoFrom="ngForm">
+        <div class="row">
+
+          <!--   Rubricas do Projecto-->
+          <div class="col-md-6">
+            <label class="form-control-label" for="rubrica_projecto">Conta Ordenador</label>
+            <select
+              [(ngModel)]="ordemPagamento.conta_ordenador"
+              class="form-control"
+              id="rubrica_projecto"
+              name="rubrica_projecto"
+
+            >
+              <option *ngFor="let conta of contas" [value]="conta.id">{{ conta.designacao }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-control-label" for="sub_rubrica">Tipo de Operação</label>
+            <select
+              [(ngModel)]="ordemPagamento.tipo_operacao"
+              class="form-control"
+              id="sub_rubrica"
+              name="sub_rubrica"
+
+            >
+              <option *ngFor="let option of tipoOperacaoOptions" [value]="option">{{ option }}</option>
+            </select>
+          </div>
+
+          <!--          Descricao tem de puxar das resquisicoes selecionadas-->
+          <div class="col-md-6">
+            <label class="form-control-label" for="descricao">Descrição*</label>
+            <input
+              [(ngModel)]="ordemPagamento.descricao"
+              class="form-control"
+              id="descricao"
+              name="descricao"
+              required
+              type="text"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-control-label" for="valor_extenso">Valor por Extenso*</label>
+            <input
+              [(ngModel)]="ordemPagamento.valor_extenso"
+              class="form-control"
+              id="valor_extenso"
+              name="valor_extenso"
+              required
+              type="text"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-control-label" for="tipo">Tipo *</label>
+            <select
+              (change)="onTipoChange($event.target.value)"
+              class="form-control"
+              id="tipo"
+              name="tipo"
+              required="true"
+
+            >
+              <option value="">Selecione o Tipo</option>
+              <option value="Fornecedor">Fornecedor</option>
+              <option value="Beneficiario">Beneficiario</option>
+            </select>
+
+          </div>
+
+          <div *ngIf="selectedTipo === 'Fornecedor'" class="col-md-6">
+            <label class="form-control-label" for="fornecedor">Fornecedor *</label>
+            <select
+              #fornecedor="ngModel"
+              [(ngModel)]="ordemPagamento.fornecedor"
+              class="form-control"
+              id="fornecedor"
+              name="fornecedor"
+              required="true"
+            >
+              <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{ fornecedor.nome }}</option>
+            </select>
+            <div *ngIf="fornecedor.invalid && (fornecedor.dirty || fornecedor.touched)" class="invalid-feedback">
+              O financiador é obrigatório.
+            </div>
+          </div>
+
+          <div *ngIf="selectedTipo === 'Fornecedor'" class="col-md-6">
+            <label class="form-control-label" for="conta_fornecedor">Contas do Fornecedor *</label>
+            <select
+              #conta_fornecedor="ngModel"
+              [(ngModel)]="ordemPagamento.fornecedor"
+              class="form-control"
+              id="conta_fornecedor"
+              name="conta_fornecedor"
+              required="true"
+            >
+              <option *ngFor="let conta_fornecedor of contas_fornecedor"
+                      [value]="conta_fornecedor.id">{{ conta_fornecedor.designacao }}
+              </option>
+            </select>
+            <div *ngIf="conta_fornecedor.invalid && (conta_fornecedor.dirty || conta_fornecedor.touched)"
+                 class="invalid-feedback">
+              O financiador é obrigatório.
+            </div>
+          </div>
+
+          <div *ngIf="selectedTipo === 'Beneficiario'" class="col-md-6">
+            <label class="form-control-label" for="beneficiario">Conta do Beneficiario *</label>
+            <select
+              #beneficiario="ngModel"
+              [(ngModel)]="ordemPagamento.beneficiario"
+              class="form-control"
+              id="beneficiario"
+              name="beneficiario"
+              required="true"
+            >
+              <option *ngFor="let beneficiario of beneficiarios" [value]="beneficiario.id">{{ beneficiario.nome }}
+              </option>
+            </select>
+            <div *ngIf="beneficiario.invalid && (beneficiario.dirty || beneficiario.touched)" class="invalid-feedback">
+              O beneficiario é obrigatório.
+            </div>
+          </div>
+
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-control-label" for="assinante_principal">Assinante Principal *</label>
+            <select
+              #assinante_principal="ngModel"
+              [(ngModel)]="ordemPagamento.assinante_principal"
+              class="form-control"
+              id="assinante_principal"
+              name="assinante_principal"
+              required="true"
+            >
+              <option *ngFor="let assinante_principal of assinantes"
+                      [value]="assinante_principal.id">{{ assinante_principal.nome }}
+              </option>
+            </select>
+            <div *ngIf="assinante_principal.invalid && (assinante_principal.dirty || assinante_principal.touched)"
+                 class="invalid-feedback">
+              O Assinante Principal é obrigatório.
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-control-label" for="assinante_secundario">Assinante Secundário *</label>
+            <select
+              #assinante_secundario="ngModel"
+              [(ngModel)]="ordemPagamento.assinante_secundario"
+              class="form-control"
+              id="assinante_secundario"
+              name="assinante_secundario"
+              required="true"
+            >
+              <option *ngFor="let assinante_secundario of assinantes"
+                      [value]="assinante_secundario.id">{{ assinante_secundario.nome }}
+              </option>
+            </select>
+            <div *ngIf="assinante_secundario.invalid && (assinante_secundario.dirty || assinante_secundario.touched)"
+                 class="invalid-feedback">
+              O Assinante Secundario é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button (click)="save()" [disabled]="ordemPagamentoFrom.invalid" class="btn btn-success"
+                  type="button">
+            <i class="fas fa-save mr-2"></i>{{ isEdit ? 'Salvar Alterações' : 'Emitir OP' }}
+          </button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -121,6 +121,7 @@ export class RequisicaoRubricaComponent implements OnInit {
 
   emitirOPSelectedRequisicoes() {
     // Handle payment logic for selected requisicoes
+
   }
 
 }

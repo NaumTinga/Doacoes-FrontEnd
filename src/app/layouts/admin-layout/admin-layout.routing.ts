@@ -47,6 +47,8 @@ import {PersistAssinanteComponent} from "../../pages/assinante/persist.assinante
 import { SubProjectoComponent} from "../../pages/subProjecto/subProjecto.component";
 import { PersistSubProjectoComponent} from 'src/app/pages/subProjecto/persist.subProjecto.component';
 import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
+import {OrdemPagamentoComponent} from "../../pages/ordemPagamento/ordem-pagamento";
+import {PersistOrdemPagamentoComponent} from "../../pages/ordemPagamento/persist-ordem-pagamento";
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -151,7 +153,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'edit-assinante/:id', component: PersistAssinanteComponent },
     { path: 'view-assinante/:id', component: PersistAssinanteComponent },
 
+  //Parametros Routes
+    {path: 'parametros', component: ParametrosComponent},
 
- //Parametros Routes
- {path: 'parametros', component: ParametrosComponent},
+  // Ordem de Pagamento Routes
+    {path: 'ordem-pagamento', component: OrdemPagamentoComponent},
+    {path: 'persist-ordem-pagamento', component: PersistOrdemPagamentoComponent},
 ];
