@@ -100,24 +100,32 @@ export class RequisicaoRubricaComponent implements OnInit {
   // Handlers for selected requisicoes
   onCheckboxChange(event: any, requisicao: RequisicaoRubrica) {
     if (event.target.checked) {
+      // If no requisicoes are selected, set the initial criteria for selection
       if (this.selectedRequisicoes.length === 0) {
         this.selectedDataEmissao = requisicao.data_emissao;
         this.selectedRequisicoes.push(requisicao);
-      } else if (requisicao.data_emissao === this.selectedDataEmissao) {
-        this.selectedRequisicoes.push(requisicao);
       } else {
-        event.target.checked = false; // Deselect checkbox if data_emissao does not match
+        // Check if the selected requisicao matches both data_emissao and sub_rubrica
+        const firstSelected = this.selectedRequisicoes[0];
+        if (requisicao.data_emissao === firstSelected.data_emissao && requisicao.sub_rubrica === firstSelected.sub_rubrica) {
+          this.selectedRequisicoes.push(requisicao);
+        } else {
+          event.target.checked = false; // Deselect checkbox if criteria do not match
+        }
       }
     } else {
+      // If checkbox is unchecked, remove the requisicao from selectedRequisicoes
       const index = this.selectedRequisicoes.indexOf(requisicao);
       if (index > -1) {
         this.selectedRequisicoes.splice(index, 1);
       }
+      // Reset selectedDataEmissao if no requisicoes are selected
       if (this.selectedRequisicoes.length === 0) {
         this.selectedDataEmissao = null;
       }
     }
   }
+
 
   emitirOPSelectedRequisicoes() {
     // Handle payment logic for selected requisicoes
