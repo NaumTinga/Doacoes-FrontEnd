@@ -82,7 +82,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
 
   loadContas(){
     this.contaService.getContas().subscribe((data) => {
-      this.contas = data;
+      this.contas = data.filter(conta => conta.conta_central);
     })
   }
 
