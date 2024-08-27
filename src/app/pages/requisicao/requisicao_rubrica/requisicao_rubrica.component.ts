@@ -107,11 +107,11 @@ export class RequisicaoRubricaComponent implements OnInit {
       } else {
         // Check if the selected requisicao matches both data_emissao and sub_rubrica
         const firstSelected = this.selectedRequisicoes[0];
-        if (requisicao.data_emissao === firstSelected.data_emissao) {
+        if (
+          requisicao.data_emissao === firstSelected.data_emissao &&
+          requisicao.sub_rubrica.id === firstSelected.sub_rubrica.id // Ensure same sub_rubrica
+        ) {
           this.selectedRequisicoes.push(requisicao);
-          // if(requisicao.sub_rubrica === firstSelected.sub_rubrica){
-          //   this.selectedRequisicoes.push(requisicao);
-          // }
         } else {
           event.target.checked = false; // Deselect checkbox if criteria do not match
         }
