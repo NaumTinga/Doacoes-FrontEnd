@@ -13,6 +13,7 @@ import {AssinanteService} from "../../services/assinante/assinante.service";
 import {RequisicaoRubrica} from "../../models/requisicao/requisicaoRubrica";
 import Swal from "sweetalert2";
 import {ContaService} from "../../services/conta/conta.service";
+import {RequisicaoRubricaService} from "../../services/requisicao/requisicaoRubrica.service";
 
 @Component(
   {
@@ -39,6 +40,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
               private fornecedorService: FornecedorService,
               private assinanteService: AssinanteService,
               private contaService: ContaService,
+              private requisicaoRubricaService: RequisicaoRubricaService,
               private router: Router,
               private route: ActivatedRoute,) {
     const navigation = this.router.getCurrentNavigation();
@@ -140,6 +142,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
               confirmButton: 'btn btn-success'
             }
           }).then(() => {
+            this.updateRequisicoesEstadoPagamento(); // Update requisicoes estado_pagamento
             this.router.navigate(['/ordem-pagamento']);
           });
         },
@@ -167,6 +170,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
               confirmButton: 'btn btn-success'
             }
           }).then(() => {
+            this.updateRequisicoesEstadoPagamento(); // Update requisicoes estado_pagamento
             this.router.navigate(['/ordem-pagamento']);
           });
 
@@ -196,5 +200,16 @@ export class PersistOrdemPagamentoComponent implements OnInit {
         })
   }
 }
+
+  updateRequisicoesEstadoPagamento() {
+    this.requisicaoRubricaService.updateEstadoPagamento(this.requisicoes, 'pendente').subscribe(
+      () => {
+        console.log('Estado de pagamento das requisicoes atualizado para "pendente".');
+      },
+      (error) => {
+        console.error('Erro ao atualizar estado_pagamento das requisicoes:', error);
+      }
+    );
+  }
 
 }

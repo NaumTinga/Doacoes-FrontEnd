@@ -46,6 +46,7 @@
                 <th scope="row">
                   <input (change)="onCheckboxChange($event, requisicao)"
                          [disabled]="requisicao.estado_pagamento === 'PAGA' ||
+                         requisicao.estado_pagamento === 'PENDENTE' ||
                   (selectedDataEmissao && (requisicao.data_emissao !== selectedDataEmissao ||
                   (selectedRequisicoes.length > 0 && requisicao.sub_rubrica.id !== selectedRequisicoes[0].sub_rubrica.id)))"
                          autocomplete="off"

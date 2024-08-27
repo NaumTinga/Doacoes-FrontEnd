@@ -26,7 +26,7 @@
 <!--        <h3 class="mb-0">{{ isEdit ? 'Editar Ordem de Pagamento' : 'Nova Ordem de Pagamento' }}</h3>-->
         <div class="row">
           <div class="col-md-6">
-            <p><strong>Total Despesa:</strong>{{getTotalValorConvertido()}}</p>
+            <p><strong>Total Despesa:</strong> {{getTotalValorConvertido() | number: '1.2-2'}}</p>
           </div>
           <div class="col-md-6">
             <p><strong>SubRubrica:</strong> {{getSubRubrica()}}</p>

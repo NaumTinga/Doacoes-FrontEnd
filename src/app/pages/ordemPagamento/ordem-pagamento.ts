@@ -17,13 +17,13 @@ export class OrdemPagamentoComponent implements OnInit {
               private route: ActivatedRoute,) {}
 
   ngOnInit() {
-
     this.loadOrdemPagamentos();
   }
 
   loadOrdemPagamentos(): void {
     this.ordemPagamentoService.getAll().subscribe((data: OrdemPagamento[]) => {
       this.ordens_pagamentos = data;
+      console.log('Ordens de Pagamentos: ',this.ordens_pagamentos);
     })
   }
 }

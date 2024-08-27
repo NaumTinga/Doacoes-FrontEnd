@@ -36,24 +36,27 @@
               </thead>
               <tbody>
               <tr *ngFor="let ordem_pagamento of ordens_pagamentos">
-<!--                <th scope="row">-->
-<!--                  {{ordem_pagamento.}}-->
-<!--                </th>-->
-<!--                <th scope="row">{{ordem_pagamento.sub_rubrica?.nome}}</th>-->
-<!--                <th scope="row">{{ ordem_pagamento.valor_inicial | number: '1.2-2'}} {{ordem_pagamento.moeda_requisicao?.sigla}}</th>-->
-<!--                <th scope="row">{{ordem_pagamento.data_emissao | date: 'yyyy-MM-dd'}}</th>-->
-<!--                <th scope="row">{{ordem_pagamento.nr_referencia}}</th>-->
-<!--                <td>-->
-<!--                  <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', ordem_pagamento.id]">-->
-<!--                    <i class="fas fa-print"></i>-->
-<!--                  </button>-->
-<!--                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicao-rubrica', ordem_pagamento.id]">-->
-<!--                    <i class="fas fa-edit"></i> Editar-->
-<!--                  </button>-->
-<!--                  <button type="button" class="btn btn-success btn-sm mr-2" >-->
-<!--                    <i class="fas fa-edit"></i> Ver-->
-<!--                  </button>-->
-<!--                </td>-->
+                <th scope="row">{{ordem_pagamento.beneficiario}}</th>
+                <th scope="row"
+                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;"
+                    title="{{ ordem_pagamento.descricao }}">
+                  {{ ordem_pagamento.descricao }}
+                </th>
+
+                <th scope="row">{{ ordem_pagamento.valor | number: '1.2-2'}}</th>
+                <th scope="row">{{ordem_pagamento.conta_ordenador}}</th>
+                <th scope="row">{{ordem_pagamento.assinante_principal}}</th>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', ordem_pagamento.id]">
+                    <i class="fas fa-print"></i>
+                  </button>
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicao-rubrica', ordem_pagamento.id]">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm mr-2" >
+                    <i class="fas fa-edit"></i> Ver
+                  </button>
+                </td>
               </tr>
               </tbody>
             </table>

@@ -34,6 +34,11 @@ export class RequisicaoRubricaService {
       .pipe(catchError(this.handleError));
   }
 
+  updateEstadoPagamento(requisicoes: RequisicaoRubrica[], estado: string): Observable<any> {
+    const ids = requisicoes.map(req => req.id); // Assuming requisicoes have an `id` property
+    return this.http.put(`${this.apiUrl}/update-estado/`, { ids, estado });
+  }
+
   // The handleError method
   private handleError(error: HttpErrorResponse): Observable<any> {
     let errorMessage = 'An unknown error occurred!';
