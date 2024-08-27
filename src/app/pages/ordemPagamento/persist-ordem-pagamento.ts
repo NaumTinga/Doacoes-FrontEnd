@@ -10,6 +10,7 @@ import {BeneficiarioService} from "../../services/beneficiario/beneficiario.serv
 import {FornecedorService} from "../../services/fornecedor/fornecedor.service";
 import {Assinante} from "../../models/assinante/assinante";
 import {AssinanteService} from "../../services/assinante/assinante.service";
+import {RequisicaoRubrica} from "../../models/requisicao/requisicaoRubrica";
 
 @Component(
   {
@@ -28,6 +29,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
   assinantes: Assinante[] = [];
   isEdit: boolean = false;
   selectedTipo: string;
+  requisicoes: RequisicaoRubrica[] = [];
 
   constructor(private ordemPagamentoService: OrdemPagamentoService,
               private beneficiarioService: BeneficiarioService,
@@ -35,12 +37,17 @@ export class PersistOrdemPagamentoComponent implements OnInit {
               private assinanteService: AssinanteService,
               private router: Router,
               private route: ActivatedRoute,) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state && navigation.extras.state['requisicoes']) {
+      this.requisicoes = navigation.extras.state['requisicoes'];
+    }
   }
 
   ngOnInit() {
     this.loadBeneficiarios();
     this.loadFornecedores();
     this.loadAssinantes();
+    console.log('Requisicoes selecionadas para emitir OP: ',this.requisicoes)
   }
 
   loadBeneficiarios() {
