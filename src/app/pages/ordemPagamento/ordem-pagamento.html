@@ -26,7 +26,7 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
               <tr>
-                <th scope="col">Beneficiário</th>
+                <th scope="col">Sub Rubrica</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor Total</th>
                 <th scope="col">Ordenante</th>
@@ -36,7 +36,7 @@
               </thead>
               <tbody>
               <tr *ngFor="let ordem_pagamento of ordens_pagamentos">
-                <th scope="row">{{ordem_pagamento.beneficiario}}</th>
+                <th scope="row">{{ordem_pagamento.sub_rubrica?.nome}}</th>
                 <th scope="row"
                     style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;"
                     title="{{ ordem_pagamento.descricao }}">
@@ -44,8 +44,8 @@
                 </th>
 
                 <th scope="row">{{ ordem_pagamento.valor | number: '1.2-2'}}</th>
-                <th scope="row">{{ordem_pagamento.conta_ordenador}}</th>
-                <th scope="row">{{ordem_pagamento.assinante_principal}}</th>
+                <th scope="row">{{ordem_pagamento.conta_ordenador?.designacao}}</th>
+                <th scope="row">{{ordem_pagamento.assinante_principal?.nome}}</th>
                 <td>
                   <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', ordem_pagamento.id]">
                     <i class="fas fa-print"></i>

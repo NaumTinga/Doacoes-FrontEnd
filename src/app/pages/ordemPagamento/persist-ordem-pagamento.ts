@@ -59,6 +59,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
     // Automatically set the descricao from requisicoes
     this.updateDescricao();
     this.calculateTotalValor();
+    this.getSubRubrica();
     console.log('Requisicoes selecionadas para emitir OP: ', this.requisicoes)
   }
 
@@ -124,10 +125,23 @@ export class PersistOrdemPagamentoComponent implements OnInit {
 
 
   // Get the sub_rubrica from the first requisicao (assuming all are the same)
+  // getSubRubrica(): string {
+  //   // Check if requisicoes are present and sub_rubrica has a property that can be converted to string
+  //   return this.requisicoes.length > 0 ? this.requisicoes[0].sub_rubrica.nome : '';
+  // }
   getSubRubrica(): string {
-    // Check if requisicoes are present and sub_rubrica has a property that can be converted to string
-    return this.requisicoes.length > 0 ? this.requisicoes[0].sub_rubrica.nome : '';
+    if (this.requisicoes.length > 0) {
+      // Assign the full sub_rubrica object to ordemPagamento.sub_rubrica
+      this.ordemPagamento.sub_rubrica = this.requisicoes[0].sub_rubrica.id;
+     // console.log('Sub Rubrica: ',this.ordemPagamento.sub_rubrica);
+      // Return the nome property of sub_rubrica for any display purposes
+      return this.ordemPagamento.sub_rubrica.nome;
+    }
+    // If no requisicoes are present, ensure ordemPagamento.sub_rubrica is set to null or handle accordingly
+    this.ordemPagamento.sub_rubrica = null;
+    return '';
   }
+
 
 
   save() {
@@ -136,7 +150,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
 
     // Ensure descricao is up-to-date
     this.updateDescricao();
-
+    this.getSubRubrica();
     console.log('Total despesa: ',this.ordemPagamento.valor)
     console.log('Descricao: ',this.ordemPagamento.descricao)
 

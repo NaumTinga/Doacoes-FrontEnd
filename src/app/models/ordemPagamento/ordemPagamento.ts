@@ -4,6 +4,7 @@ import {Fornecedor} from "../fornecedor/fornecedor";
 import {Actividade} from "../actividade/actividade.model";
 import {Conta} from "../conta/conta";
 import {Assinante} from "../assinante/assinante";
+import {SubRubrica} from "../subRubrica/subRubrica";
 
 export class OrdemPagamento {
 
@@ -16,6 +17,7 @@ export class OrdemPagamento {
   beneficiario: Beneficiario;
   fornecedor: Fornecedor;
   actividade: Actividade;
+  sub_rubrica: SubRubrica;
   assinante_principal: Assinante;
   assinante_secundario: Assinante;
 }
