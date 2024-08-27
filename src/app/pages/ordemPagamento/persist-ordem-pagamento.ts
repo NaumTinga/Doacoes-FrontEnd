@@ -34,6 +34,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
   isEdit: boolean = false;
   selectedTipo: string;
   requisicoes: RequisicaoRubrica[] = [];
+  totalValor: number = 0; // Add this line
 
   constructor(private ordemPagamentoService: OrdemPagamentoService,
               private beneficiarioService: BeneficiarioService,
@@ -57,6 +58,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
 
     // Automatically set the descricao from requisicoes
     this.updateDescricao();
+    this.calculateTotalValor();
     console.log('Requisicoes selecionadas para emitir OP: ', this.requisicoes)
   }
 
@@ -105,9 +107,20 @@ export class PersistOrdemPagamentoComponent implements OnInit {
 
 
   // Calculate total valor from requisicoes
-  getTotalValorConvertido(): number {
-    return this.requisicoes.reduce((sum, req) => sum + req.valor_convertido, 0);
+  calculateTotalValor(): void {
+    if (this.requisicoes && this.requisicoes.length > 0) {
+      // Calculate the sum of valor_inicial for all requisicoes
+      this.totalValor = this.requisicoes.reduce((sum, requisicao) => {
+        // Convert requisicao.valor_inicial to number and add to sum
+        return sum + (Number(requisicao.valor_inicial) || 0);
+      }, 0);
+      console.log('Total Valor:', this.totalValor); // For debugging
+    } else {
+      this.totalValor = 0;
+    }
   }
+
+
 
 
   // Get the sub_rubrica from the first requisicao (assuming all are the same)
@@ -119,10 +132,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
 
   save() {
     this.serverErrors = {};
-    // Calculate total valor_convertido from requisicoes
-    const totalValorConvertido = this.requisicoes.reduce((total, req) => total + req.valor_convertido, 0);
-    // Set the ordemPagamento valor and descricao
-    this.ordemPagamento.valor = totalValorConvertido;
+    this.ordemPagamento.valor = this.totalValor;
 
     // Ensure descricao is up-to-date
     this.updateDescricao();
