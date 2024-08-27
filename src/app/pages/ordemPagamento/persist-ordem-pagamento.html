@@ -23,20 +23,26 @@
 
     <div class="card-body">
       <div class="card-header">
-        <h3 class="mb-0">{{ isEdit ? 'Editar Ordem de Pagamento' : 'Nova Ordem de Pagamento' }}</h3>
+<!--        <h3 class="mb-0">{{ isEdit ? 'Editar Ordem de Pagamento' : 'Nova Ordem de Pagamento' }}</h3>-->
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Total Despesa:</strong>{{getTotalValorConvertido()}}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>SubRubrica:</strong> {{getSubRubrica()}}</p>
+          </div>
+        </div>
       </div>
       <form #ordemPagamentoFrom="ngForm">
         <div class="row">
 
-          <!--   Rubricas do Projecto-->
           <div class="col-md-6">
-            <label class="form-control-label" for="rubrica_projecto">Conta Ordenador</label>
+            <label class="form-control-label" for="conta">Conta Ordenador</label>
             <select
               [(ngModel)]="ordemPagamento.conta_ordenador"
               class="form-control"
-              id="rubrica_projecto"
-              name="rubrica_projecto"
-
+              id="conta"
+              name="conta"
             >
               <option *ngFor="let conta of contas" [value]="conta.id">{{ conta.designacao }}</option>
             </select>
@@ -57,13 +63,12 @@
 
           <!--          Descricao tem de puxar das resquisicoes selecionadas-->
           <div class="col-md-6">
-            <label class="form-control-label" for="descricao">Descrição*</label>
+            <label class="form-control-label" for="descricao">Descrição</label>
             <input
               [(ngModel)]="ordemPagamento.descricao"
               class="form-control"
               id="descricao"
               name="descricao"
-              required
               type="text"
             />
           </div>

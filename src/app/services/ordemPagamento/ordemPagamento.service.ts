@@ -9,7 +9,7 @@ import {OrdemPagamento} from "../../models/ordemPagamento/ordemPagamento";
 })
 export class OrdemPagamentoService {
 
-  private apiUrl = environment.apiUrl + 'api/ordemPagamento';
+  private apiUrl = environment.apiUrl + 'api/ordem-pagamento';
 
   constructor(private http: HttpClient) { }
 
