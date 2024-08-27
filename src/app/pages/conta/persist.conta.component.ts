@@ -78,6 +78,14 @@ export class PersistContaComponent implements OnInit{
   onTipoChange(tipo: string) {
     this.selectedTipo = tipo;
   }
+
+  onContaCentralChange(isChecked: boolean) {
+    this.conta.conta_central = isChecked;
+    if (isChecked) {
+      this.selectedTipo = ''; // Clear the selected type if "Conta Central" is checked
+    }
+  }
+
   saveConta(): void {
     if (this.isEdit) {
       this.contaService.updateConta(this.conta).subscribe(() =>{

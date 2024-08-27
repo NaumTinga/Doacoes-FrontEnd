@@ -6,6 +6,7 @@ import {Actividade} from "../actividade/actividade.model";
 
 export class Conta {
   id: any;
+  conta_central: boolean = false;
   designacao: any;
   banco: Banco;
   moeda: Moeda;
