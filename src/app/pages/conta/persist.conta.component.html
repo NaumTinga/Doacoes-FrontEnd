@@ -14,7 +14,7 @@
     <div class="card-body">
       <form #contaForm="ngForm">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="form-check">
               <input
                 type="checkbox"
@@ -25,6 +25,22 @@
                 (change)="onContaCentralChange($event.target.checked)"
               >
               <label class="form-check-label" for="conta_central">Conta Central</label>
+            </div>
+          </div>
+          <div class="col-md-6" *ngIf="conta.conta_central">
+            <label class="form-control-label" for="unidade_organica">Unidade Orgânica *</label>
+            <select
+              class="form-control"
+              id="unidade_organica"
+              name="unidade_organica"
+              required="true"
+              [(ngModel)]="conta.unidade_organica"
+              #unidade_organica="ngModel"
+            >
+              <option *ngFor="let unidade_organica of unidades_organicas" [value]="unidade_organica.id">{{ unidade_organica.nome }}</option>
+            </select>
+            <div *ngIf="unidade_organica.invalid && (unidade_organica.dirty || unidade_organica.touched)" class="invalid-feedback">
+              A Unidade Orgânica é obrigatória.
             </div>
           </div>
         </div>
@@ -41,6 +57,7 @@
             >
               <option value="">Selecione o Tipo</option>
               <option value="Financiador">Financiador</option>
+              <option value="Fornecedor">Fornecedor</option>
               <option value="Beneficiario">Beneficiario</option>
               <option value="Actividade">Actividade</option>
             </select>
@@ -60,6 +77,23 @@
               <option *ngFor="let financiador of financiadores" [value]="financiador.id">{{ financiador.nome }}</option>
             </select>
             <div *ngIf="financiador.invalid && (financiador.dirty || financiador.touched)" class="invalid-feedback">
+              O financiador é obrigatório.
+            </div>
+          </div>
+
+          <div class="col-md-6" *ngIf="selectedTipo === 'Fornecedor'">
+            <label class="form-control-label" for="fornecedor">Fornecedor *</label>
+            <select
+              class="form-control"
+              id="fornecedor"
+              name="fornecedor"
+              required="true"
+              [(ngModel)]="conta.fornecedor"
+              #fornecedor="ngModel"
+            >
+              <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{ fornecedor.nome }}</option>
+            </select>
+            <div *ngIf="fornecedor.invalid && (fornecedor.dirty || fornecedor.touched)" class="invalid-feedback">
               O financiador é obrigatório.
             </div>
           </div>
