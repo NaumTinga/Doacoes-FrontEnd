@@ -1,4 +1,4 @@
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {catchError, Observable, throwError} from "rxjs";
 import {Fornecedor} from "../../models/fornecedor/fornecedor";
