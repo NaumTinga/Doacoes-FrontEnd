@@ -59,8 +59,8 @@ export class PersistOrdemPagamentoComponent implements OnInit {
     // Automatically set the descricao from requisicoes
     this.updateDescricao();
     this.calculateTotalValor();
-    this.getSubRubrica();
-    console.log('Requisicoes selecionadas para emitir OP: ', this.requisicoes)
+    // this.getSubRubrica();
+    //console.log('Requisicoes selecionadas para emitir OP: ', this.requisicoes)
   }
 
   loadBeneficiarios() {
@@ -75,13 +75,22 @@ export class PersistOrdemPagamentoComponent implements OnInit {
     })
   }
 
+  // Fetch Selected Fornecedor Accounts
+  onFornecedorChange(fornecedorId: number) {
+    this.contas_fornecedor = null;
+    this.fornecedorService.getFornencedorContas(fornecedorId).subscribe((data) => {
+      this.contas_fornecedor = data;
+    })
+  }
+
+
   loadAssinantes() {
     this.assinanteService.getAssinantes().subscribe((data) => {
       this.assinantes = data;
     })
   }
 
-  loadContas(){
+  loadContas() {
     this.contaService.getContas().subscribe((data) => {
       this.contas = data.filter(conta => conta.conta_central);
     })
@@ -115,25 +124,19 @@ export class PersistOrdemPagamentoComponent implements OnInit {
         // Convert requisicao.valor_inicial to number and add to sum
         return sum + (Number(requisicao.valor_inicial) || 0);
       }, 0);
-      console.log('Total Valor:', this.totalValor); // For debugging
+      //console.log('Total Valor:', this.totalValor); // For debugging
     } else {
       this.totalValor = 0;
     }
   }
 
 
-
-
-  // Get the sub_rubrica from the first requisicao (assuming all are the same)
-  // getSubRubrica(): string {
-  //   // Check if requisicoes are present and sub_rubrica has a property that can be converted to string
-  //   return this.requisicoes.length > 0 ? this.requisicoes[0].sub_rubrica.nome : '';
-  // }
+  // Get the sub_rubrica from the first requisicao
   getSubRubrica(): string {
     if (this.requisicoes.length > 0) {
       // Assign the full sub_rubrica object to ordemPagamento.sub_rubrica
       this.ordemPagamento.sub_rubrica = this.requisicoes[0].sub_rubrica.id;
-     // console.log('Sub Rubrica: ',this.ordemPagamento.sub_rubrica);
+      //console.log('Sub Rubrica: ', this.ordemPagamento.sub_rubrica);
       // Return the nome property of sub_rubrica for any display purposes
       return this.ordemPagamento.sub_rubrica.nome;
     }
@@ -143,7 +146,6 @@ export class PersistOrdemPagamentoComponent implements OnInit {
   }
 
 
-
   save() {
     this.serverErrors = {};
     this.ordemPagamento.valor = this.totalValor;
@@ -151,8 +153,8 @@ export class PersistOrdemPagamentoComponent implements OnInit {
     // Ensure descricao is up-to-date
     this.updateDescricao();
     this.getSubRubrica();
-    console.log('Total despesa: ',this.ordemPagamento.valor)
-    console.log('Descricao: ',this.ordemPagamento.descricao)
+    // console.log('Total despesa: ',this.ordemPagamento.valor)
+    //console.log('Descricao: ',this.ordemPagamento.descricao)
 
     if (this.isEdit) {
       this.ordemPagamentoService.update(this.ordemPagamento).subscribe(() => {
@@ -173,7 +175,7 @@ export class PersistOrdemPagamentoComponent implements OnInit {
         (error) => {
           Swal.fire({
             title: 'Error',
-            text: 'Erro ao Actualizar a Requisição!',
+            text: 'Erro ao Actualizar a Ordem de Pagamento!',
             icon: 'error',
             confirmButtonText: 'OK',
             buttonsStyling: false,
@@ -222,8 +224,8 @@ export class PersistOrdemPagamentoComponent implements OnInit {
             }
           });
         })
+    }
   }
-}
 
   updateRequisicoesEstadoPagamento() {
     this.requisicaoRubricaService.updateEstadoPagamento(this.requisicoes, 'pendente').subscribe(

@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {catchError, Observable, throwError} from "rxjs";
 import {Fornecedor} from "../../models/fornecedor/fornecedor";
 import {Injectable} from "@angular/core";
+import {Conta} from "../../models/conta/conta";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,11 @@ export class FornecedorService {
     return this.http.put<Fornecedor>(`${this.apiUrl}/${fornecedor.id}/`, fornecedor)
       .pipe(catchError(this.handleError));
   }
+
+  getFornencedorContas(id: number): Observable<Conta[]> {
+    return this.http.get<Conta[]>(`${this.apiUrl}/${id}/contas/`);
+  }
+
 
 
   // The handleError method

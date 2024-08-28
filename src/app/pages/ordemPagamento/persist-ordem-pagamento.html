@@ -111,11 +111,12 @@
               id="fornecedor"
               name="fornecedor"
               required="true"
+              (ngModelChange)="onFornecedorChange($event)"
             >
               <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{ fornecedor.nome }}</option>
             </select>
             <div *ngIf="fornecedor.invalid && (fornecedor.dirty || fornecedor.touched)" class="invalid-feedback">
-              O financiador é obrigatório.
+              O fornecedor é obrigatório.
             </div>
           </div>
 
@@ -123,19 +124,16 @@
             <label class="form-control-label" for="conta_fornecedor">Contas do Fornecedor *</label>
             <select
               #conta_fornecedor="ngModel"
-              [(ngModel)]="ordemPagamento.fornecedor"
+              [(ngModel)]="ordemPagamento.conta_destino"
               class="form-control"
               id="conta_fornecedor"
               name="conta_fornecedor"
               required="true"
             >
-              <option *ngFor="let conta_fornecedor of contas_fornecedor"
-                      [value]="conta_fornecedor.id">{{ conta_fornecedor.designacao }}
-              </option>
+              <option *ngFor="let conta_fornecedor of contas_fornecedor" [value]="conta_fornecedor.id">{{ conta_fornecedor.designacao }}</option>
             </select>
-            <div *ngIf="conta_fornecedor.invalid && (conta_fornecedor.dirty || conta_fornecedor.touched)"
-                 class="invalid-feedback">
-              O financiador é obrigatório.
+            <div *ngIf="conta_fornecedor.invalid && (conta_fornecedor.dirty || conta_fornecedor.touched)" class="invalid-feedback">
+              A conta do fornecedor é obrigatória.
             </div>
           </div>
 
