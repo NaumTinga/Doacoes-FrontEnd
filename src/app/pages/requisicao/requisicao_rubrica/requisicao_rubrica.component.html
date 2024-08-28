@@ -1,3 +1,4 @@
+
 <!-- projecto.component.html -->
 <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
@@ -41,7 +42,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let requisicao of requisicoes">
+              <tr *ngFor="let requisicao of requisicoes; let i = index"  >
                 <th scope="row">
                   <input type="checkbox"
                          [disabled]="requisicao.estado_pagamento === 'PAGA' ||
@@ -61,7 +62,7 @@
                     }">{{ requisicao.estado_pagamento }}</span>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', requisicao.id]">
+                  <button type="button" class="btn btn-default btn-sm mr-2" (click)="exportRequisicao(requisicao.id) ">
                     <i class="fas fa-print"></i>
                   </button>
                   <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicao-rubrica', requisicao.id]">
