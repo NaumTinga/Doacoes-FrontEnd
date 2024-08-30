@@ -10,9 +10,15 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
-  }, {
+  },
+  // {
+  //   path: '',
+  //   redirectTo: 'dashboard',
+  //   pathMatch: 'full',
+  // },
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [
@@ -30,10 +36,15 @@ const routes: Routes =[
         loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
       }
     ]
-  }, {
+  },
+  {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'login' // Update the wildcard redirect if necessary
   }
+  // {
+  //   path: '**',
+  //   redirectTo: 'dashboard'
+  // }
 ];
 
 @NgModule({

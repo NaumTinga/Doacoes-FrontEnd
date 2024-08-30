@@ -1,40 +1,35 @@
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {catchError, Observable, throwError} from "rxjs";
-import {Fornecedor} from "../../models/fornecedor/fornecedor";
 import {Injectable} from "@angular/core";
-import {Conta} from "../../models/conta/conta";
+import {catchError, Observable, throwError} from "rxjs";
+import {OrdemPagamento} from "../../models/ordemPagamento/ordemPagamento";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FornecedorService {
-  private apiUrl = environment.apiUrl + "api/fornecedor";
+export class OrdemPagamentoService {
+
+  private apiUrl = environment.apiUrl + 'api/ordem-pagamento';
 
   constructor(private http: HttpClient) { }
 
-  getFornecedores (): Observable<Fornecedor[]> {
-    return this.http.get<Fornecedor[]>(this.apiUrl);
+  getAll(): Observable<OrdemPagamento[]> {
+    return this.http.get<OrdemPagamento[]>(this.apiUrl);
   }
 
-  getFornecedorById(id: number): Observable<Fornecedor> {
-    return this.http.get<Fornecedor>(`${this.apiUrl}/${id}`);
+  getById(id: number): Observable<OrdemPagamento> {
+    return this.http.get<OrdemPagamento>(`${this.apiUrl}/${id}`);
   }
 
-  saveFornecedor(fornecedor: Fornecedor): Observable<Fornecedor> {
-    return this.http.post<Fornecedor>(`${this.apiUrl}/`, fornecedor)
+  save(orgemPagamento: OrdemPagamento): Observable<OrdemPagamento> {
+    return this.http.post<OrdemPagamento>(`${this.apiUrl}/`, orgemPagamento)
       .pipe(catchError(this.handleError));
   }
 
-  updateFornecedor(fornecedor: Fornecedor): Observable<Fornecedor> {
-    return this.http.put<Fornecedor>(`${this.apiUrl}/${fornecedor.id}/`, fornecedor)
+  update(ordemPagamento: OrdemPagamento): Observable<OrdemPagamento> {
+    return this.http.put<OrdemPagamento>(`${this.apiUrl}/${ordemPagamento.id}`, ordemPagamento)
       .pipe(catchError(this.handleError));
   }
-
-  getFornencedorContas(id: number): Observable<Conta[]> {
-    return this.http.get<Conta[]>(`${this.apiUrl}/${id}/contas/`);
-  }
-
 
 
   // The handleError method

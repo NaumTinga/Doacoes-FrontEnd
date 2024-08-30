@@ -4,6 +4,7 @@ import {Fornecedor} from "../fornecedor/fornecedor";
 import {Actividade} from "../actividade/actividade.model";
 import {Conta} from "../conta/conta";
 import {Assinante} from "../assinante/assinante";
+import {SubRubrica} from "../subRubrica/subRubrica";
 
 export class OrdemPagamento {
 
@@ -11,10 +12,13 @@ export class OrdemPagamento {
   valor: any;
   valor_extenso: any;
   descricao: any;
-  tipoOperacao: TipoOperacaoEnum;
+  tipo_operacao: TipoOperacaoEnum;
   conta_ordenador: Conta;
+  conta_destino: Conta;
   beneficiario: Beneficiario;
   fornecedor: Fornecedor;
   actividade: Actividade;
-  assinante: Assinante;
+  sub_rubrica: SubRubrica;
+  assinante_principal: Assinante;
+  assinante_secundario: Assinante;
 }

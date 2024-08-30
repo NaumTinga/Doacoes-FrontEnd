@@ -1,0 +1,69 @@
+<!-- projecto.component.html -->
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <button type="button" class="btn btn-success" [routerLink]="['/dashboard']">
+            <i class="fas fa-home mr-2"></i>Home
+          </button>
+<!--          <button type="button" class="btn btn-success" [routerLink]="['/persist-ordem-pagamento']">-->
+<!--            <i class="fas fa-plus mr-2"></i>Emitir OP-->
+<!--          </button>-->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+              <tr>
+                <th scope="col">Sub Rubrica</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor Total</th>
+                <th scope="col">Ordenante</th>
+                <th scope="col">Conta</th>
+                <th scope="col">Acção</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let ordem_pagamento of ordens_pagamentos">
+                <th scope="row">{{ordem_pagamento.sub_rubrica?.nome}}</th>
+                <th scope="row"
+                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;"
+                    title="{{ ordem_pagamento.descricao }}">
+                  {{ ordem_pagamento.descricao }}
+                </th>
+
+                <th scope="row">{{ ordem_pagamento.valor | number: '1.2-2'}}</th>
+                <th scope="row">{{ordem_pagamento.conta_ordenador?.designacao}}</th>
+                <th scope="row">{{ordem_pagamento.assinante_principal?.nome}}</th>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', ordem_pagamento.id]">
+                    <i class="fas fa-print"></i>
+                  </button>
+                  <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicao-rubrica', ordem_pagamento.id]">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm mr-2">
+                    <i class="fas fa-money-bill"></i> Pagar
+                  </button>
+
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

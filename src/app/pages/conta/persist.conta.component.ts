@@ -13,6 +13,10 @@ import {Financiador} from "../../models/financiador/financiador";
 import {BeneficiarioService} from "../../services/beneficiario/beneficiario.service";
 import {FinanciadorService} from "../../services/financiador/financiador.service";
 import {ActividadeService} from "../../services/actividade/actividade.service";
+import {UnidadeOrganicaService} from "../../services/unidadeOrganica/unidadeOrganica.service";
+import {UnidadeOrganica} from "../../models/unidadeOrganica/unidadeOrganica";
+import {FornecedorService} from "../../services/fornecedor/fornecedor.service";
+import {Fornecedor} from "../../models/fornecedor/fornecedor";
 
 @Component({
   selector: "app-persist",
@@ -27,6 +31,8 @@ export class PersistContaComponent implements OnInit{
   beneficiarios: Beneficiario[];
   financiadores: Financiador[];
   actividades: Actividade[];
+  unidades_organicas: UnidadeOrganica[];
+  fornecedores: Fornecedor[];
   isEdit: boolean = false;
   selectedTipo: string;
 
@@ -36,6 +42,8 @@ export class PersistContaComponent implements OnInit{
               private beneficiarioService: BeneficiarioService,
               private financiadorService: FinanciadorService,
               private actividadeService: ActividadeService,
+              private unidadeOrganicaService: UnidadeOrganicaService,
+              private fornecedorService: FornecedorService,
               private router: Router,
               private route: ActivatedRoute) {}
 
@@ -63,7 +71,7 @@ export class PersistContaComponent implements OnInit{
       this.beneficiarios = data;
     })
 
-    //Fetches List of Financiadore
+    //Fetches List of Financiadores
     this.financiadorService.getFinanciadores().subscribe((data: Financiador[]) => {
       this.financiadores = data;
     })
@@ -73,11 +81,27 @@ export class PersistContaComponent implements OnInit{
       this.actividades = data;
     })
 
+    this.unidadeOrganicaService.getUnidadeOrganicas().subscribe((data: UnidadeOrganica[]) => {
+      this.unidades_organicas = data;
+    })
+
+    this.fornecedorService.getFornecedores().subscribe((data: Fornecedor[]) => {
+      this.fornecedores = data;
+    })
+
   }
 
   onTipoChange(tipo: string) {
     this.selectedTipo = tipo;
   }
+
+  onContaCentralChange(isChecked: boolean) {
+    this.conta.conta_central = isChecked;
+    if (isChecked) {
+      this.selectedTipo = ''; // Clear the selected type if "Conta Central" is checked
+    }
+  }
+
   saveConta(): void {
     if (this.isEdit) {
       this.contaService.updateConta(this.conta).subscribe(() =>{

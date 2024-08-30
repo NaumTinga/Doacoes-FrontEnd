@@ -57,9 +57,9 @@ export class PersistProjectoComponent implements OnInit {
     if (financiamentoId) {
       this.financiamentoService.getFinanciamentoById(financiamentoId).subscribe((data: Financiamento) => {
         this.selectedFinanciamento = data;
-        console.log(this.selectedFinanciamento);
-        console.log("Moeda: "+ " " + this.selectedFinanciamento.moeda_financiador.designacao);
-        console.log("Silga moeda: "+ " "+this.projecto.financiamento.moeda_financiador.sigla);
+        //console.log(this.selectedFinanciamento);
+        //console.log("Moeda: "+ " " + this.selectedFinanciamento.moeda_financiador.designacao);
+        //console.log("Silga moeda: "+ " "+this.projecto.financiamento.moeda_financiador.sigla);
       });
     } else {
       this.selectedFinanciamento = null;
