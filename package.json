@@ -35,6 +35,7 @@
     "ngx-sweetalert2": "^0.2.7",
     "ngx-toastr": "14.2.2",
     "nouislider": "15.5.1",
+    "pdf-lib": "^1.17.1",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.6.13",
     "web-animations-js": "2.3.2",
