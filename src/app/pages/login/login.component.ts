@@ -44,6 +44,6 @@ export class LoginComponent {
           this.loading = false;
         }
       });
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
   }
 }
