@@ -49,114 +49,115 @@ import { PersistSubProjectoComponent} from 'src/app/pages/subProjecto/persist.su
 import { ParametrosComponent } from 'src/app/pages/parametros/parametros.component';
 import {OrdemPagamentoComponent} from "../../pages/ordemPagamento/ordem-pagamento";
 import {PersistOrdemPagamentoComponent} from "../../pages/ordemPagamento/persist-ordem-pagamento";
+import {AuthGuard} from "../../services/authentication/auth.guard";
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'tables',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
+    { path: 'dashboard',      component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard] },
+    { path: 'tables',         component: TablesComponent, canActivate: [AuthGuard] },
+    { path: 'icons',          component: IconsComponent,  canActivate: [AuthGuard] },
+    { path: 'maps',           component: MapsComponent, canActivate: [AuthGuard] },
 
   //Banco Routes
-    { path: 'banco',           component: BancoComponent },
-    { path: 'persist-banco',           component: PersistBancoComponent },
-    { path: 'edit-banco/:id',           component: PersistBancoComponent },
+    { path: 'banco',           component: BancoComponent, canActivate: [AuthGuard]  },
+    { path: 'persist-banco',           component: PersistBancoComponent, canActivate: [AuthGuard]  },
+    { path: 'edit-banco/:id',           component: PersistBancoComponent, canActivate: [AuthGuard] },
 
   // Moeda Routes
-    { path: 'moeda',           component: MoedaComponent },
-    { path: 'persist-moeda',   component: PersistMoedaComponent },
-    { path: 'edit-moeda/:id',   component: PersistMoedaComponent },
+    { path: 'moeda',           component: MoedaComponent, canActivate: [AuthGuard] },
+    { path: 'persist-moeda',   component: PersistMoedaComponent, canActivate: [AuthGuard] },
+    { path: 'edit-moeda/:id',   component: PersistMoedaComponent, canActivate: [AuthGuard] },
 
   // Conta Routes
-    { path: 'conta',           component: ContaComponent },
-    { path: 'persist-conta',           component: PersistContaComponent },
-    { path: 'edit-conta/:id',           component: PersistContaComponent },
+    { path: 'conta',           component: ContaComponent, canActivate: [AuthGuard] },
+    { path: 'persist-conta',           component: PersistContaComponent, canActivate: [AuthGuard] },
+    { path: 'edit-conta/:id',           component: PersistContaComponent, canActivate: [AuthGuard] },
 
   // Actividade Routes
-    {path: 'actividade', component: ActividadeComponent},
-    {path: 'persist-actividade', component: PersistActividadeComponent},
-    {path: 'edit-actividade/:id', component: PersistActividadeComponent},
+    {path: 'actividade', component: ActividadeComponent, canActivate: [AuthGuard]},
+    {path: 'persist-actividade', component: PersistActividadeComponent, canActivate: [AuthGuard]},
+    {path: 'edit-actividade/:id', component: PersistActividadeComponent, canActivate: [AuthGuard]},
 
   // Coordenador Routes
-    {path: 'coordenador', component: CoordenadorComponent},
-    {path: 'persist-coordenador', component: PersistCoordenadorComponent},
-    {path: 'edit-coordenador/:id', component: PersistCoordenadorComponent},
+    {path: 'coordenador', component: CoordenadorComponent, canActivate: [AuthGuard]},
+    {path: 'persist-coordenador', component: PersistCoordenadorComponent, canActivate: [AuthGuard]},
+    {path: 'edit-coordenador/:id', component: PersistCoordenadorComponent, canActivate: [AuthGuard]},
 
   // Beneficiario Routes
-    {path: 'beneficiario', component: BeneficiarioComponent},
-    {path: 'persist-beneficiario', component: PersistBeneficiarioComponent},
-    {path: 'edit-beneficiario/:id', component: PersistBeneficiarioComponent},
+    {path: 'beneficiario', component: BeneficiarioComponent, canActivate: [AuthGuard]},
+    {path: 'persist-beneficiario', component: PersistBeneficiarioComponent, canActivate: [AuthGuard]},
+    {path: 'edit-beneficiario/:id', component: PersistBeneficiarioComponent, canActivate: [AuthGuard]},
 
   // Uidade Organica Routes
-    { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent },
-    { path: 'persist-unidadeOrganica',           component: PersistUnidadeOrganicaComponent },
-    { path: 'edit-unidadeOrganica/:id',           component: PersistUnidadeOrganicaComponent },
+    { path: 'unidadeOrganica',           component: UnidadeOrganicaComponent, canActivate: [AuthGuard] },
+    { path: 'persist-unidadeOrganica',           component: PersistUnidadeOrganicaComponent, canActivate: [AuthGuard] },
+    { path: 'edit-unidadeOrganica/:id',           component: PersistUnidadeOrganicaComponent, canActivate: [AuthGuard] },
 
   // Pais Routes
-    { path: 'pais',           component: PaisComponent },
-    { path: 'persist-pais',           component: PersistPaisComponent },
-    { path: 'edit-pais/:id',           component: PersistPaisComponent },
+    { path: 'pais',           component: PaisComponent, canActivate: [AuthGuard] },
+    { path: 'persist-pais',           component: PersistPaisComponent, canActivate: [AuthGuard] },
+    { path: 'edit-pais/:id',           component: PersistPaisComponent, canActivate: [AuthGuard] },
 
   // Rubrica Estado Routes
-    { path: 'rubricaEstado',           component: RubricaEstadoComponent },
-    { path: 'persist-rubricaEstado',           component: PersistRubricaEstadoComponent },
-    { path: 'edit-rubricaEstado/:id',           component: PersistRubricaEstadoComponent },
+    { path: 'rubricaEstado',           component: RubricaEstadoComponent, canActivate: [AuthGuard] },
+    { path: 'persist-rubricaEstado',           component: PersistRubricaEstadoComponent, canActivate: [AuthGuard] },
+    { path: 'edit-rubricaEstado/:id',           component: PersistRubricaEstadoComponent, canActivate: [AuthGuard] },
 
   // Financiador Routes
-    { path: 'financiador',           component: FinanciadorComponent },
-    { path: 'persist-financiador',           component: PersistFinanciadorComponent },
-    { path: 'edit-financiador/:id',           component: PersistFinanciadorComponent },
-    { path: 'view-financiador/:id',           component: ShowFinanciadorComponent },
+    { path: 'financiador',           component: FinanciadorComponent, canActivate: [AuthGuard] },
+    { path: 'persist-financiador',           component: PersistFinanciadorComponent, canActivate: [AuthGuard] },
+    { path: 'edit-financiador/:id',           component: PersistFinanciadorComponent, canActivate: [AuthGuard] },
+    { path: 'view-financiador/:id',           component: ShowFinanciadorComponent, canActivate: [AuthGuard] },
 
   // Financiamento Routes
-    { path: 'financiamento',           component: FinanciamentoComponent },
-    { path: 'persist-financiamento',           component: PersistFinanciamentoComponent },
-    { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent },
+    { path: 'financiamento',           component: FinanciamentoComponent, canActivate: [AuthGuard] },
+    { path: 'persist-financiamento',           component: PersistFinanciamentoComponent, canActivate: [AuthGuard] },
+    { path: 'edit-financiamento/:id',           component: PersistFinanciamentoComponent, canActivate: [AuthGuard] },
  // SubProjecto Routes
- {path: 'subProjecto', component: SubProjectoComponent},
- {path: 'persist-subProjecto', component: PersistSubProjectoComponent},
+ {path: 'subProjecto', component: SubProjectoComponent, canActivate: [AuthGuard]},
+ {path: 'persist-subProjecto', component: PersistSubProjectoComponent, canActivate: [AuthGuard]},
 
   // Projecto Routes
-    { path: 'projecto',           component: ProjectoComponent },
-    { path: 'persist-projecto',           component: PersistProjectoComponent },
-    { path: 'edit-projecto/:id',           component: PersistProjectoComponent },
-    { path: 'view-projecto/:id',           component: ShowProjectoComponent },
+    { path: 'projecto',           component: ProjectoComponent, canActivate: [AuthGuard] },
+    { path: 'persist-projecto',           component: PersistProjectoComponent, canActivate: [AuthGuard] },
+    { path: 'edit-projecto/:id',           component: PersistProjectoComponent, canActivate: [AuthGuard] },
+    { path: 'view-projecto/:id',           component: ShowProjectoComponent, canActivate: [AuthGuard] },
 
   // Rubrica Projecto Routes
-    { path: 'rubricaProjecto',           component: ShowRubricaProjectoComponent },
-    { path: 'edit-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent },
-    { path: 'view-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent },
+    { path: 'rubricaProjecto',           component: ShowRubricaProjectoComponent, canActivate: [AuthGuard] },
+    { path: 'edit-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent, canActivate: [AuthGuard] },
+    { path: 'view-rubricaProjecto/:id',           component: ShowRubricaProjectoComponent, canActivate: [AuthGuard] },
 
   // Sub Rubrica Routes
-    { path: 'view-subRubrica/:id',           component: SubRubricaComponent },
+    { path: 'view-subRubrica/:id',           component: SubRubricaComponent, canActivate: [AuthGuard] },
 
   // Requisição Rubrica Routes
-    { path: 'requisicao-rubrica', component: RequisicaoRubricaComponent },
-    { path: 'persist-requisicao-rubrica', component: PersistRequisicaoRubrica },
-    { path: 'edit-requisicao-rubrica/:id', component: PersistRequisicaoRubrica },
+    { path: 'requisicao-rubrica', component: RequisicaoRubricaComponent, canActivate: [AuthGuard] },
+    { path: 'persist-requisicao-rubrica', component: PersistRequisicaoRubrica, canActivate: [AuthGuard] },
+    { path: 'edit-requisicao-rubrica/:id', component: PersistRequisicaoRubrica, canActivate: [AuthGuard] },
 
   // Cambio  Routes
-    { path: 'cambio', component: CambioComponent },
-    { path: 'persist-cambio', component: PersistCambioComponent },
-    { path: 'edit-cambio/:id', component: PersistCambioComponent },
+    { path: 'cambio', component: CambioComponent, canActivate: [AuthGuard] },
+    { path: 'persist-cambio', component: PersistCambioComponent, canActivate: [AuthGuard] },
+    { path: 'edit-cambio/:id', component: PersistCambioComponent, canActivate: [AuthGuard] },
 
   // Fornecedor Routes
-    { path: 'fornecedor', component: FornecedorComponent },
-    { path: 'persist-fornecedor', component: PersistFornecedorComponent },
-    { path: 'edit-fornecedor/:id', component: PersistFornecedorComponent },
-    { path: 'view-fornecedor/:id', component: PersistFornecedorComponent },
+    { path: 'fornecedor', component: FornecedorComponent, canActivate: [AuthGuard] },
+    { path: 'persist-fornecedor', component: PersistFornecedorComponent, canActivate: [AuthGuard] },
+    { path: 'edit-fornecedor/:id', component: PersistFornecedorComponent, canActivate: [AuthGuard] },
+    { path: 'view-fornecedor/:id', component: PersistFornecedorComponent, canActivate: [AuthGuard] },
 
   // Assinante Routes
-    { path: 'assinante', component: AssinanteComponent },
-    { path: 'persist-assinante', component: PersistAssinanteComponent },
-    { path: 'edit-assinante/:id', component: PersistAssinanteComponent },
-    { path: 'view-assinante/:id', component: PersistAssinanteComponent },
+    { path: 'assinante', component: AssinanteComponent, canActivate: [AuthGuard] },
+    { path: 'persist-assinante', component: PersistAssinanteComponent, canActivate: [AuthGuard] },
+    { path: 'edit-assinante/:id', component: PersistAssinanteComponent, canActivate: [AuthGuard] },
+    { path: 'view-assinante/:id', component: PersistAssinanteComponent, canActivate: [AuthGuard] },
 
   //Parametros Routes
-    {path: 'parametros', component: ParametrosComponent},
+    {path: 'parametros', component: ParametrosComponent, canActivate: [AuthGuard]},
 
   // Ordem de Pagamento Routes
-    {path: 'ordem-pagamento', component: OrdemPagamentoComponent},
-    {path: 'persist-ordem-pagamento', component: PersistOrdemPagamentoComponent},
+    {path: 'ordem-pagamento', component: OrdemPagamentoComponent, canActivate: [AuthGuard]},
+    {path: 'persist-ordem-pagamento', component: PersistOrdemPagamentoComponent, canActivate: [AuthGuard]},
 ];

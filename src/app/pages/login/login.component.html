@@ -4,11 +4,7 @@
     <div class="col-lg-5 col-md-7">
       <div class="card bg-white shadow border-0">
         <div class="card-header bg-gradient-success pb-2">
-          <!--          <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>-->
           <div class="btn-wrapper text-center">
-            <!--            <div class="icon-circle">-->
-            <!--              <i class="fa fa-user fa-3x text-white"></i>-->
-            <!--            </div>-->
             <div>
               <h1 class="text-white">SIGF - DOAÇÕES</h1>
             </div>
@@ -18,13 +14,21 @@
           <div>
             <p style="color: gray;">Por favor informe os seus dados de Login</p>
           </div>
-          <form role="form">
+          <!-- Bind the form to Angular's reactive form -->
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  formControlName="email"
+                  type="email">
+              </div>
+              <div *ngIf="f.email.touched && f.email.invalid" class="text-danger">
+                Email é obrigatório.
               </div>
             </div>
             <div class="form-group">
@@ -32,18 +36,25 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Senha" type="password">
+                <input
+                  class="form-control"
+                  placeholder="Senha"
+                  formControlName="password"
+                  type="password">
+              </div>
+              <div *ngIf="f.password.touched && f.password.invalid" class="text-danger">
+                Senha é obrigatória.
               </div>
             </div>
-            <!--            <div class="custom-control custom-control-alternative custom-checkbox">-->
-            <!--              <input class="custom-control-input" id=" customCheckLogin" type="checkbox">-->
-            <!--              <label class="custom-control-label" for=" customCheckLogin">-->
-            <!--                <span class="text-muted">Remember me</span>-->
-            <!--              </label>-->
-            <!--            </div>-->
             <div class="text-center">
-              <button [routerLink]="['/dashboard']" class="btn btn-success my-4 btn-lg btn-block" type="button">Entrar
+              <button
+                class="btn btn-success my-4 btn-lg btn-block"
+                [disabled]="loading || loginForm.invalid"
+                type="submit">Entrar
               </button>
+            </div>
+            <div *ngIf="error" class="alert alert-danger mt-2">
+              {{ error }}
             </div>
           </form>
         </div>
