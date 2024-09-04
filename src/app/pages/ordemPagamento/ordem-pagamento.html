@@ -47,7 +47,7 @@
                 <th scope="row">{{ordem_pagamento.conta_ordenador?.designacao}}</th>
                 <th scope="row">{{ordem_pagamento.assinante_principal?.nome}}</th>
                 <td>
-                  <button type="button" class="btn btn-default btn-sm mr-2" [routerLink]="['/edit-requisicaoRubrica', ordem_pagamento.id]">
+                  <button type="button" class="btn btn-default btn-sm mr-2" (click)="exportCarta(carta.id)" >
                     <i class="fas fa-print"></i>
                   </button>
                   <button type="button" class="btn btn-info btn-sm mr-2" [routerLink]="['/edit-requisicao-rubrica', ordem_pagamento.id]">

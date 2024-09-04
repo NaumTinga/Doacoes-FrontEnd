@@ -125,6 +125,13 @@ export class RequisicaoRubricaComponent implements OnInit {
  async  exportRequisicao(id: number): Promise<void>  {
   const requisicaoId = id; // Replace with the ID you want to filter
   const requisicao = this.requisicoes.find(req => req.id === requisicaoId);
+  function formatDate(date: Date): string {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const year = date.getFullYear();
+  
+    return `${day}/${month}/${year}`;
+  }
   console.log('Requisicao with ID:', requisicaoId, requisicao);
 
 
@@ -142,6 +149,7 @@ export class RequisicaoRubricaComponent implements OnInit {
   const page = pdfDoc.addPage()
   const { width, height } = page.getSize()
   const fontSize = 30
+  const today = new Date();
 
   page.drawImage(pngImage, {
     x:43,
@@ -256,7 +264,7 @@ thickness: 0.3,
     thickness:0.3,
 
   });
-  page.drawText('TBD',{x:407,y:630,size:12})
+  page.drawText(formatDate(today),{x:407,y:630,size:12})
   //linha 7
   page.drawText('Classificação Económica',{x:43, y:614,size:12})
 
@@ -370,6 +378,8 @@ saveByteArray(reportName: string, byte: BlobPart) {
 
   emitirOPSelectedRequisicoes() {
     // Handle payment logic for selected requisicoes
+    this.router.navigate(['/persist-ordem-pagamento'], { state: { requisicoes: this.selectedRequisicoes } });
+
   }
 
 }
